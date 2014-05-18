@@ -3,7 +3,8 @@
       id="be.vanpeerdevelopment.eclipse.builder.feature"
       label="Builder"
       version="1.0.0.qualifier"
-      provider-name="Van Peer Development">
+      provider-name="Van Peer Development"
+      plugin="be.vanpeerdevelopment.eclipse.builder.branding">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -23,5 +24,11 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="be.vanpeerdevelopment.eclipse.builder.branding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>
