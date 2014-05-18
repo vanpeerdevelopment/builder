@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Builder
+Bundle-Name: Builder UI
 Bundle-SymbolicName: be.vanpeerdevelopment.eclipse.builder.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: be.vanpeerdevelopment.eclipse.builder.ui.Activator
