@@ -3,6 +3,7 @@
 - [x] Create GitHub Repository
 - [x] Create Eclipse plug-in projects
 - [ ] Transform to tycho build
+- [ ] Check out how to setup target platform in tycho build instead of p2 repository
 - [ ] Setup travis-ci
 
 ##Reminders
