@@ -1,2 +1,2 @@
 language: java
-install: true
+install: mvn verify -DskipTests=true
