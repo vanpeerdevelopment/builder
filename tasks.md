@@ -2,9 +2,9 @@
 
 - [x] Create GitHub Repository
 - [x] Create Eclipse plug-in projects
-- [ ] Transform to tycho build
+- [x] Transform to tycho build
 - [ ] Check out how to setup target platform in tycho build instead of p2 repository
-- [ ] Setup travis-ci
+- [x] Setup travis-ci
 
 ##Reminders
 
@@ -14,3 +14,4 @@
 - [ ] Check out how to modify the qualifier (vogella - tycho)
 - [ ] Setup website to host plug-in + make it available at builder.vanpeerdevelopment.be
 - [ ] Check whether target platforms are only required for applications/products
+- [ ] Sign the plugin, feature and update site
