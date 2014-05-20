@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/be.vanpeerdevelopment.eclipse.builder.feature_1.0.0.qualifier.jar" id="be.vanpeerdevelopment.eclipse.builder.feature" version="1.0.0.qualifier">
+   <feature id="be.vanpeerdevelopment.eclipse.builder.feature" version="0.0.0">
       <category name="be.vanpeerdevelopment.eclipse.builder.category"/>
    </feature>
    <category-def name="be.vanpeerdevelopment.eclipse.builder.category" label="Builder">

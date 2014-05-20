@@ -19,6 +19,7 @@
 		<module>be.vanpeerdevelopment.eclipse.builder.ui</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.branding</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.feature</module>
+		<module>be.vanpeerdevelopment.eclipse.builder.update</module>
 	</modules>
 	
 	<build>
