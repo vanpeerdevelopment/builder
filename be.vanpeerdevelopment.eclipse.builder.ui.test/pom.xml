@@ -2,18 +2,18 @@
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	
+
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>be.vanpeerdevelopment.eclipse.builder</groupId>
 		<artifactId>be.vanpeerdevelopment.eclipse.builder.parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>be.vanpeerdevelopment.eclipse.builder.ui.test</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
-		
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -30,5 +30,19 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
+	<profiles>
+		<profile>
+			<id>osx</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<swtbot.args>-XstartOnFirstThread</swtbot.args>
+			</properties>
+		</profile>
+	</profiles>
+
 </project>
