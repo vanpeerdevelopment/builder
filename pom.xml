@@ -17,6 +17,7 @@
 	
 	<modules>
 		<module>be.vanpeerdevelopment.eclipse.builder.ui</module>
+		<module>be.vanpeerdevelopment.eclipse.builder.ui.test</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.branding</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.feature</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.update</module>
@@ -39,6 +40,12 @@
 			<name>Eclipse Kepler P2 Repository</name>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/kepler</url>
+		</repository>
+		<repository>
+			<id>swtbot</id>
+			<name>SWTBot P2 Repository</name>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/technology/swtbot/releases/latest</url>
 		</repository>
 	</repositories>
 	
