@@ -31,4 +31,13 @@
 		</menuContribution>
 	</extension>
 	
+	<extension point="org.eclipse.ui.bindings">
+		<key
+			sequence="M1+M3+B"
+			commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder"
+			contextId="org.eclipse.jdt.ui.javaEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+		</key>
+	</extension>
+	
 </plugin>
