@@ -25,4 +25,4 @@
 
 - [ ] Add menu contribution in main source menu and context source menu when right clicking on java class
 
-- [ ] Find out why key binding isn't visible in Window -> Preferences -> General -> Keys and it is with CTRL+SHIFT+L
+- [x] Find out why key binding isn't visible in Window -> Preferences -> General -> Keys and it is with CTRL+SHIFT+L -> add category id to the command
