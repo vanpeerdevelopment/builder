@@ -6,13 +6,13 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-public class CreateBuilderHandler extends AbstractHandler {
+public class GenerateBuilderHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		openInformation(
 				null,
-				"Create Builder",
+				"Generate Builder",
 				"A builder class will be generated for the active class.");
 		return null;
 	}

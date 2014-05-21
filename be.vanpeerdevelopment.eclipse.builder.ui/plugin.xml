@@ -4,16 +4,16 @@
 
 	<extension point="org.eclipse.ui.commands">
 		<command
-			id="be.vanpeerdevelopment.eclipse.builder.ui.command.createbuilder" 
-			name="Create Builder"
+			id="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder" 
+			name="Generate Builder"
 			description="A builder class will be generated for the active class.">
 		</command>
 	</extension>
 
 	<extension point="org.eclipse.ui.handlers">
     	<handler
-   			class="be.vanpeerdevelopment.eclipse.builder.ui.handlers.CreateBuilderHandler"
-        	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.createbuilder">
+   			class="be.vanpeerdevelopment.eclipse.builder.ui.handlers.GenerateBuilderHandler"
+        	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder">
     	</handler>
 	</extension>
 	
@@ -22,10 +22,10 @@
 			allPopups="false"
         	locationURI="popup:org.eclipse.jdt.ui.source.menu?after=AddUnimplementedConstructors">
         	<command
-        		id="CreateBuilder"
+        		id="GenerateBuilder"
         		mnemonic="B"
-               	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.createbuilder"
-               	label="Create Builder"
+               	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder"
+               	label="Generate Builder"
                	style="push">
         	</command>
 		</menuContribution>
