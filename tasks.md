@@ -20,3 +20,7 @@
 - [ ] Automatically create tag on git
 
 - [ ] Setup website to host plug-in + make it available at builder.vanpeerdevelopment.be
+
+- [ ] Translations: labels, descriptions, tooltip, mnenomic
+
+- [ ] Add menu contribution in main source menu and context source menu when right clicking on java class
