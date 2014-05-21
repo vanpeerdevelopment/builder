@@ -10,4 +10,11 @@
 		</command>
 	</extension>
 
+	<extension point="org.eclipse.ui.handlers">
+    	<handler
+   			class="be.vanpeerdevelopment.eclipse.builder.ui.handlers.CreateBuilderHandler"
+        	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.createbuilder">
+    	</handler>
+	</extension>
+	
 </plugin>
