@@ -28,6 +28,13 @@
                	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder"
                	label="Generate Builder"
                	style="push">
+               	<visibleWhen>
+               		<with variable="activeContexts">
+                    	<iterate operator="or">
+                    		<equals value="org.eclipse.jdt.ui.javaEditorScope"/>
+                    	</iterate>
+               		</with>
+               	</visibleWhen>
         	</command>
 		</menuContribution>
 	</extension>
