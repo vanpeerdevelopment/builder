@@ -4,10 +4,10 @@
 
 	<extension point="org.eclipse.ui.commands">
 		<command
-			categoryId="org.eclipse.jdt.ui.category.source"		
 			id="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder" 
 			name="Generate Builder"
-			description="A builder class will be generated for the active class.">
+			description="A builder class will be generated for the active class."
+			categoryId="org.eclipse.jdt.ui.category.source">
 		</command>
 	</extension>
 	
