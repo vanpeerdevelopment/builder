@@ -25,6 +25,9 @@
     	<handler
    			class="be.vanpeerdevelopment.eclipse.builder.ui.handlers.GenerateBuilderHandler"
         	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder">
+        	<enabledWhen>
+        		<reference definitionId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder.active"/>
+        	</enabledWhen>
     	</handler>
 	</extension>
 	
