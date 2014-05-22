@@ -10,6 +10,16 @@
 			description="A builder class will be generated for the active class.">
 		</command>
 	</extension>
+	
+	<extension point="org.eclipse.core.expressions.definitions">
+    	<definition	id="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder.active">
+	   		<with variable="activeContexts">
+            	<iterate operator="or">
+            		<equals value="org.eclipse.jdt.ui.javaEditorScope"/>
+            	</iterate>
+       		</with>          	
+    	</definition>
+	</extension>
 
 	<extension point="org.eclipse.ui.handlers">
     	<handler
@@ -29,11 +39,7 @@
                	label="Generate Builder"
                	style="push">
                	<visibleWhen>
-               		<with variable="activeContexts">
-                    	<iterate operator="or">
-                    		<equals value="org.eclipse.jdt.ui.javaEditorScope"/>
-                    	</iterate>
-               		</with>
+            		<reference definitionId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder.active"/>
                	</visibleWhen>
         	</command>
 		</menuContribution>
