@@ -5,7 +5,7 @@
 	<extension point="org.eclipse.ui.commands">
 		<command
 			id="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder" 
-			name="Generate Builder"
+			name="%command.generatebuilder.name"
 			description="A builder class will be generated for the active class."
 			categoryId="org.eclipse.jdt.ui.category.source">
 		</command>
@@ -37,7 +37,7 @@
         	locationURI="popup:org.eclipse.jdt.ui.source.menu?after=AddUnimplementedConstructors">
         	<command
         		id="GenerateBuilder"
-        		mnemonic="B"
+        		mnemonic="%menu.generatebuilder.mnemonic"
                	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder"
                	label="Generate Builder"
                	style="push">
