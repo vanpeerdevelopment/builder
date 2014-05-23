@@ -6,7 +6,7 @@
 		<command
 			id="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder" 
 			name="%command.generatebuilder.name"
-			description="A builder class will be generated for the active class."
+			description="%command.generatebuilder.description"
 			categoryId="org.eclipse.jdt.ui.category.source">
 		</command>
 	</extension>
@@ -39,7 +39,7 @@
         		id="GenerateBuilder"
         		mnemonic="%menu.generatebuilder.mnemonic"
                	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder"
-               	label="Generate Builder"
+               	label="%menu.generatebuilder.label"
                	style="push">
                	<visibleWhen>
             		<reference definitionId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder.active"/>
