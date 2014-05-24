@@ -34,7 +34,8 @@
 						</dependency>
 					</dependencies>
 					<systemProperties>
-						<log4j.configuration>${basedir}/config/log4j.xml</log4j.configuration>
+						<org.eclipse.swtbot.screenshots.dir>${project.build.directory}/screenshots</org.eclipse.swtbot.screenshots.dir>
+						<log4j.configuration>file:///${basedir}/config/log4j.xml</log4j.configuration>
 					</systemProperties>
 				</configuration>
 			</plugin>
