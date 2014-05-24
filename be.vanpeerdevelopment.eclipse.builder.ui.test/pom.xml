@@ -33,7 +33,7 @@
 							<artifactId>be.vanpeerdevelopment.eclipse.builder.feature.feature.group</artifactId>
 						</dependency>
 					</dependencies>
-					<appArgLine>-debug -consoleLog</appArgLine>
+					<showEclipseLog>true</showEclipseLog>
 				</configuration>
 			</plugin>
 		</plugins>
