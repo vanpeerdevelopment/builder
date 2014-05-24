@@ -33,7 +33,6 @@
 							<artifactId>be.vanpeerdevelopment.eclipse.builder.feature.feature.group</artifactId>
 						</dependency>
 					</dependencies>
-					<showEclipseLog>true</showEclipseLog>
 				</configuration>
 			</plugin>
 		</plugins>
