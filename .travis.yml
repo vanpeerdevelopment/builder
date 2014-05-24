@@ -17,3 +17,7 @@ before_script:
   - sleep 5
   
 script: mvn integration-test
+
+after_failure:
+ - cat /home/travis/build/vanpeerdevelopment/builder/be.vanpeerdevelopment.eclipse.builder.ui.test/target/work/data/.metadata/.log
+ - cat /home/travis/build/vanpeerdevelopment/builder/be.vanpeerdevelopment.eclipse.builder.ui.test/target/surefire-reports/*
