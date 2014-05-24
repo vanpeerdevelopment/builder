@@ -33,6 +33,9 @@
 							<artifactId>be.vanpeerdevelopment.eclipse.builder.feature.feature.group</artifactId>
 						</dependency>
 					</dependencies>
+					<systemProperties>
+						<log4j.configuration>${basedir}/config/log4j.xml</log4j.configuration>
+					</systemProperties>
 				</configuration>
 			</plugin>
 		</plugins>
