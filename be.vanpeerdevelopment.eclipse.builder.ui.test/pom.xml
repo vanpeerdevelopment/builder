@@ -29,6 +29,10 @@
 					<dependencies>
 						<dependency>
 							<type>p2-installable-unit</type>
+							<artifactId>org.eclipse.sdk.feature.group</artifactId>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
 							<groupId>be.vanpeerdevelopment.eclipse.builder</groupId>
 							<artifactId>be.vanpeerdevelopment.eclipse.builder.feature.feature.group</artifactId>
 						</dependency>

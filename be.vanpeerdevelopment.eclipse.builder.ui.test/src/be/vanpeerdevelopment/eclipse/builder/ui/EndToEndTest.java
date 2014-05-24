@@ -13,5 +13,10 @@ public abstract class EndToEndTest {
 	@BeforeClass
 	public static void beforeTests() {
 		workbench = new SWTWorkbenchBot();
+		closeWelcomeView();
+	}
+
+	private static void closeWelcomeView() {
+		workbench.viewByTitle("Welcome").close();
 	}
 }
