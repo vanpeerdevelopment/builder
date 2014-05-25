@@ -13,5 +13,8 @@
 	
 	<artifactId>be.vanpeerdevelopment.eclipse.builder.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
+	
+	<name>Builder Feature</name>
+	<description>Builder feature groups all necessary plug-ins for the builder eclipse plug-in.</description>
 		
 </project>

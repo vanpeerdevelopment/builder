@@ -13,5 +13,8 @@
 	
 	<artifactId>be.vanpeerdevelopment.eclipse.builder.branding</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	
+	<name>Builder Branding Plug-in</name>
+	<description>Builder branding plug-in is the branding part of the builder eclipse plug-in that will add an icon to the about eclipse window.</description>
 		
 </project>

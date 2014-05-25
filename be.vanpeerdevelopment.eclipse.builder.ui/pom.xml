@@ -13,5 +13,8 @@
 	
 	<artifactId>be.vanpeerdevelopment.eclipse.builder.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	
+	<name>Builder UI Plug-in</name>
+	<description>Builder UI plug-in is the UI part of the builder eclipse plug-in.</description>
 		
 </project>

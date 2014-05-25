@@ -13,5 +13,8 @@
 	
 	<artifactId>be.vanpeerdevelopment.eclipse.builder.update</artifactId>
 	<packaging>eclipse-repository</packaging>
+	
+	<name>Builder Update Site</name>
+	<description>Builder update site generates a p2 update site from which the builder eclipse plug-in can be installed.</description>
 		
 </project>

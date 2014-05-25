@@ -74,4 +74,45 @@
 		</repository>
 	</repositories>
 	
+	<name>Builder</name>
+	<description>Builder is an eclipse plug-in which based upon a selected class generates a builder for it in Java.</description>
+	<url>https://github.com/vanpeerdevelopment/builder</url>
+	<inceptionYear>2014</inceptionYear>
+
+	<organization>
+		<name>Van Peer Development</name>
+		<url>http://blog.vanpeerdevelopment.be/</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>dietervp</id>
+			<name>Dieter Van Peer</name>
+			<email>dieter@vanpeerdevelopment.be</email>
+			<url>http://blog.vanpeerdevelopment.be/</url>
+			<organization>Van Peer Development</organization>
+			<organizationUrl>http://blog.vanpeerdevelopment.be/</organizationUrl>
+			<roles>
+				<role>Lead Developer</role>
+			</roles>
+			<timezone>Europe/Brussels</timezone>
+		</developer>
+	</developers>	
+
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/vanpeerdevelopment/builder</url>
+	</ciManagement>
+	
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/vanpeerdevelopment/builder/issues</url>
+	</issueManagement>
+	
+	<scm>
+		<url>https://github.com/vanpeerdevelopment/builder</url>
+		<connection>scm:git:https://github.com/vanpeerdevelopment/builder.git</connection>
+		<developerConnection>scm:git:https://github.com/vanpeerdevelopment/builder.git</developerConnection>
+	</scm>
+	
 </project>
