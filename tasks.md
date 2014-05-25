@@ -10,7 +10,7 @@
 - [ ] Deploy
 	- [ ] Create website on gh-pages branch (builder.vanpeerdevelopment.be) + add website in pom
 	- [ ] Think about license, add in pom and feature
-	- [ ] Check out https://bintray.com/
+	- [ ] Check out https://bintray.com/, http://blog.bintray.com/2014/03/11/hosting-your-eclipse-update-site-p2-on-bintray-com/
 	- [ ] Figure out how to deploy
 		- [ ] Check out how to modify qualifier (tycho-packaging-plugin, buildnumber-maven-plugin)
 		- [ ] Increase development version number (tycho versions plugin)
