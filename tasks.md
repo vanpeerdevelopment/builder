@@ -2,7 +2,7 @@
 
 - [ ] Develop
 	- [ ] Write end to end tests
-	- [ ] Complete pom (ci, issues, scm, ...)
+	- [x] Complete pom (ci, issues, scm, ...)
 	- [ ] Create target platform
 	- [ ] Multiple plug-in projects providing a public api
 	- [ ] Create external dependencies bundle (compile and test scope) to use normal maven dependencies
