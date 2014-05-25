@@ -8,7 +8,8 @@
 	- [ ] Create external dependencies bundle (compile and test scope) to use normal maven dependencies
 
 - [ ] Deploy
-	- [ ] Create website on gh-pages branch (builder.vanpeerdevelopment.be)
+	- [ ] Create website on gh-pages branch (builder.vanpeerdevelopment.be) + add website in pom
+	- [ ] Think about license, add in pom and feature
 	- [ ] Figure out how to deploy
 		- [ ] Check out how to modify qualifier (tycho-packaging-plugin, buildnumber-maven-plugin)
 		- [ ] Increase development version number (tycho versions plugin)
