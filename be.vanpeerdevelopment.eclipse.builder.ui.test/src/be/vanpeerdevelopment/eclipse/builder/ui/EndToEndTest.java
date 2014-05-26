@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 @RunWith(SWTBotJunit4ClassRunner.class)
 public abstract class EndToEndTest {
 
+	private static final String WELCOME_VIEW_TITLE = "Welcome";
+
 	protected static SWTWorkbenchBot workbench;
 
 	@BeforeClass
@@ -17,6 +19,6 @@ public abstract class EndToEndTest {
 	}
 
 	private static void closeWelcomeView() {
-		workbench.viewByTitle("Welcome").close();
+		workbench.viewByTitle(WELCOME_VIEW_TITLE).close();
 	}
 }
