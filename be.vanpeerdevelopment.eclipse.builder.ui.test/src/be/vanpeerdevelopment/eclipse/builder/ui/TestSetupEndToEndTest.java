@@ -1,20 +1,19 @@
 package be.vanpeerdevelopment.eclipse.builder.ui;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.junit.Test;
 
 public class TestSetupEndToEndTest extends EndToEndTest {
 
-	@Test(expected = WidgetNotFoundException.class)
+	@Test
 	public void welcomeViewIsClosed() {
-		workbench.viewByTitle(WELCOME_VIEW_TITLE);
+		assertFalse(eclipse.isWelcomeViewOpen());
 	}
 
 	@Test
 	public void javaPerspectiveIsOpen() {
-		assertEquals(JAVA_PERSPECTIVE_LABEL, workbench.activePerspective().getLabel());
+		assertTrue(eclipse.isJavaPerspectiveOpen());
 	}
-
 }
