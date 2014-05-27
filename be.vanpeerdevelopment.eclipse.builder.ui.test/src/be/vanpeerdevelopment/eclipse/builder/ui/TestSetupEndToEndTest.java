@@ -16,4 +16,9 @@ public class TestSetupEndToEndTest extends EndToEndTest {
 	public void javaPerspectiveIsOpen() {
 		assertTrue(eclipse.isJavaPerspectiveOpen());
 	}
+
+	@Test
+	public void javaProjectIsCreated() {
+		assertTrue(eclipse.javaProjectExists());
+	}
 }
