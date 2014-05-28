@@ -19,5 +19,6 @@ public abstract class EndToEndTest {
 		eclipse.closeWelcomeViewIfNeeded();
 		eclipse.openJavaPerspectiveIfNeeded();
 		eclipse.createJavaProjectIfNotExists();
+		eclipse.createRegularProjectIfNotExists();
 	}
 }

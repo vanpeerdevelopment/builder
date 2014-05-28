@@ -13,6 +13,7 @@ public class Eclipse {
 	public static final String JAVA_PERSPECTIVE_LABEL = "Java";
 	public static final String WELCOME_VIEW_TITLE = "Welcome";
 	public static final String JAVA_PROJECT_NAME = "Java Project";
+	public static final String REGULAR_PROJECT_NAME = "Regular Project";
 
 	private SWTWorkbenchBot workbenchBot;
 
@@ -103,7 +104,7 @@ public class Eclipse {
 		workbenchBot
 				.tree()
 				.expandNode("Java")
-				.select(JAVA_PROJECT_NAME);
+				.select("Java Project");
 		workbenchBot
 				.button("Next >")
 				.click();
@@ -116,7 +117,47 @@ public class Eclipse {
 		workbenchBot.waitUntil(shellClosed("New Java Project"));
 	}
 
+	public void createRegularProjectIfNotExists() {
+		if (!regularProjectExists())
+			createRegularProject();
+	}
+
+	public boolean regularProjectExists() {
+		for (SWTBotTreeItem project : getAllProjects()) {
+			if (project.getText().equals(REGULAR_PROJECT_NAME)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private void createRegularProject() {
+		workbenchBot
+				.menu("File")
+				.menu("New")
+				.menu("Other...")
+				.click();
+		workbenchBot
+				.shell("New")
+				.activate();
+		workbenchBot
+				.tree()
+				.expandNode("General")
+				.select("Project");
+		workbenchBot
+				.button("Next >")
+				.click();
+		workbenchBot
+				.textWithLabel("Project name:")
+				.setText(REGULAR_PROJECT_NAME);
+		workbenchBot
+				.button("Finish")
+				.click();
+		workbenchBot.waitUntil(shellClosed("New Project"));
+	}
+
 	public static Eclipse eclipse() {
 		return new Eclipse();
 	}
+
 }
