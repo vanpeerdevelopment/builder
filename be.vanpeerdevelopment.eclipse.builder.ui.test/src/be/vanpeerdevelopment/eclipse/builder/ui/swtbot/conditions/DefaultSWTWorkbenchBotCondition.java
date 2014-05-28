@@ -4,7 +4,7 @@ import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.ICondition;
 
-public abstract class DefaultSWTWorkbenchBotCondition implements ICondition {
+abstract class DefaultSWTWorkbenchBotCondition implements ICondition {
 
 	protected SWTWorkbenchBot bot;
 

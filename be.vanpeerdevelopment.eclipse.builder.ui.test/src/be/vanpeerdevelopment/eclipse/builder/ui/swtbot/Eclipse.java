@@ -1,8 +1,8 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot;
 
-import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.PerspectiveOpened.perspectiveOpened;
-import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ShellClosed.shellClosed;
-import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ViewClosed.viewClosed;
+import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.perspectiveOpened;
+import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.shellClosed;
+import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.viewClosed;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;

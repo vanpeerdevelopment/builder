@@ -2,11 +2,11 @@ package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions;
 
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotPerspective;
 
-public class PerspectiveOpened extends DefaultSWTWorkbenchBotCondition {
+class PerspectiveOpened extends DefaultSWTWorkbenchBotCondition {
 
 	private String perspectiveName;
 
-	private PerspectiveOpened(String perspectiveName) {
+	PerspectiveOpened(String perspectiveName) {
 		this.perspectiveName = perspectiveName;
 	}
 
@@ -27,9 +27,5 @@ public class PerspectiveOpened extends DefaultSWTWorkbenchBotCondition {
 	@Override
 	public String getFailureMessage() {
 		return "Perspective with name " + perspectiveName + " did not open.";
-	}
-
-	public static PerspectiveOpened perspectiveOpened(String perspectiveName) {
-		return new PerspectiveOpened(perspectiveName);
 	}
 }
