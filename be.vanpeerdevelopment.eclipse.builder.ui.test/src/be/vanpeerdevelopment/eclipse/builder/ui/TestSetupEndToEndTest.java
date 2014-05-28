@@ -19,11 +19,11 @@ public class TestSetupEndToEndTest extends EndToEndTest {
 
 	@Test
 	public void javaProjectIsCreated() {
-		assertTrue(eclipse.javaProjectExists());
+		assertTrue(eclipse.projectExists(JAVA_PROJECT_NAME));
 	}
 
 	@Test
 	public void reguralProjectIsCreated() {
-		assertTrue(eclipse.regularProjectExists());
+		assertTrue(eclipse.projectExists(REGULAR_PROJECT_NAME));
 	}
 }
