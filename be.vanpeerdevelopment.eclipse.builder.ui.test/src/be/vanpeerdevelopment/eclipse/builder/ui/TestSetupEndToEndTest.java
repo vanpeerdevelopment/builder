@@ -21,4 +21,9 @@ public class TestSetupEndToEndTest extends EndToEndTest {
 	public void javaProjectIsCreated() {
 		assertTrue(eclipse.projectExists(JAVA_PROJECT_NAME));
 	}
+
+	@Test
+	public void textFileIsCreated() {
+		assertTrue(eclipse.fileExsists(JAVA_PROJECT_NAME, TEXT_FILE_FOLDER, TEXT_FILE_NAME));
+	}
 }

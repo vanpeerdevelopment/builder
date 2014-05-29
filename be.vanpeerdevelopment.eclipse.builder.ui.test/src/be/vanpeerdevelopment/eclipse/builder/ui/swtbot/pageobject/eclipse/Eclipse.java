@@ -37,6 +37,10 @@ public class Eclipse extends EclipseObject {
 		return workbench.projectExists(projectName);
 	}
 
+	public boolean fileExsists(String projectName, String folderName, String fileName) {
+		return workbench.fileExists(projectName, folderName, fileName);
+	}
+
 	public FileMenu fileMenu() {
 		return new FileMenu(workbench);
 	}

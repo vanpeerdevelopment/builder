@@ -31,6 +31,32 @@ public class Workbench extends SWTWorkbenchBot {
 		return false;
 	}
 
+	public boolean fileExists(String projectName, String folderName, String fileName) {
+		return projectExists(projectName)
+				&& folderExistsInProject(projectName, folderName)
+				&& fileExistsInFolderInProject(projectName, folderName, fileName);
+	}
+
+	private boolean folderExistsInProject(String projectName, String folderName) {
+		return viewByTitle("Package Explorer")
+				.bot()
+				.tree()
+				.expandNode(projectName)
+				.getNodes()
+				.contains(folderName);
+	}
+
+	private boolean fileExistsInFolderInProject(String projectName, String folderName,
+			String fileName) {
+		return viewByTitle("Package Explorer")
+				.bot()
+				.tree()
+				.expandNode(projectName)
+				.expandNode(folderName)
+				.getNodes()
+				.contains(fileName);
+	}
+
 	private SWTBotTreeItem[] getAllProjects() {
 		return viewByTitle("Package Explorer")
 				.bot()

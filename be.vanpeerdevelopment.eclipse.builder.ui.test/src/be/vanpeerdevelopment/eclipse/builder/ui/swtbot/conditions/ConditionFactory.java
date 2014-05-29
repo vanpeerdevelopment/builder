@@ -21,4 +21,8 @@ public class ConditionFactory {
 	public static ProjectCreated projectCreated(String projectName) {
 		return new ProjectCreated(projectName);
 	}
+
+	public static FileCreated fileCreated(String projectName, String folderName, String fileName) {
+		return new FileCreated(projectName, folderName, fileName);
+	}
 }

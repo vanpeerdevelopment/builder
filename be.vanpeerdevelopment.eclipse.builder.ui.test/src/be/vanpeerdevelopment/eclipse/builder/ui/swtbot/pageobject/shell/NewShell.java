@@ -16,4 +16,11 @@ public class NewShell extends ShellObject {
 		workbench.waitUntil(shellClosed("New"));
 		return new NewJavaProjectShell(workbench);
 	}
+
+	public NewFileShell file() {
+		workbench.tree().expandNode("General").select("File");
+		workbench.button("Next >").click();
+		workbench.waitUntil(shellClosed("New"));
+		return new NewFileShell(workbench);
+	}
 }
