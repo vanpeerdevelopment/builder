@@ -16,7 +16,7 @@ public class NewFileShell extends ShellObject {
 		super(workbench, "New File");
 	}
 
-	public NewFileShell selectParentFolder(String projectName, String folderName) {
+	public NewFileShell setParentFolder(String projectName, String folderName) {
 		this.projectName = projectName;
 		this.folderName = folderName;
 		workbench.textWithLabel("Enter or select the parent folder:")

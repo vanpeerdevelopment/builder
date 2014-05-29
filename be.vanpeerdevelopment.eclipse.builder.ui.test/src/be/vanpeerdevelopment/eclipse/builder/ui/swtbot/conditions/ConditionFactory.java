@@ -25,4 +25,9 @@ public class ConditionFactory {
 	public static FileCreated fileCreated(String projectName, String folderName, String fileName) {
 		return new FileCreated(projectName, folderName, fileName);
 	}
+
+	public static ClassCreated classCreated(String projectName, String sourceFolderName,
+			String packageName, String className) {
+		return new ClassCreated(projectName, sourceFolderName, packageName, className);
+	}
 }

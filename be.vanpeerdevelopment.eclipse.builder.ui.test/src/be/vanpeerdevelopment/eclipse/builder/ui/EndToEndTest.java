@@ -11,7 +11,10 @@ import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Eclips
 @RunWith(SWTBotJunit4ClassRunner.class)
 public abstract class EndToEndTest {
 
-	protected static final String JAVA_PROJECT_NAME = "Builder";
+	protected static final String JAVA_PROJECT_NAME = "builder";
+	protected static final String JAVA_SOURCE_FOLDER_NAME = "src";
+	protected static final String JAVA_PACKAGE_NAME = "person";
+	protected static final String JAVA_CLASS_NAME = "Person";
 	protected static final String TEXT_FILE_FOLDER = "resources";
 	protected static final String TEXT_FILE_NAME = "builder-todo-list.txt";
 
@@ -52,6 +55,7 @@ public abstract class EndToEndTest {
 	private static void createJavaProjectIfNotExists() {
 		if (!eclipse.projectExists(JAVA_PROJECT_NAME)) {
 			createJavaProject();
+			createJavaClassInJavaProject();
 			createTextFileInJavaProject();
 		}
 	}
@@ -66,13 +70,25 @@ public abstract class EndToEndTest {
 				.finish();
 	}
 
+	private static void createJavaClassInJavaProject() {
+		eclipse
+				.fileMenu()
+				.newSubMenu()
+				.other()
+				.javaClass()
+				.setSourceFolder(JAVA_PROJECT_NAME, JAVA_SOURCE_FOLDER_NAME)
+				.setPackage(JAVA_PACKAGE_NAME)
+				.setClassName(JAVA_CLASS_NAME)
+				.finish();
+	}
+
 	private static void createTextFileInJavaProject() {
 		eclipse
 				.fileMenu()
 				.newSubMenu()
 				.other()
 				.file()
-				.selectParentFolder(JAVA_PROJECT_NAME, TEXT_FILE_FOLDER)
+				.setParentFolder(JAVA_PROJECT_NAME, TEXT_FILE_FOLDER)
 				.setFileName(TEXT_FILE_NAME)
 				.finish();
 	}

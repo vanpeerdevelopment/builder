@@ -23,7 +23,13 @@ public class TestSetupEndToEndTest extends EndToEndTest {
 	}
 
 	@Test
+	public void javaClassIsCreated() {
+		assertTrue(eclipse.classExists(JAVA_PROJECT_NAME, JAVA_SOURCE_FOLDER_NAME, JAVA_PACKAGE_NAME,
+				JAVA_CLASS_NAME));
+	}
+
+	@Test
 	public void textFileIsCreated() {
-		assertTrue(eclipse.fileExsists(JAVA_PROJECT_NAME, TEXT_FILE_FOLDER, TEXT_FILE_NAME));
+		assertTrue(eclipse.fileExists(JAVA_PROJECT_NAME, TEXT_FILE_FOLDER, TEXT_FILE_NAME));
 	}
 }

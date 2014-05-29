@@ -31,6 +31,15 @@ public class Workbench extends SWTWorkbenchBot {
 		return false;
 	}
 
+	public boolean classExists(String projectName, String sourceFolderName, String packageName,
+			String className) {
+		return projectExists(projectName)
+				&& folderExistsInProject(projectName, sourceFolderName)
+				&& packageExistsInFolderInProject(projectName, sourceFolderName, packageName)
+				&& classExistsInPacakgeInFolderInProject(projectName, sourceFolderName,
+						packageName, className);
+	}
+
 	public boolean fileExists(String projectName, String folderName, String fileName) {
 		return projectExists(projectName)
 				&& folderExistsInProject(projectName, folderName)
@@ -46,15 +55,37 @@ public class Workbench extends SWTWorkbenchBot {
 				.contains(folderName);
 	}
 
+	private boolean packageExistsInFolderInProject(String projectName, String sourceFolderName,
+			String packageName) {
+		return itemExistsInFolderInProject(projectName, sourceFolderName, packageName);
+	}
+
 	private boolean fileExistsInFolderInProject(String projectName, String folderName,
 			String fileName) {
+		return itemExistsInFolderInProject(projectName, folderName, fileName);
+	}
+
+	private boolean itemExistsInFolderInProject(String projectName, String folderName,
+			String itemName) {
 		return viewByTitle("Package Explorer")
 				.bot()
 				.tree()
 				.expandNode(projectName)
 				.expandNode(folderName)
 				.getNodes()
-				.contains(fileName);
+				.contains(itemName);
+	}
+
+	private boolean classExistsInPacakgeInFolderInProject(String projectName,
+			String sourceFolderName, String packageName, String className) {
+		return viewByTitle("Package Explorer")
+				.bot()
+				.tree()
+				.expandNode(projectName)
+				.expandNode(sourceFolderName)
+				.expandNode(packageName)
+				.getNodes()
+				.contains(className + ".java");
 	}
 
 	private SWTBotTreeItem[] getAllProjects() {
