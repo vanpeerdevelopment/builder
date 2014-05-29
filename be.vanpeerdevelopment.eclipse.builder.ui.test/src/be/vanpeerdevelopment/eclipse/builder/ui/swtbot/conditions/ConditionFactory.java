@@ -17,4 +17,8 @@ public class ConditionFactory {
 	public static ViewClosed viewClosed(String viewName) {
 		return new ViewClosed(viewName);
 	}
+
+	public static ProjectCreated projectCreated(String projectName) {
+		return new ProjectCreated(projectName);
+	}
 }
