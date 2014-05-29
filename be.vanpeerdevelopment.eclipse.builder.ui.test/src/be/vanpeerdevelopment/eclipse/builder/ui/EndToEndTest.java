@@ -22,7 +22,6 @@ public abstract class EndToEndTest {
 		closeWelcomeViewIfNeeded();
 		openJavaPerspectiveIfNeeded();
 		createJavaProjectIfNotExists();
-		createRegularProjectIfNotExists();
 	}
 
 	private static void closeWelcomeViewIfNeeded() {
@@ -61,21 +60,6 @@ public abstract class EndToEndTest {
 				.other()
 				.javaProject()
 				.setProjectName(JAVA_PROJECT_NAME)
-				.finish();
-	}
-
-	private static void createRegularProjectIfNotExists() {
-		if (!eclipse.projectExists(REGULAR_PROJECT_NAME))
-			createRegularProject();
-	}
-
-	private static void createRegularProject() {
-		eclipse
-				.fileMenu()
-				.newSubMenu()
-				.other()
-				.project()
-				.setProjectName(REGULAR_PROJECT_NAME)
 				.finish();
 	}
 }
