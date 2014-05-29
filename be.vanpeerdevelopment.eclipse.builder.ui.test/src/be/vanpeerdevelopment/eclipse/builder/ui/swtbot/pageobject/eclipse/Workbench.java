@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.swtbot;
+package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;

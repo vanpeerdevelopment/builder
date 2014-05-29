@@ -1,8 +1,11 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.swtbot;
+package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.viewClosed;
 
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
 
 public class WelcomeView extends EclipseObject {
 
@@ -10,7 +13,7 @@ public class WelcomeView extends EclipseObject {
 
 	private SWTBotView welcomeView;
 
-	WelcomeView(Workbench workbench) {
+	public WelcomeView(Workbench workbench) {
 		super(workbench);
 		welcomeView = workbench.viewByTitle(WELCOME_VIEW_TITLE);
 	}

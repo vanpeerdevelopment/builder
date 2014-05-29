@@ -1,7 +1,11 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.swtbot;
+package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse;
 
-import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.OpenPerspectiveShell.JAVA_PERSPECTIVE_LABEL;
-import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.WelcomeView.WELCOME_VIEW_TITLE;
+import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell.OpenPerspectiveShell.JAVA_PERSPECTIVE_LABEL;
+import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.WelcomeView.WELCOME_VIEW_TITLE;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.menu.FileMenu;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.menu.WindowMenu;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.WelcomeView;
 
 public class Eclipse extends EclipseObject {
 
