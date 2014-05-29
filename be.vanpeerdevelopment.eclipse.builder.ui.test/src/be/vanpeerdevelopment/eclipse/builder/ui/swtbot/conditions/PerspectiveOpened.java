@@ -2,7 +2,7 @@ package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions;
 
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotPerspective;
 
-class PerspectiveOpened extends DefaultSWTWorkbenchBotCondition {
+class PerspectiveOpened extends DefaultWorkbenchCondition {
 
 	private String perspectiveName;
 

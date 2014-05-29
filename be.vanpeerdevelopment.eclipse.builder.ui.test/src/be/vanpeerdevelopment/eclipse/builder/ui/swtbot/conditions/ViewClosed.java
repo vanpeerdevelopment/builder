@@ -2,7 +2,7 @@ package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions;
 
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 
-class ViewClosed extends DefaultSWTWorkbenchBotCondition {
+class ViewClosed extends DefaultWorkbenchCondition {
 
 	private String viewName;
 
