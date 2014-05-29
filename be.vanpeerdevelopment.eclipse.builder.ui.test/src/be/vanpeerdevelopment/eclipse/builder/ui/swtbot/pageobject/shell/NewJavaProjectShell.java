@@ -1,17 +1,13 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.shellClosed;
-import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.shellOpened;
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.ShellObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
 
-public class NewJavaProjectShell extends EclipseObject {
+public class NewJavaProjectShell extends ShellObject {
 
 	public NewJavaProjectShell(Workbench workbench) {
-		super(workbench);
-		workbench.waitUntil(shellOpened("New Java Project"));
-		workbench.shell("New Java Project").activate();
-		// TODO: refactor setup into superclass.
+		super(workbench, "New Java Project");
 	}
 
 	public NewJavaProjectShell setProjectName(String projectName) {
