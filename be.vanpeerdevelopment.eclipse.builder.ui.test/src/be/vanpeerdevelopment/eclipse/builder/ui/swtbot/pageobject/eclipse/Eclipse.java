@@ -5,6 +5,7 @@ import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.menu.FileMenu;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.menu.WindowMenu;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell.GenerateBuilderShell;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.WelcomeView;
 
 public class Eclipse extends EclipseObject {
@@ -27,6 +28,14 @@ public class Eclipse extends EclipseObject {
 
 	public boolean isJavaPerspectiveOpen() {
 		return workbench.isPerspectiveOpen(JAVA_PERSPECTIVE_LABEL);
+	}
+
+	public boolean willGenerateBuilderShellOpen() {
+		return workbench.willShellOpen("Generate Builder");
+	}
+
+	public GenerateBuilderShell selectGenerateBuilderShell() {
+		return new GenerateBuilderShell(workbench);
 	}
 
 	public FileMenu fileMenu() {
