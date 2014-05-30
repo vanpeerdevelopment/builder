@@ -44,6 +44,8 @@
 						<org.eclipse.swtbot.screenshots.dir>${project.build.directory}/screenshots</org.eclipse.swtbot.screenshots.dir>
 						<log4j.configuration>file:///${basedir}/config/log4j.xml</log4j.configuration>
 					</systemProperties>
+					<argLine>-Xms64m -Xmx256m -XX:PermSize=64M -XX:MaxPermSize=256M</argLine>
+					<appArgLine>-vmargs -Xms64m -Xmx256m -XX:PermSize=64M -XX:MaxPermSize=256M</appArgLine>
 				</configuration>
 			</plugin>
 		</plugins>
