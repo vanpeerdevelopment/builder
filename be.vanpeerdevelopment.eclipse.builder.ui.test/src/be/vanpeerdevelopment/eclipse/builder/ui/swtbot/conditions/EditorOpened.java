@@ -10,10 +10,10 @@ class EditorOpened extends DefaultWorkbenchCondition {
 
 	@Override
 	public boolean test() throws Exception {
-		return editorOpened();
+		return isEditorOpened();
 	}
 
-	private boolean editorOpened() {
+	private boolean isEditorOpened() {
 		return bot.isEditorOpen(editorTitle);
 	}
 

@@ -14,10 +14,10 @@ class FileCreated extends DefaultWorkbenchCondition {
 
 	@Override
 	public boolean test() throws Exception {
-		return fileCreated();
+		return isFileCreated();
 	}
 
-	private boolean fileCreated() {
+	private boolean isFileCreated() {
 		return bot.fileExists(projectName, folderName, fileName);
 	}
 

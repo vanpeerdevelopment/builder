@@ -3,6 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEditor;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.PackageExplorerView;
@@ -15,6 +16,15 @@ public class Workbench extends SWTWorkbenchBot {
 	public boolean isViewOpen(String viewTitle) {
 		for (SWTBotView view : views()) {
 			if (view.getTitle().equals(viewTitle)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean isShellOpen(String shellName) {
+		for (SWTBotShell shell : shells()) {
+			if (shell.getText().equals(shellName)) {
 				return true;
 			}
 		}

@@ -16,10 +16,10 @@ class ClassCreated extends DefaultWorkbenchCondition {
 
 	@Override
 	public boolean test() throws Exception {
-		return classCreated();
+		return isClassCreated();
 	}
 
-	private boolean classCreated() {
+	private boolean isClassCreated() {
 		return bot.classExists(projectName, sourceFolderName, packageName, className);
 	}
 

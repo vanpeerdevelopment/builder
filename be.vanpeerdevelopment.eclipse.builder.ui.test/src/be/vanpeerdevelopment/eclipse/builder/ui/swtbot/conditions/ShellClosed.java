@@ -1,9 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions;
 
-import org.eclipse.swtbot.swt.finder.waits.DefaultCondition;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
-
-class ShellClosed extends DefaultCondition {
+class ShellClosed extends DefaultWorkbenchCondition {
 
 	private String shellName;
 
@@ -13,16 +10,11 @@ class ShellClosed extends DefaultCondition {
 
 	@Override
 	public boolean test() {
-		return shellClosed();
+		return isShellClosed();
 	}
 
-	private boolean shellClosed() {
-		for (SWTBotShell shell : bot.shells()) {
-			if (shell.getText().equals(shellName)) {
-				return false;
-			}
-		}
-		return true;
+	private boolean isShellClosed() {
+		return !bot.isShellOpen(shellName);
 	}
 
 	@Override

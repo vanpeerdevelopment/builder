@@ -10,10 +10,10 @@ class ProjectCreated extends DefaultWorkbenchCondition {
 
 	@Override
 	public boolean test() throws Exception {
-		return projectCreated();
+		return isProjectCreated();
 	}
 
-	private boolean projectCreated() {
+	private boolean isProjectCreated() {
 		return bot.projectExists(projectName);
 	}
 

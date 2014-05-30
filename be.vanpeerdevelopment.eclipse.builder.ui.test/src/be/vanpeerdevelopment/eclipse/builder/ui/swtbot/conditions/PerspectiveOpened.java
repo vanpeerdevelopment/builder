@@ -1,7 +1,5 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions;
 
-import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotPerspective;
-
 class PerspectiveOpened extends DefaultWorkbenchCondition {
 
 	private String perspectiveName;
@@ -12,16 +10,11 @@ class PerspectiveOpened extends DefaultWorkbenchCondition {
 
 	@Override
 	public boolean test() throws Exception {
-		return perspectiveOpened();
+		return isPerspectiveOpened();
 	}
 
-	private boolean perspectiveOpened() {
-		for (SWTBotPerspective perspective : bot.perspectives()) {
-			if (perspective.getLabel().equals(perspectiveName)) {
-				return true;
-			}
-		}
-		return false;
+	private boolean isPerspectiveOpened() {
+		return bot.isPerspectiveOpen(perspectiveName);
 	}
 
 	@Override

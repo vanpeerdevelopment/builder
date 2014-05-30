@@ -1,6 +1,5 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions;
 
-import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 
 class ViewClosed extends DefaultWorkbenchCondition {
 
@@ -12,16 +11,11 @@ class ViewClosed extends DefaultWorkbenchCondition {
 
 	@Override
 	public boolean test() {
-		return viewClosed();
+		return isViewClosed();
 	}
 
-	private boolean viewClosed() {
-		for (SWTBotView view : bot.views()) {
-			if (view.getTitle().equals(viewName)) {
-				return false;
-			}
-		}
-		return true;
+	private boolean isViewClosed() {
+		return !bot.isViewOpen(viewName);
 	}
 
 	@Override
