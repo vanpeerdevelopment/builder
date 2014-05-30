@@ -30,4 +30,8 @@ public class ConditionFactory {
 			String packageName, String className) {
 		return new ClassCreated(projectName, sourceFolderName, packageName, className);
 	}
+
+	public static EditorOpened editorOpened(String editorTitle) {
+		return new EditorOpened(editorTitle);
+	}
 }

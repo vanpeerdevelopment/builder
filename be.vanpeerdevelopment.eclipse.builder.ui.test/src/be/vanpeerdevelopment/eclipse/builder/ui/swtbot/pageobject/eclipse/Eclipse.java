@@ -3,6 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse;
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell.OpenPerspectiveShell.JAVA_PERSPECTIVE_LABEL;
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.WelcomeView.WELCOME_VIEW_TITLE;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.menu.FileMenu;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.menu.WindowMenu;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.WelcomeView;
@@ -48,5 +49,10 @@ public class Eclipse extends EclipseObject {
 	public boolean classExists(String projectName, String sourceFolderName, String packageName,
 			String className) {
 		return workbench.classExists(projectName, sourceFolderName, packageName, className);
+	}
+
+	public JavaEditor openClass(String projectName, String sourceFolderName, String packageName,
+			String className) {
+		return workbench.openClass(projectName, sourceFolderName, packageName, className);
 	}
 }

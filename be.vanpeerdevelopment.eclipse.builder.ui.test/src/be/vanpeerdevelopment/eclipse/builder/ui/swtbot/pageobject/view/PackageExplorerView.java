@@ -5,6 +5,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor;
 
 public class PackageExplorerView extends EclipseObject {
 
@@ -39,6 +40,19 @@ public class PackageExplorerView extends EclipseObject {
 				&& packageExistsInFolderInProject(projectName, sourceFolderName, packageName)
 				&& classExistsInPacakgeInFolderInProject(projectName, sourceFolderName,
 						packageName, className);
+	}
+
+	public JavaEditor openClass(String projectName, String sourceFolderName, String packageName,
+			String className) {
+		packageExplorerView
+				.bot()
+				.tree()
+				.expandNode(projectName)
+				.expandNode(sourceFolderName)
+				.expandNode(packageName)
+				.getNode(className + ".java")
+				.doubleClick();
+		return new JavaEditor(workbench, className);
 	}
 
 	private SWTBotTreeItem[] getAllProjects() {
