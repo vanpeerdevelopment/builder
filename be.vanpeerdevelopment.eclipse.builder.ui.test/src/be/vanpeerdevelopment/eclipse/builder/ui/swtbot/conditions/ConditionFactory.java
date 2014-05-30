@@ -14,8 +14,12 @@ public class ConditionFactory {
 		return new ShellClosed(shellName);
 	}
 
-	public static ViewClosed viewClosed(String viewName) {
-		return new ViewClosed(viewName);
+	public static ViewOpened viewOpened(String viewTitle) {
+		return new ViewOpened(viewTitle);
+	}
+
+	public static ViewClosed viewClosed(String viewTitle) {
+		return new ViewClosed(viewTitle);
 	}
 
 	public static ProjectCreated projectCreated(String projectName) {

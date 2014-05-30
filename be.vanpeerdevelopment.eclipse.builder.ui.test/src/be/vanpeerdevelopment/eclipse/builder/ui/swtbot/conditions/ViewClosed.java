@@ -1,12 +1,11 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions;
 
-
 class ViewClosed extends DefaultWorkbenchCondition {
 
-	private String viewName;
+	private String viewTitle;
 
-	ViewClosed(String viewName) {
-		this.viewName = viewName;
+	ViewClosed(String viewTitle) {
+		this.viewTitle = viewTitle;
 	}
 
 	@Override
@@ -15,11 +14,11 @@ class ViewClosed extends DefaultWorkbenchCondition {
 	}
 
 	private boolean isViewClosed() {
-		return !bot.isViewOpen(viewName);
+		return !bot.isViewOpen(viewTitle);
 	}
 
 	@Override
 	public String getFailureMessage() {
-		return "View with name " + viewName + " did not close.";
+		return "View with title " + viewTitle + " did not close.";
 	}
 }
