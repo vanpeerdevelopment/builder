@@ -38,4 +38,8 @@ public class ConditionFactory {
 	public static EditorOpened editorOpened(String editorTitle) {
 		return new EditorOpened(editorTitle);
 	}
+
+	public static EditorClosed editorClosed(String editorTitle) {
+		return new EditorClosed(editorTitle);
+	}
 }
