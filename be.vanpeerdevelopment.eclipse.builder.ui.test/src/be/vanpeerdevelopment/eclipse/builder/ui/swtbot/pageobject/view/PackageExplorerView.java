@@ -1,21 +1,15 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view;
 
-import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.ViewObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor;
 
-public class PackageExplorerView extends EclipseObject {
-
-	public static final String PACKAGE_EXPLORER_VIEW_TITLE = "Package Explorer";
-
-	private SWTBotView packageExplorerView;
+public class PackageExplorerView extends ViewObject {
 
 	public PackageExplorerView(Workbench workbench) {
-		super(workbench);
-		packageExplorerView = workbench.viewByTitle(PACKAGE_EXPLORER_VIEW_TITLE);
+		super(workbench, "Package Explorer");
 	}
 
 	public boolean projectExists(String projectName) {
@@ -44,7 +38,7 @@ public class PackageExplorerView extends EclipseObject {
 
 	public JavaEditor openClass(String projectName, String sourceFolderName, String packageName,
 			String className) {
-		packageExplorerView
+		view
 				.bot()
 				.tree()
 				.expandNode(projectName)
@@ -56,14 +50,14 @@ public class PackageExplorerView extends EclipseObject {
 	}
 
 	private SWTBotTreeItem[] getAllProjects() {
-		return packageExplorerView
+		return view
 				.bot()
 				.tree()
 				.getAllItems();
 	}
 
 	private boolean folderExistsInProject(String projectName, String folderName) {
-		return packageExplorerView
+		return view
 				.bot()
 				.tree()
 				.expandNode(projectName)
@@ -83,7 +77,7 @@ public class PackageExplorerView extends EclipseObject {
 
 	private boolean itemExistsInFolderInProject(String projectName, String folderName,
 			String itemName) {
-		return packageExplorerView
+		return view
 				.bot()
 				.tree()
 				.expandNode(projectName)
@@ -94,7 +88,7 @@ public class PackageExplorerView extends EclipseObject {
 
 	private boolean classExistsInPacakgeInFolderInProject(String projectName,
 			String sourceFolderName, String packageName, String className) {
-		return packageExplorerView
+		return view
 				.bot()
 				.tree()
 				.expandNode(projectName)
