@@ -17,16 +17,20 @@ public class Eclipse extends EclipseObject {
 		return new Eclipse();
 	}
 
-	public boolean isWelcomeViewOpen() {
-		return workbench.isViewOpen(WELCOME_VIEW_TITLE);
-	}
-
 	public WelcomeView selectWelcomeView() {
 		return new WelcomeView(workbench);
 	}
 
+	public boolean isWelcomeViewOpen() {
+		return workbench.isViewOpen(WELCOME_VIEW_TITLE);
+	}
+
 	public boolean isJavaPerspectiveOpen() {
 		return workbench.isPerspectiveOpen(JAVA_PERSPECTIVE_LABEL);
+	}
+
+	public FileMenu fileMenu() {
+		return new FileMenu(workbench);
 	}
 
 	public WindowMenu windowMenu() {
@@ -44,9 +48,5 @@ public class Eclipse extends EclipseObject {
 	public boolean classExists(String projectName, String sourceFolderName, String packageName,
 			String className) {
 		return workbench.classExists(projectName, sourceFolderName, packageName, className);
-	}
-
-	public FileMenu fileMenu() {
-		return new FileMenu(workbench);
 	}
 }

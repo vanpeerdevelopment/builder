@@ -24,7 +24,8 @@ public class TestSetupEndToEndTest extends EndToEndTest {
 
 	@Test
 	public void javaClassIsCreated() {
-		assertTrue(eclipse.classExists(JAVA_PROJECT_NAME, JAVA_SOURCE_FOLDER_NAME, JAVA_PACKAGE_NAME,
+		assertTrue(eclipse.classExists(JAVA_PROJECT_NAME, JAVA_SOURCE_FOLDER_NAME,
+				JAVA_PACKAGE_NAME,
 				JAVA_CLASS_NAME));
 	}
 

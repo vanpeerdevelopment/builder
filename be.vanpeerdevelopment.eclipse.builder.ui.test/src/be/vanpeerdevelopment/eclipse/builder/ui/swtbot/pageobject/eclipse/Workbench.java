@@ -2,7 +2,8 @@ package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
+
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.PackageExplorerView;
 
 public class Workbench extends SWTWorkbenchBot {
 
@@ -23,75 +24,20 @@ public class Workbench extends SWTWorkbenchBot {
 	}
 
 	public boolean projectExists(String projectName) {
-		for (SWTBotTreeItem project : getAllProjects()) {
-			if (project.getText().equals(projectName)) {
-				return true;
-			}
-		}
-		return false;
+		return getPackageExplorerView().projectExists(projectName);
+	}
+
+	public boolean fileExists(String projectName, String folderName, String fileName) {
+		return getPackageExplorerView().fileExists(projectName, folderName, fileName);
 	}
 
 	public boolean classExists(String projectName, String sourceFolderName, String packageName,
 			String className) {
-		return projectExists(projectName)
-				&& folderExistsInProject(projectName, sourceFolderName)
-				&& packageExistsInFolderInProject(projectName, sourceFolderName, packageName)
-				&& classExistsInPacakgeInFolderInProject(projectName, sourceFolderName,
-						packageName, className);
+		return getPackageExplorerView().classExists(projectName, sourceFolderName, packageName,
+				className);
 	}
 
-	public boolean fileExists(String projectName, String folderName, String fileName) {
-		return projectExists(projectName)
-				&& folderExistsInProject(projectName, folderName)
-				&& fileExistsInFolderInProject(projectName, folderName, fileName);
-	}
-
-	private boolean folderExistsInProject(String projectName, String folderName) {
-		return viewByTitle("Package Explorer")
-				.bot()
-				.tree()
-				.expandNode(projectName)
-				.getNodes()
-				.contains(folderName);
-	}
-
-	private boolean packageExistsInFolderInProject(String projectName, String sourceFolderName,
-			String packageName) {
-		return itemExistsInFolderInProject(projectName, sourceFolderName, packageName);
-	}
-
-	private boolean fileExistsInFolderInProject(String projectName, String folderName,
-			String fileName) {
-		return itemExistsInFolderInProject(projectName, folderName, fileName);
-	}
-
-	private boolean itemExistsInFolderInProject(String projectName, String folderName,
-			String itemName) {
-		return viewByTitle("Package Explorer")
-				.bot()
-				.tree()
-				.expandNode(projectName)
-				.expandNode(folderName)
-				.getNodes()
-				.contains(itemName);
-	}
-
-	private boolean classExistsInPacakgeInFolderInProject(String projectName,
-			String sourceFolderName, String packageName, String className) {
-		return viewByTitle("Package Explorer")
-				.bot()
-				.tree()
-				.expandNode(projectName)
-				.expandNode(sourceFolderName)
-				.expandNode(packageName)
-				.getNodes()
-				.contains(className + ".java");
-	}
-
-	private SWTBotTreeItem[] getAllProjects() {
-		return viewByTitle("Package Explorer")
-				.bot()
-				.tree()
-				.getAllItems();
+	private PackageExplorerView getPackageExplorerView() {
+		return new PackageExplorerView(this);
 	}
 }
