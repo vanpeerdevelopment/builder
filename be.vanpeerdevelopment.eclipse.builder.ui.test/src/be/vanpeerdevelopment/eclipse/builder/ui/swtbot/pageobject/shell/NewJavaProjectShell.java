@@ -23,7 +23,7 @@ public class NewJavaProjectShell extends ShellObject {
 	public void finish() {
 		assertNotNull("First set the project name using setProjectName()", projectName);
 		workbench.button("Finish").click();
-		workbench.waitUntil(shellClosed("New Java Project"));
+		workbench.waitUntil(shellClosed("New Java Project"), 10000);
 		workbench.waitUntil(projectCreated(projectName));
 	}
 }

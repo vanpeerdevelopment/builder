@@ -3,6 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.ui;
 import static org.eclipse.jface.bindings.keys.KeyStroke.getInstance;
 import static org.eclipse.swtbot.swt.finder.keyboard.Keystrokes.ALT;
 import static org.eclipse.swtbot.swt.finder.keyboard.Keystrokes.CTRL;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.eclipse.jface.bindings.keys.ParseException;
@@ -24,5 +25,16 @@ public class KeyBindingEndToEndTest extends EndToEndTest {
 		eclipse
 				.selectGenerateBuilderShell()
 				.ok();
+	}
+
+	@Test
+	public void keyBindingNotActiveInNonJavaEditorScope() throws ParseException {
+		eclipse
+				.openFile(JAVA_PROJECT_NAME,
+						TEXT_FILE_FOLDER,
+						TEXT_FILE_NAME)
+				.pressShortcut(CTRL, ALT, getInstance("B"));
+
+		assertFalse(eclipse.willGenerateBuilderShellOpen());
 	}
 }

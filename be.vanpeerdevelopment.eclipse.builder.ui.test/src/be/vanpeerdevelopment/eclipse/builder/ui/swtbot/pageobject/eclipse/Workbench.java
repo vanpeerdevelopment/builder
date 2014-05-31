@@ -8,6 +8,7 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.FileEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.PackageExplorerView;
 
@@ -73,6 +74,10 @@ public class Workbench extends SWTWorkbenchBot {
 			String className) {
 		return getPackageExplorerView().openClass(projectName, sourceFolderName, packageName,
 				className);
+	}
+
+	public FileEditor openFile(String projectName, String fileFolder, String fileName) {
+		return getPackageExplorerView().openFile(projectName, fileFolder, fileName);
 	}
 
 	private PackageExplorerView getPackageExplorerView() {
