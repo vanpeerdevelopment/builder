@@ -7,6 +7,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell.OpenPerspectiveShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell.PreferencesShell;
 
 public class WindowMenu extends EclipseObject {
 
@@ -29,5 +30,10 @@ public class WindowMenu extends EclipseObject {
 				openPerspectiveSubMenu);
 		openPerspectiveSubMenu.menu("Other...").click();
 		return new OpenPerspectiveShell(workbench);
+	}
+
+	public PreferencesShell preferences() {
+		windowMenu.menu("Preferences").click();
+		return new PreferencesShell(workbench);
 	}
 }
