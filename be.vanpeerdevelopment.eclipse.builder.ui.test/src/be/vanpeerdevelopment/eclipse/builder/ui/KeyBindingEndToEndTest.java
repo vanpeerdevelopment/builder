@@ -37,4 +37,17 @@ public class KeyBindingEndToEndTest extends EndToEndTest {
 
 		assertFalse(eclipse.willGenerateBuilderShellOpen());
 	}
+
+	@Test
+	public void keyBindingVisibleInSourceMenu() {
+		String generateBuilderMenuText = eclipse
+				.openClass(JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME)
+				.sourceContextMenu()
+				.generateBuilderMenuText();
+
+		assertTrue(generateBuilderMenuText.contains("Ctrl+Alt+B"));
+	}
 }
