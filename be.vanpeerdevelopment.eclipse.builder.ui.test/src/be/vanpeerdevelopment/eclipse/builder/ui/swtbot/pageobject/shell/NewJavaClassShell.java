@@ -42,7 +42,7 @@ public class NewJavaClassShell extends ShellObject {
 		assertNotNull("First set the package name using setPackage()", packageName);
 		assertNotNull("First set the class name using setClassName()", className);
 		workbench.button("Finish").click();
-		workbench.waitUntil(shellClosed("New Java Class"), 10000);
+		workbench.waitUntil(shellClosed("New Java Class"));
 		workbench.waitUntil(classCreated(projectName, sourceFolderName, packageName, className));
 	}
 }

@@ -31,7 +31,7 @@
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="be.vanpeerdevelopment.eclipse.builder.ui.test"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dosgi.requiredJavaVersion=1.6 &#13;&#10;-Dorg.eclipse.swtbot.screenshots.dir=${workspace_loc}/be.vanpeerdevelopment.eclipse.builder.parent/be.vanpeerdevelopment.eclipse.builder.ui.test/target/screenshots&#13;&#10;-Dorg.eclipse.swtbot.keyboard.layout=EN_US&#13;&#10;-Xms64m &#13;&#10;-Xmx256m &#13;&#10;-XX:PermSize=64M &#13;&#10;-XX:MaxPermSize=256M"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dosgi.requiredJavaVersion=1.6 &#13;&#10;-Dorg.eclipse.swtbot.screenshots.dir=${workspace_loc}/be.vanpeerdevelopment.eclipse.builder.parent/be.vanpeerdevelopment.eclipse.builder.ui.test/target/screenshots&#13;&#10;-Dorg.eclipse.swtbot.keyboard.layout=EN_US&#13;&#10;-Dorg.eclipse.swtbot.search.timeout=10000&#13;&#10;-Xms64m &#13;&#10;-Xmx256m &#13;&#10;-XX:PermSize=64M &#13;&#10;-XX:MaxPermSize=256M"/>
 <stringAttribute key="pde.version" value="3.3"/>
 <stringAttribute key="product" value="org.eclipse.platform.ide"/>
 <booleanAttribute key="show_selected_only" value="false"/>
