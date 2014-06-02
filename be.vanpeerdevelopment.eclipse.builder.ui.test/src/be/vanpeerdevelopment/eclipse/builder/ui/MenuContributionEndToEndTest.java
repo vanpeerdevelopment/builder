@@ -10,14 +10,33 @@ import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEdi
 
 public class MenuContributionEndToEndTest extends EndToEndTest {
 
-	@Test
-	public void menuContributionNotActiveInNonJavaEditorScope() {
-		FileEditor fileEditor = eclipse.openFile(
-				JAVA_PROJECT_NAME,
-				TEXT_FILE_FOLDER,
-				TEXT_FILE_NAME);
+	private static final String UNDERLINED_B = "&B";
 
-		assertFalse(fileEditor.hasGenerateBuilderInSourceContextMenu());
+	@Test
+	public void menuContributionAddedToSourceMenu() {
+		SourceContextMenu sourceContextMenu = eclipse
+				.openClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME)
+				.sourceContextMenu();
+
+		assertTrue(sourceContextMenu.containsGenerateBuilder());
+	}
+
+	@Test
+	public void menuContributionAddedToSourceMenuHasMnemonic() {
+		String generateBuilderMenuText = eclipse
+				.openClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME)
+				.sourceContextMenu()
+				.generateBuilderMenuText();
+
+		assertTrue(generateBuilderMenuText.contains(UNDERLINED_B));
 	}
 
 	@Test
@@ -39,15 +58,13 @@ public class MenuContributionEndToEndTest extends EndToEndTest {
 	}
 
 	@Test
-	public void menuContributionAddedToSourceMenu() {
-		SourceContextMenu sourceContextMenu = eclipse
-				.openClass(
+	public void menuContributionNotActiveInNonJavaEditorScope() {
+		FileEditor fileEditor = eclipse
+				.openFile(
 						JAVA_PROJECT_NAME,
-						JAVA_SOURCE_FOLDER_NAME,
-						JAVA_PACKAGE_NAME,
-						JAVA_CLASS_NAME)
-				.sourceContextMenu();
+						TEXT_FILE_FOLDER,
+						TEXT_FILE_NAME);
 
-		assertTrue(sourceContextMenu.containsGenerateBuilder());
+		assertFalse(fileEditor.hasGenerateBuilderInSourceContextMenu());
 	}
 }
