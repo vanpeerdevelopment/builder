@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.ui;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -9,12 +10,30 @@ import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.FileEdi
 public class MenuContributionEndToEndTest extends EndToEndTest {
 
 	@Test
-	public void menuContributionNotVisibleInNonJavaEditorScope() {
+	public void menuContributionNotActiveInNonJavaEditorScope() {
 		FileEditor fileEditor = eclipse.openFile(
 				JAVA_PROJECT_NAME,
 				TEXT_FILE_FOLDER,
 				TEXT_FILE_NAME);
 
 		assertFalse(fileEditor.hasGenerateBuilderInSourceContextMenu());
+	}
+
+	@Test
+	public void menuContributionActiveInJavaEditorScope() {
+		eclipse
+				.openClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME)
+				.sourceContextMenu()
+				.generateBuilder();
+
+		assertTrue(eclipse.willGenerateBuilderShellOpen());
+
+		eclipse
+				.selectGenerateBuilderShell()
+				.ok();
 	}
 }

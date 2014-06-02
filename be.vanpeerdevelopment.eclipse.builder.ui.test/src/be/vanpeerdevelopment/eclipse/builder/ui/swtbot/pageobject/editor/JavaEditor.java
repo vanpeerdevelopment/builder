@@ -27,5 +27,9 @@ public class JavaEditor extends EditorObject {
 		public String generateBuilderMenuText() {
 			return sourceContextMenu.menu("Generate Builder").getText();
 		}
+
+		public void generateBuilder() {
+			sourceContextMenu.menu("Generate Builder").click();
+		}
 	}
 }
