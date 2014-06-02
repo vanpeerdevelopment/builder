@@ -1,6 +1,8 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor;
 
+import org.eclipse.swt.SWTException;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
+import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EditorObject;
@@ -30,6 +32,17 @@ public class JavaEditor extends EditorObject {
 
 		public void generateBuilder() {
 			sourceContextMenu.menu("Generate Builder").click();
+		}
+
+		public boolean containsGenerateBuilder() {
+			try {
+				sourceContextMenu.menu("Generate Builder");
+				return true;
+			} catch (SWTException e) {
+				if (e.throwable instanceof WidgetNotFoundException)
+					return false;
+				throw e;
+			}
 		}
 	}
 }

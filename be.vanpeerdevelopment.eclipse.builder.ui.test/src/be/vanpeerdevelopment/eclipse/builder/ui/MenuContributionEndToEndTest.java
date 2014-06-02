@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.FileEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor.SourceContextMenu;
 
 public class MenuContributionEndToEndTest extends EndToEndTest {
 
@@ -35,5 +36,18 @@ public class MenuContributionEndToEndTest extends EndToEndTest {
 		eclipse
 				.selectGenerateBuilderShell()
 				.ok();
+	}
+
+	@Test
+	public void menuContributionAddedToSourceMenu() {
+		SourceContextMenu sourceContextMenu = eclipse
+				.openClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME)
+				.sourceContextMenu();
+
+		assertTrue(sourceContextMenu.containsGenerateBuilder());
 	}
 }
