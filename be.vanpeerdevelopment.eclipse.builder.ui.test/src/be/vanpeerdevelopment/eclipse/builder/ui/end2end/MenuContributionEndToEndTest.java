@@ -1,12 +1,12 @@
-package be.vanpeerdevelopment.eclipse.builder.ui;
+package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.FileEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor.SourceContextMenu;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor.SourceContextMenu;
 
 public class MenuContributionEndToEndTest extends EndToEndTest {
 

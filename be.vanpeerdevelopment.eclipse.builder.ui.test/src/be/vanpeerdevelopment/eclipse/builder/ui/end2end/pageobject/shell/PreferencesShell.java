@@ -1,11 +1,11 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell;
+package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.shellClosed;
 
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.ShellObject;
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.ShellObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public class PreferencesShell extends ShellObject {
 

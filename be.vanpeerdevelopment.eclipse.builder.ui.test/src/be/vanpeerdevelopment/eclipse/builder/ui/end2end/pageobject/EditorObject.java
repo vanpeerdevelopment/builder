@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject;
+package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.editorClosed;
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.editorOpened;
@@ -6,7 +6,7 @@ import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.Conditi
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public class EditorObject extends EclipseObject {
 

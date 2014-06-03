@@ -3,7 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.ICondition;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 abstract class DefaultWorkbenchCondition implements ICondition {
 

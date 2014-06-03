@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui;
+package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 
 import static org.eclipse.jface.bindings.keys.KeyStroke.getInstance;
 import static org.eclipse.swtbot.swt.finder.keyboard.Keystrokes.ALT;
@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.junit.Test;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell.PreferencesShell.KeysPreferencesShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.PreferencesShell.KeysPreferencesShell;
 
 public class KeyBindingEndToEndTest extends EndToEndTest {
 

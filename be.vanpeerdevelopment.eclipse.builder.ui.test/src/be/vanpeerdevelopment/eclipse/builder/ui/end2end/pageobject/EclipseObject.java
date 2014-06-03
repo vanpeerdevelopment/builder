@@ -1,6 +1,6 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject;
+package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public abstract class EclipseObject {
 

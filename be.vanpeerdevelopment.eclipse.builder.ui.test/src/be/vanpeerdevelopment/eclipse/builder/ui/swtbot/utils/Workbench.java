@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse;
+package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.shellOpened;
 
@@ -8,13 +8,13 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.FileEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor.JavaEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.view.PackageExplorerView;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.view.PackageExplorerView;
 
 public class Workbench extends SWTWorkbenchBot {
 
-	Workbench() {
+	public Workbench() {
 	}
 
 	public boolean isViewOpen(String viewTitle) {

@@ -1,12 +1,12 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.menu;
+package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.menu;
 
 import static org.junit.Assert.assertNotNull;
 
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.EclipseObject;
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Workbench;
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.shell.NewShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.EclipseObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.NewShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public class FileMenu extends EclipseObject {
 

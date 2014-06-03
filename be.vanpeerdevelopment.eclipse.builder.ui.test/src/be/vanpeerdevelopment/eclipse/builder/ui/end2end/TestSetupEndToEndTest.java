@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui;
+package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

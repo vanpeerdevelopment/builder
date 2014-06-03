@@ -1,12 +1,12 @@
-package be.vanpeerdevelopment.eclipse.builder.ui;
+package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 
-import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Eclipse.eclipse;
+import static be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.eclipse.Eclipse.eclipse;
 
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.eclipse.Eclipse;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.eclipse.Eclipse;
 
 @RunWith(SWTBotJunit4ClassRunner.class)
 public abstract class EndToEndTest {
