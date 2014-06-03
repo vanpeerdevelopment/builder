@@ -40,6 +40,20 @@ public class MenuContributionEndToEndTest extends EndToEndTest {
 	}
 
 	@Test
+	public void menuContributionAddedToSourceMenuAfterGenerateConstructorsFromSuperClass() {
+		SourceContextMenu sourceContextMenu = eclipse
+				.openClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME)
+				.sourceContextMenu();
+
+		assertTrue(sourceContextMenu
+				.isGenerateBuilderAddedAfterGenerateConstructorsFromSuperClass());
+	}
+
+	@Test
 	public void menuContributionActiveInJavaEditorScope() {
 		eclipse
 				.openClass(

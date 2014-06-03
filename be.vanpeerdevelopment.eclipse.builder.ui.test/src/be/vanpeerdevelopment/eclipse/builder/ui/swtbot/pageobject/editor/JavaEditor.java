@@ -1,5 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.pageobject.editor;
 
+import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.MenuItemAddedAfterMenuItemPredicate.is;
+
 import org.eclipse.swt.SWTException;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
@@ -28,6 +30,12 @@ public class JavaEditor extends EditorObject {
 
 		public String generateBuilderMenuText() {
 			return sourceContextMenu.menu("Generate Builder").getText();
+		}
+
+		public boolean isGenerateBuilderAddedAfterGenerateConstructorsFromSuperClass() {
+			return is("Generate Builder")
+					.addedAfter("Generate Constructors from Superclass...")
+					.in(sourceContextMenu);
 		}
 
 		public void generateBuilder() {
