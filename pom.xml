@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+	<?xml version="1.0" encoding="UTF-8"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -21,6 +21,7 @@
 		<module>be.vanpeerdevelopment.eclipse.builder.branding</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.feature</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.update</module>
+		<module>be.vanpeerdevelopment.eclipse.builder.target</module>
 	</modules>
 	
 	<build>
@@ -37,42 +38,44 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
-				  <environments>
-					<environment>
-					  <os>linux</os>
-					  <ws>gtk</ws>
-					  <arch>x86</arch>
-					</environment>
-					<environment>
-					  <os>linux</os>
-					  <ws>gtk</ws>
-					  <arch>x86_64</arch>
-					</environment>	
-					<environment>
-					  <os>win32</os>
-					  <ws>win32</ws>
-					  <arch>x86_64</arch>
-					</environment>
-				  </environments>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>	
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					 </environments>
+					<target>
+						<artifact>
+							<groupId>be.vanpeerdevelopment.eclipse.builder</groupId>
+							<artifactId>be.vanpeerdevelopment.eclipse.builder.target</artifactId>
+							<version>${project.version}</version>
+						</artifact>
+					</target>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	
-	<repositories>
-		<repository>
-			<id>kepler</id>
-			<name>Eclipse Kepler P2 Repository</name>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/kepler</url>
-		</repository>
-		<repository>
-			<id>swtbot</id>
-			<name>SWTBot P2 Repository</name>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/technology/swtbot/releases/latest</url>
-		</repository>
-	</repositories>
 	
 	<name>Builder</name>
 	<description>Builder is an eclipse plug-in which based upon a selected class generates a builder for it in Java.</description>
