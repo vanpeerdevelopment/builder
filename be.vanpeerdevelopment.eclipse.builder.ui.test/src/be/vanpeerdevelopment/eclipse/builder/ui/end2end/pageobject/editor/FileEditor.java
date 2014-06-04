@@ -6,7 +6,7 @@ import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.EditorObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
-public class FileEditor extends EditorObject {
+public class FileEditor extends EditorObject<FileEditor> {
 
 	public FileEditor(Workbench workbench, String fileName) {
 		super(workbench, fileName);
@@ -23,5 +23,10 @@ public class FileEditor extends EditorObject {
 				return false;
 			throw e;
 		}
+	}
+
+	@Override
+	protected FileEditor self() {
+		return this;
 	}
 }

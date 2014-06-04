@@ -8,7 +8,7 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
-public class EditorObject extends EclipseObject {
+public abstract class EditorObject<S extends EditorObject<S>> extends EclipseObject {
 
 	protected String editorTitle;
 	protected SWTBotEclipseEditor editor;
@@ -21,12 +21,15 @@ public class EditorObject extends EclipseObject {
 		editor.show();
 	}
 
-	public void pressShortcut(KeyStroke... keyStrokes) {
+	public S pressShortcut(KeyStroke... keyStrokes) {
 		editor.pressShortcut(keyStrokes);
+		return self();
 	}
 
 	public void close() {
 		editor.close();
 		workbench.waitUntil(editorClosed(editorTitle));
 	}
+
+	protected abstract S self();
 }

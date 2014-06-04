@@ -10,7 +10,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.EditorObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
-public class JavaEditor extends EditorObject {
+public class JavaEditor extends EditorObject<JavaEditor> {
 
 	public JavaEditor(Workbench workbench, String className) {
 		super(workbench, className + ".java");
@@ -52,5 +52,10 @@ public class JavaEditor extends EditorObject {
 				throw e;
 			}
 		}
+	}
+
+	@Override
+	protected JavaEditor self() {
+		return this;
 	}
 }

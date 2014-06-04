@@ -1,8 +1,12 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 
+import static org.eclipse.jface.bindings.keys.KeyStroke.getInstance;
+import static org.eclipse.swtbot.swt.finder.keyboard.Keystrokes.F10;
+import static org.eclipse.swtbot.swt.finder.keyboard.Keystrokes.SHIFT;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.eclipse.jface.bindings.keys.ParseException;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
@@ -63,6 +67,25 @@ public class MenuContributionEndToEndTest extends EndToEndTest {
 						JAVA_CLASS_NAME)
 				.sourceContextMenu()
 				.generateBuilder();
+
+		assertTrue(eclipse.willGenerateBuilderShellOpen());
+
+		eclipse
+				.selectGenerateBuilderShell()
+				.ok();
+	}
+
+	@Test
+	public void menuContributionMnemonicActiveInJavaEditorScope() throws ParseException {
+		eclipse
+				.openClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME)
+				.pressShortcut(SHIFT, F10)
+				.pressShortcut(getInstance("S"))
+				.pressShortcut(getInstance("B"));
 
 		assertTrue(eclipse.willGenerateBuilderShellOpen());
 

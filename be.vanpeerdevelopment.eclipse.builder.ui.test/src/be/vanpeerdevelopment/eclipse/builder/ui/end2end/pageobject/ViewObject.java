@@ -7,7 +7,7 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
-public class ViewObject extends EclipseObject {
+public abstract class ViewObject extends EclipseObject {
 
 	protected String viewTitle;
 	protected SWTBotView view;
