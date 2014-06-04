@@ -1,7 +1,7 @@
 ##Tasks
 
 - [ ] Develop
-	- [ ] Write end to end tests
+	- [x] Write end to end tests
 	- [x] Complete pom (ci, issues, scm, ...)
 	- [ ] Create target platform
 	- [ ] Multiple plug-in projects providing a public api
