@@ -2,6 +2,8 @@ package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.editorClosed;
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.editorOpened;
+import static org.eclipse.swtbot.swt.finder.keyboard.Keystrokes.F10;
+import static org.eclipse.swtbot.swt.finder.keyboard.Keystrokes.SHIFT;
 
 import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
@@ -19,6 +21,11 @@ public abstract class EditorObject<S extends EditorObject<S>> extends EclipseObj
 		workbench.waitUntil(editorOpened(editorTitle));
 		editor = workbench.editorByTitle(editorTitle).toTextEditor();
 		editor.show();
+	}
+
+	public S openContextMenu() {
+		pressShortcut(SHIFT, F10);
+		return self();
 	}
 
 	public S pressShortcut(KeyStroke... keyStrokes) {
