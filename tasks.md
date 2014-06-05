@@ -7,6 +7,7 @@
 	- [ ] Multiple plug-in projects providing a public api
 	- [ ] Create external dependencies bundle (compile and test scope) to use normal maven dependencies
 	- [ ] Configure travis to build project on windows, linux and mac
+	- [ ] Decide which java version is required + configure java version in maven compiler plugin
 
 - [ ] Deploy
 	- [ ] Create website on gh-pages branch (builder.vanpeerdevelopment.be) + add website in pom
