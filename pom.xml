@@ -18,6 +18,7 @@
 	<modules>
 		<module>be.vanpeerdevelopment.eclipse.builder.ui</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.ui.test</module>
+		<module>be.vanpeerdevelopment.eclipse.builder.core</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.jdt</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.branding</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.feature</module>
