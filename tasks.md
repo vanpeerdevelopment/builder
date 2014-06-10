@@ -4,8 +4,8 @@
 	- [x] Write end to end tests
 	- [x] Complete pom (ci, issues, scm, ...)
 	- [x] Create target platform
-	- [ ] Multiple plug-in projects providing a public api
-	- [ ] Create external dependencies bundle (compile and test scope) to use normal maven dependencies
+	- [x] Multiple plug-in projects providing a public api
+	- [x] Create external dependencies bundle (compile and test scope) to use normal maven dependencies
 	- [ ] Configure travis to build project on windows, linux and mac
 	- [ ] Decide which java version is required + configure java version in maven compiler plugin
 

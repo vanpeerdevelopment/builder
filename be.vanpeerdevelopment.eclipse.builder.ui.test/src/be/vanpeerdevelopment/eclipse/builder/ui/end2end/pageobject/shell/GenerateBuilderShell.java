@@ -10,6 +10,10 @@ public class GenerateBuilderShell extends ShellObject {
 		super(workbench, "Generate Builder");
 	}
 
+	public String getShellContent() {
+		return workbench.label(1).getText();
+	}
+
 	public void ok() {
 		workbench.button("OK").click();
 		workbench.waitUntil(shellClosed("Generate Builder"));
