@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Builder JDT
+Bundle-SymbolicName: be.vanpeerdevelopment.eclipse.builder.jdt;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Van Peer Development
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
