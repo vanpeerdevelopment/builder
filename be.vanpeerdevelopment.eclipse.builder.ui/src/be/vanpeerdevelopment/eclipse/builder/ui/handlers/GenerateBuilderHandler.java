@@ -10,13 +10,14 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.ui.PlatformUI;
 
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
+import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderServiceFactory;
 
 public class GenerateBuilderHandler extends AbstractHandler {
 
 	private GenerateBuilderService generateBuilderService;
 
 	public GenerateBuilderHandler() {
-		generateBuilderService = new GenerateBuilderService();
+		generateBuilderService = GenerateBuilderServiceFactory.createGenerateBuilderService();
 	}
 
 	@Override
