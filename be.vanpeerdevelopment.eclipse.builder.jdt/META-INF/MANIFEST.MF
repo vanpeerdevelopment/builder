@@ -7,4 +7,5 @@ Bundle-Vendor: Van Peer Development
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources
-Export-Package: be.vanpeerdevelopment.eclipse.builder.jdt.api
+Export-Package: be.vanpeerdevelopment.eclipse.builder.jdt.read.api,
+ be.vanpeerdevelopment.eclipse.builder.jdt.write.api
