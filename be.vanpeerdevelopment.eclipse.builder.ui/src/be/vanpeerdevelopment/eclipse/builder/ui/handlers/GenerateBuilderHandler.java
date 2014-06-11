@@ -22,15 +22,17 @@ public class GenerateBuilderHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		generateBuilderService.generateBuilder(getActiveCompilationUnitLocation());
 		openInformation(
 				null,
 				"Generate Builder",
 				"A builder class will be generated for the active class: "
-						+ generateBuilderService.getJavaClassName(getActiveFileLocation()));
+						+ generateBuilderService.getJavaClassName(getActiveCompilationUnitLocation())
+						+ ".java");
 		return null;
 	}
 
-	private IPath getActiveFileLocation() {
+	private IPath getActiveCompilationUnitLocation() {
 		return ((IFile) PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow()
 				.getActivePage()

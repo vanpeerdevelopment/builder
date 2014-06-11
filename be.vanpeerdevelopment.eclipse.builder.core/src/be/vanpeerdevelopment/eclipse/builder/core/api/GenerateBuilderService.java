@@ -4,5 +4,7 @@ import org.eclipse.core.runtime.IPath;
 
 public interface GenerateBuilderService {
 
-	String getJavaClassName(IPath classLocation);
+	void generateBuilder(IPath compilationUnitLocation);
+
+	String getJavaClassName(IPath compilationUnitLocation);
 }
