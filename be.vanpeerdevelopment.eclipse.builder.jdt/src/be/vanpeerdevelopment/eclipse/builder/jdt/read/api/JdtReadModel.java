@@ -4,5 +4,5 @@ import org.eclipse.core.runtime.IPath;
 
 public interface JdtReadModel {
 
-	JdtCompilationUnit getCompilationUnit(IPath compilationUnitLocation);
+	ReadableCompilationUnit getCompilationUnit(IPath compilationUnitLocation);
 }

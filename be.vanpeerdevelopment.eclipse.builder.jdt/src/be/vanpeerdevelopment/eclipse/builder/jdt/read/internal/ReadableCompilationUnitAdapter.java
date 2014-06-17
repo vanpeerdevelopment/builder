@@ -7,20 +7,20 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtCompilationUnit;
+import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.ReadableCompilationUnit;
 import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadException;
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtType;
+import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.ReadableType;
 
-public class CompilationUnitAdapter implements JdtCompilationUnit {
+public class ReadableCompilationUnitAdapter implements ReadableCompilationUnit {
 
 	private ICompilationUnit compilationUnit;
 
-	public CompilationUnitAdapter(ICompilationUnit compilationUnit) {
+	public ReadableCompilationUnitAdapter(ICompilationUnit compilationUnit) {
 		this.compilationUnit = compilationUnit;
 	}
 
 	@Override
-	public JdtType getOnlyType() {
+	public ReadableType getOnlyType() {
 		validateExactlyOneTypeExists();
 		return getTypes().get(0);
 	}
@@ -44,7 +44,7 @@ public class CompilationUnitAdapter implements JdtCompilationUnit {
 							+ getName() + ". More than one type exists.");
 	}
 
-	private List<JdtType> getTypes() {
+	private List<ReadableType> getTypes() {
 		try {
 			return getTypesIgnoringException();
 		} catch (JavaModelException e) {
@@ -54,10 +54,10 @@ public class CompilationUnitAdapter implements JdtCompilationUnit {
 		}
 	}
 
-	private List<JdtType> getTypesIgnoringException() throws JavaModelException {
-		List<JdtType> result = new ArrayList<JdtType>();
+	private List<ReadableType> getTypesIgnoringException() throws JavaModelException {
+		List<ReadableType> result = new ArrayList<ReadableType>();
 		for (IType type : compilationUnit.getTypes()) {
-			result.add(new TypeAdapter(type));
+			result.add(new ReadableTypeAdapter(type));
 		}
 		return result;
 	}

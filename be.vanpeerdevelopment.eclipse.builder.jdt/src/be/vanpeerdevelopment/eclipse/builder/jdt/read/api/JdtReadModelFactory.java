@@ -1,10 +1,10 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.read.api;
 
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.internal.ReadModel;
+import be.vanpeerdevelopment.eclipse.builder.jdt.read.internal.JdtReadModelImpl;
 
 public class JdtReadModelFactory {
 
 	public static JdtReadModel createJdtReadModel() {
-		return new ReadModel();
+		return new JdtReadModelImpl();
 	}
 }
