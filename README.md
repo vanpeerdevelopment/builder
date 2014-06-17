@@ -5,4 +5,4 @@ The builder eclipse plug-in helps Java developers in writing builders. The plugi
 
 assumptions
 -----------
-- Exactly one type exists in the compilation unit for which the builder needs to be generated. Otherwise a JdtReadExcepion will be thrown in the method getOnlyType in JdtCompilationUnit.
+- Exactly one type exists in the compilation unit for which the builder needs to be generated. Otherwise a JdtReadExcepion will be thrown in the method getOnlyType in ReadableCompilationUnit.
