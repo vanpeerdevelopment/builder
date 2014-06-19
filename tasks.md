@@ -8,6 +8,7 @@
 	- [x] Create external dependencies bundle (compile and test scope) to use normal maven dependencies
 	- [ ] Configure travis to build project on windows, linux and mac
 	- [ ] Decide which java version is required + configure java version in maven compiler plugin
+	- [ ] Handle exceptions by showing a message in the UI and log them
 
 - [ ] Deploy
 	- [ ] Create website on gh-pages branch (builder.vanpeerdevelopment.be) + add website in pom
