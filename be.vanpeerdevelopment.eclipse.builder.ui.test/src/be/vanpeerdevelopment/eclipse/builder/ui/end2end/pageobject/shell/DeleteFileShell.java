@@ -4,18 +4,14 @@ import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.Conditi
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.ShellObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
-public class GenerateBuilderShell extends ShellObject {
+public class DeleteFileShell extends ShellObject {
 
-	public GenerateBuilderShell(Workbench workbench) {
-		super(workbench, "Generate Builder");
-	}
-
-	public String getShellContent() {
-		return workbench.label(1).getText();
+	public DeleteFileShell(Workbench workbench) {
+		super(workbench, "Delete");
 	}
 
 	public void ok() {
 		workbench.button("OK").click();
-		workbench.waitUntil(shellClosed("Generate Builder"));
+		workbench.waitUntil(shellClosed("Delete"));
 	}
 }

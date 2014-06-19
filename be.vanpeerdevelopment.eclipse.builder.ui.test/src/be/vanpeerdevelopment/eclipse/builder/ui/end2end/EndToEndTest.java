@@ -16,7 +16,10 @@ public abstract class EndToEndTest {
 	protected static final String JAVA_PACKAGE_NAME = "person";
 	protected static final String JAVA_CLASS_NAME = "Person";
 	protected static final String TEXT_FILE_FOLDER = "resources";
-	protected static final String TEXT_FILE_NAME = "builder-todo-list.txt";
+	protected static final String TEXT_FILE_NAME = "builder-todo-list";
+	protected static final String TEXT_FILE_EXTENSION = ".txt";
+	protected static final String TEXT_FILE_NAME_WITH_EXTENSION = TEXT_FILE_NAME
+			+ TEXT_FILE_EXTENSION;
 
 	protected static Eclipse eclipse;
 
@@ -89,7 +92,7 @@ public abstract class EndToEndTest {
 				.other()
 				.file()
 				.setParentFolder(JAVA_PROJECT_NAME, TEXT_FILE_FOLDER)
-				.setFileName(TEXT_FILE_NAME)
+				.setFileName(TEXT_FILE_NAME_WITH_EXTENSION)
 				.finish();
 	}
 

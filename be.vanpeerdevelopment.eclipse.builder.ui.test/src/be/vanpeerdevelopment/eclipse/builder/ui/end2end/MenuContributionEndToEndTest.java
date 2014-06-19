@@ -66,10 +66,18 @@ public class MenuContributionEndToEndTest extends EndToEndTest {
 				.sourceContextMenu()
 				.generateBuilder();
 
-		assertTrue(eclipse.willGenerateBuilderShellOpen());
+		assertTrue(eclipse.willClassBeCreated(
+				JAVA_PROJECT_NAME,
+				JAVA_SOURCE_FOLDER_NAME,
+				JAVA_PACKAGE_NAME,
+				JAVA_CLASS_NAME + "Builder"));
 
 		eclipse
-				.selectGenerateBuilderShell()
+				.deleteClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME + "Builder")
 				.ok();
 	}
 
@@ -85,10 +93,18 @@ public class MenuContributionEndToEndTest extends EndToEndTest {
 				.pressShortcut(getInstance("S"))
 				.pressShortcut(getInstance("B"));
 
-		assertTrue(eclipse.willGenerateBuilderShellOpen());
+		assertTrue(eclipse.willClassBeCreated(
+				JAVA_PROJECT_NAME,
+				JAVA_SOURCE_FOLDER_NAME,
+				JAVA_PACKAGE_NAME,
+				JAVA_CLASS_NAME + "Builder"));
 
 		eclipse
-				.selectGenerateBuilderShell()
+				.deleteClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME + "Builder")
 				.ok();
 	}
 
@@ -98,7 +114,7 @@ public class MenuContributionEndToEndTest extends EndToEndTest {
 				.openFile(
 						JAVA_PROJECT_NAME,
 						TEXT_FILE_FOLDER,
-						TEXT_FILE_NAME);
+						TEXT_FILE_NAME_WITH_EXTENSION);
 
 		assertFalse(fileEditor.hasGenerateBuilderInSourceContextMenu());
 	}

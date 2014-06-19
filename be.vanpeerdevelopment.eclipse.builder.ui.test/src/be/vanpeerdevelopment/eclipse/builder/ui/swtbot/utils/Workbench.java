@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils;
 
-import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.shellOpened;
+import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.classCreated;
+import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.fileCreated;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEditor;
@@ -10,6 +11,7 @@ import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.DeleteFileShell;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.view.PackageExplorerView;
 
 public class Workbench extends SWTWorkbenchBot {
@@ -33,15 +35,6 @@ public class Workbench extends SWTWorkbenchBot {
 			}
 		}
 		return false;
-	}
-
-	public boolean willShellOpen(String shellName) {
-		try {
-			waitUntil(shellOpened(shellName));
-			return true;
-		} catch (TimeoutException e) {
-			return false;
-		}
 	}
 
 	public boolean isPerspectiveOpen(String perspectiveLabel) {
@@ -70,6 +63,25 @@ public class Workbench extends SWTWorkbenchBot {
 				className);
 	}
 
+	public boolean willClassBeCreated(String projectName, String sourceFolderName,
+			String packageName, String className) {
+		try {
+			waitUntil(classCreated(projectName, sourceFolderName, packageName, className));
+			return true;
+		} catch (TimeoutException e) {
+			return false;
+		}
+	}
+
+	public boolean willFileBeCreated(String projectName, String folderName, String fileName) {
+		try {
+			waitUntil(fileCreated(projectName, folderName, fileName));
+			return true;
+		} catch (TimeoutException e) {
+			return false;
+		}
+	}
+
 	public JavaEditor openClass(String projectName, String sourceFolderName, String packageName,
 			String className) {
 		return getPackageExplorerView().openClass(projectName, sourceFolderName, packageName,
@@ -78,6 +90,13 @@ public class Workbench extends SWTWorkbenchBot {
 
 	public FileEditor openFile(String projectName, String fileFolder, String fileName) {
 		return getPackageExplorerView().openFile(projectName, fileFolder, fileName);
+	}
+
+	public DeleteFileShell deleteClass(String projectName, String sourceFolderName,
+			String packageName,
+			String className) {
+		return getPackageExplorerView().deleteClass(projectName, sourceFolderName, packageName,
+				className);
 	}
 
 	private PackageExplorerView getPackageExplorerView() {

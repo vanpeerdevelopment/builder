@@ -5,6 +5,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.ViewObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.DeleteFileShell;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public class PackageExplorerView extends ViewObject {
@@ -59,6 +60,21 @@ public class PackageExplorerView extends ViewObject {
 				.getNode(fileName)
 				.doubleClick();
 		return new FileEditor(workbench, fileName);
+	}
+
+	public DeleteFileShell deleteClass(String projectName, String sourceFolderName,
+			String packageName,
+			String className) {
+		view
+				.bot()
+				.tree()
+				.expandNode(projectName)
+				.expandNode(sourceFolderName)
+				.expandNode(packageName)
+				.getNode(className + ".java")
+				.contextMenu("Delete")
+				.click();
+		return new DeleteFileShell(workbench);
 	}
 
 	private SWTBotTreeItem[] getAllProjects() {

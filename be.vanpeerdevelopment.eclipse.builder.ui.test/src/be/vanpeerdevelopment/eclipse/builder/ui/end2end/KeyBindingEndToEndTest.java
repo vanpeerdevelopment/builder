@@ -23,10 +23,18 @@ public class KeyBindingEndToEndTest extends EndToEndTest {
 						JAVA_CLASS_NAME)
 				.pressShortcut(CTRL, ALT, getInstance("B"));
 
-		assertTrue(eclipse.willGenerateBuilderShellOpen());
+		assertTrue(eclipse.willClassBeCreated(
+				JAVA_PROJECT_NAME,
+				JAVA_SOURCE_FOLDER_NAME,
+				JAVA_PACKAGE_NAME,
+				JAVA_CLASS_NAME + "Builder"));
 
 		eclipse
-				.selectGenerateBuilderShell()
+				.deleteClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME + "Builder")
 				.ok();
 	}
 
@@ -35,10 +43,13 @@ public class KeyBindingEndToEndTest extends EndToEndTest {
 		eclipse
 				.openFile(JAVA_PROJECT_NAME,
 						TEXT_FILE_FOLDER,
-						TEXT_FILE_NAME)
+						TEXT_FILE_NAME_WITH_EXTENSION)
 				.pressShortcut(CTRL, ALT, getInstance("B"));
 
-		assertFalse(eclipse.willGenerateBuilderShellOpen());
+		assertFalse(eclipse.willFileBeCreated(
+				JAVA_PROJECT_NAME,
+				TEXT_FILE_FOLDER,
+				TEXT_FILE_NAME + "Builder" + TEXT_FILE_EXTENSION));
 	}
 
 	@Test

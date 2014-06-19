@@ -29,8 +29,7 @@ public class GenerateBuilderServiceImpl implements GenerateBuilderService {
 						.build());
 	}
 
-	@Override
-	public String getJavaClassName(IPath compilationUnitLocation) {
+	private String getJavaClassName(IPath compilationUnitLocation) {
 		return jdtReadModel
 				.getCompilationUnit(compilationUnitLocation)
 				.getOnlyType()

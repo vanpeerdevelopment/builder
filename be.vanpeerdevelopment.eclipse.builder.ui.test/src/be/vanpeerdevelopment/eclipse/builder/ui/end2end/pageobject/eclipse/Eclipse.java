@@ -6,7 +6,7 @@ import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEd
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.menu.FileMenu;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.menu.WindowMenu;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.GenerateBuilderShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.DeleteFileShell;
 import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.view.WelcomeView;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
@@ -32,14 +32,6 @@ public class Eclipse extends EclipseObject {
 		return workbench.isPerspectiveOpen(JAVA_PERSPECTIVE_LABEL);
 	}
 
-	public boolean willGenerateBuilderShellOpen() {
-		return workbench.willShellOpen("Generate Builder");
-	}
-
-	public GenerateBuilderShell selectGenerateBuilderShell() {
-		return new GenerateBuilderShell(workbench);
-	}
-
 	public FileMenu fileMenu() {
 		return new FileMenu(workbench);
 	}
@@ -61,6 +53,16 @@ public class Eclipse extends EclipseObject {
 		return workbench.classExists(projectName, sourceFolderName, packageName, className);
 	}
 
+	public boolean willFileBeCreated(String projectName, String folderName, String fileName) {
+		return workbench.willFileBeCreated(projectName, folderName, fileName);
+	}
+
+	public boolean willClassBeCreated(String projectName, String sourceFolderName,
+			String packageName, String className) {
+		return workbench
+				.willClassBeCreated(projectName, sourceFolderName, packageName, className);
+	}
+
 	public JavaEditor openClass(String projectName, String sourceFolderName, String packageName,
 			String className) {
 		return workbench.openClass(projectName, sourceFolderName, packageName, className);
@@ -68,5 +70,11 @@ public class Eclipse extends EclipseObject {
 
 	public FileEditor openFile(String projectName, String fileFolder, String fileName) {
 		return workbench.openFile(projectName, fileFolder, fileName);
+	}
+
+	public DeleteFileShell deleteClass(String projectName, String sourceFolderName,
+			String packageName,
+			String className) {
+		return workbench.deleteClass(projectName, sourceFolderName, packageName, className);
 	}
 }
