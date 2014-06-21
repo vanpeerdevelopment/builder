@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 
 import static org.eclipse.jface.bindings.keys.KeyStroke.getInstance;
+import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -38,7 +39,7 @@ public class MenuContributionEndToEndTest extends EndToEndTest {
 				.sourceContextMenu()
 				.generateBuilderMenuText();
 
-		assertTrue(generateBuilderMenuText.contains(UNDERLINED_B));
+		assertThat(generateBuilderMenuText).contains(UNDERLINED_B);
 	}
 
 	@Test

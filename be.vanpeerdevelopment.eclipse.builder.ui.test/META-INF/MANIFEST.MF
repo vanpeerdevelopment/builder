@@ -11,5 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.swtbot.junit4_x;bundle-version="2.2.1",
  org.eclipse.swtbot.forms.finder;bundle-version="2.2.1",
  org.eclipse.swtbot.eclipse.finder;bundle-version="2.2.1",
- org.apache.log4j;bundle-version="1.2.15"
+ org.apache.log4j;bundle-version="1.2.15",
+ org.mockito.mockito-all;bundle-version="1.9.5",
+ org.easytesting.fest-assert;bundle-version="1.4.0"
 Eclipse-RegisterBuddy: org.apache.log4j 
