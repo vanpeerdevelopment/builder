@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject;
+package be.vanpeerdevelopment.eclipse.builder.ui.pageobject;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.shellOpened;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;

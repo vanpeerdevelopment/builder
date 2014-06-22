@@ -5,7 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class TestSetupEndToEndTest extends EndToEndTest {
+import be.vanpeerdevelopment.eclipse.builder.ui.SWTBotTest;
+
+public class TestSetupEndToEndTest extends SWTBotTest {
 
 	@Test
 	public void welcomeViewIsClosed() {

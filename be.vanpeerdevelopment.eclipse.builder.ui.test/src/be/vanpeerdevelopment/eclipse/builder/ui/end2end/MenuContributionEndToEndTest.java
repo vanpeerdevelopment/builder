@@ -8,10 +8,11 @@ import static org.junit.Assert.assertTrue;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.junit.Test;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor.SourceContextMenu;
+import be.vanpeerdevelopment.eclipse.builder.ui.SWTBotTest;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.FileEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.JavaEditor.SourceContextMenu;
 
-public class MenuContributionEndToEndTest extends EndToEndTest {
+public class MenuContributionEndToEndTest extends SWTBotTest {
 
 	private static final String UNDERLINED_B = "&B";
 

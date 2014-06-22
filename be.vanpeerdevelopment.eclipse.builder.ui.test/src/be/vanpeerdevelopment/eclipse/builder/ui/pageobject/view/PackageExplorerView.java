@@ -1,11 +1,11 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.view;
+package be.vanpeerdevelopment.eclipse.builder.ui.pageobject.view;
 
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.ViewObject;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.DeleteFileShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.ViewObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.FileEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.JavaEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.shell.DeleteFileShell;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public class PackageExplorerView extends ViewObject {

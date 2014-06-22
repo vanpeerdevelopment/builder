@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject;
+package be.vanpeerdevelopment.eclipse.builder.ui.pageobject;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.editorClosed;
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.editorOpened;

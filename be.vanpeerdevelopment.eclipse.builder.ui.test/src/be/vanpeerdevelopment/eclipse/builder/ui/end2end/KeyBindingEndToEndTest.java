@@ -10,9 +10,10 @@ import static org.junit.Assert.assertTrue;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.junit.Test;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.PreferencesShell.KeysPreferencesShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.SWTBotTest;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.shell.PreferencesShell.KeysPreferencesShell;
 
-public class KeyBindingEndToEndTest extends EndToEndTest {
+public class KeyBindingEndToEndTest extends SWTBotTest {
 
 	@Test
 	public void keyBindingActiveInJavaEditorScope() throws ParseException {

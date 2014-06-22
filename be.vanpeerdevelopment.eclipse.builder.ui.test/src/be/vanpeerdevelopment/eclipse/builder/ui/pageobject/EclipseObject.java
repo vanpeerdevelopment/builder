@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject;
+package be.vanpeerdevelopment.eclipse.builder.ui.pageobject;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 

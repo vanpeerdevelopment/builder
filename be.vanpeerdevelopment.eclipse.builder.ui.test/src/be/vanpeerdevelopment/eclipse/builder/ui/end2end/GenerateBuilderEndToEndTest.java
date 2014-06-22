@@ -8,7 +8,9 @@ import static org.junit.Assert.assertTrue;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.junit.Test;
 
-public class GenerateBuilderEndToEndTest extends EndToEndTest {
+import be.vanpeerdevelopment.eclipse.builder.ui.SWTBotTest;
+
+public class GenerateBuilderEndToEndTest extends SWTBotTest {
 
 	@Test
 	public void generateBuilder() throws ParseException {

@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor;
+package be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.MenuItemAddedAfterMenuItemPredicate.is;
 
@@ -7,7 +7,7 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.EditorObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.EditorObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public class JavaEditor extends EditorObject<JavaEditor> {

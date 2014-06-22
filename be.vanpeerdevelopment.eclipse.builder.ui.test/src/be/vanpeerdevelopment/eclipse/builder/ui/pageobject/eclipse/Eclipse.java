@@ -1,13 +1,13 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.eclipse;
+package be.vanpeerdevelopment.eclipse.builder.ui.pageobject.eclipse;
 
-import static be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.OpenPerspectiveShell.JAVA_PERSPECTIVE_LABEL;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.EclipseObject;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.menu.FileMenu;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.menu.WindowMenu;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.DeleteFileShell;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.view.WelcomeView;
+import static be.vanpeerdevelopment.eclipse.builder.ui.pageobject.shell.OpenPerspectiveShell.JAVA_PERSPECTIVE_LABEL;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.EclipseObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.FileEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.JavaEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.menu.FileMenu;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.menu.WindowMenu;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.shell.DeleteFileShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.view.WelcomeView;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public class Eclipse extends EclipseObject {

@@ -1,8 +1,8 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell;
+package be.vanpeerdevelopment.eclipse.builder.ui.pageobject.shell;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.perspectiveOpened;
 import static be.vanpeerdevelopment.eclipse.builder.ui.swtbot.conditions.ConditionFactory.shellClosed;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.ShellObject;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.ShellObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.swtbot.utils.Workbench;
 
 public class OpenPerspectiveShell extends ShellObject {

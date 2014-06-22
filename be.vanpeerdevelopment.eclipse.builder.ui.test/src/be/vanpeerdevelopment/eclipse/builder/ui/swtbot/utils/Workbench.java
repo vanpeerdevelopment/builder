@@ -9,10 +9,10 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.TimeoutException;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.FileEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.editor.JavaEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.shell.DeleteFileShell;
-import be.vanpeerdevelopment.eclipse.builder.ui.end2end.pageobject.view.PackageExplorerView;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.FileEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.JavaEditor;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.shell.DeleteFileShell;
+import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.view.PackageExplorerView;
 
 public class Workbench extends SWTWorkbenchBot {
 
