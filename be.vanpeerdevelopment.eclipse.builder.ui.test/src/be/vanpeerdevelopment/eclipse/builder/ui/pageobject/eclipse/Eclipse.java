@@ -1,6 +1,9 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.pageobject.eclipse;
 
 import static be.vanpeerdevelopment.eclipse.builder.ui.pageobject.shell.OpenPerspectiveShell.JAVA_PERSPECTIVE_LABEL;
+
+import org.eclipse.swt.widgets.Display;
+
 import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.EclipseObject;
 import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.FileEditor;
 import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.JavaEditor;
@@ -18,6 +21,10 @@ public class Eclipse extends EclipseObject {
 
 	public static Eclipse eclipse() {
 		return new Eclipse();
+	}
+
+	public Display getDisplay() {
+		return workbench.getDisplay();
 	}
 
 	public WelcomeView selectWelcomeView() {
