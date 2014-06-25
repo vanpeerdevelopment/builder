@@ -4,7 +4,7 @@ import be.vanpeerdevelopment.eclipse.builder.jdt.write.internal.JdtWriteModelImp
 
 public class JdtWriteModelFactory {
 
-	public static JdtWriteModel createJdtWriteModel() {
+	public JdtWriteModel createJdtWriteModel() {
 		return new JdtWriteModelImpl();
 	}
 }

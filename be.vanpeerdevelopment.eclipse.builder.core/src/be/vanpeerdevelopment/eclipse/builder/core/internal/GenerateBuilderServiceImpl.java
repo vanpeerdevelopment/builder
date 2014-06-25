@@ -1,7 +1,5 @@
 package be.vanpeerdevelopment.eclipse.builder.core.internal;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModelFactory.createJdtReadModel;
-import static be.vanpeerdevelopment.eclipse.builder.jdt.write.api.JdtWriteModelFactory.createJdtWriteModel;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteableCompilationUnit.WriteableCompilationUnitBuilder.writeableCompilationUnit;
 
 import org.eclipse.core.runtime.IPath;
@@ -15,9 +13,9 @@ public class GenerateBuilderServiceImpl implements GenerateBuilderService {
 	private JdtReadModel jdtReadModel;
 	private JdtWriteModel jdtWriteModel;
 
-	public GenerateBuilderServiceImpl() {
-		jdtReadModel = createJdtReadModel();
-		jdtWriteModel = createJdtWriteModel();
+	public GenerateBuilderServiceImpl(JdtReadModel jdtReadModel, JdtWriteModel jdtWriteModel) {
+		this.jdtReadModel = jdtReadModel;
+		this.jdtWriteModel = jdtWriteModel;
 	}
 
 	@Override

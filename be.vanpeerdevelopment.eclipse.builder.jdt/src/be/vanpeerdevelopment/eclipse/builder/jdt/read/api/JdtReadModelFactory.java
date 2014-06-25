@@ -4,7 +4,7 @@ import be.vanpeerdevelopment.eclipse.builder.jdt.read.internal.JdtReadModelImpl;
 
 public class JdtReadModelFactory {
 
-	public static JdtReadModel createJdtReadModel() {
+	public JdtReadModel createJdtReadModel() {
 		return new JdtReadModelImpl();
 	}
 }
