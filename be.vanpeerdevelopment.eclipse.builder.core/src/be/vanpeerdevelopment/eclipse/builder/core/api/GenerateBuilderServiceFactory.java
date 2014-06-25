@@ -4,7 +4,7 @@ import be.vanpeerdevelopment.eclipse.builder.core.internal.GenerateBuilderServic
 
 public class GenerateBuilderServiceFactory {
 
-	public static GenerateBuilderService createGenerateBuilderService() {
+	public GenerateBuilderService createGenerateBuilderService() {
 		return new GenerateBuilderServiceImpl();
 	}
 }

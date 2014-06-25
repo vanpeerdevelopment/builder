@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.SWTBotTest;
 
-public class GenerateBuilderEndToEndTest extends SWTBotTest {
+public class GenerateBuilderHandlerEndToEndTest extends SWTBotTest {
 
 	@Test
 	public void generateBuilder() throws ParseException {
