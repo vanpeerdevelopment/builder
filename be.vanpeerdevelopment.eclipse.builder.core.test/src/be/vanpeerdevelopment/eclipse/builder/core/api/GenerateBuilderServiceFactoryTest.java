@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.core.UnitTest;
+import be.vanpeerdevelopment.eclipse.builder.core.internal.BuilderPatternEngine;
 import be.vanpeerdevelopment.eclipse.builder.core.internal.GenerateBuilderServiceImpl;
 import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModel;
 import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModelFactory;
@@ -34,16 +35,20 @@ public class GenerateBuilderServiceFactoryTest extends UnitTest {
 		when(jdtReadModelFactory.createJdtReadModel()).thenReturn(jdtReadModel);
 		when(jdtWriteModelFactory.createJdtWriteModel()).thenReturn(jdtWriteModel);
 
-		GenerateBuilderService generateBuilderService = generateBuilderServiceFactory
-				.createGenerateBuilderService();
+		GenerateBuilderService generateBuilderService = generateBuilderServiceFactory.createGenerateBuilderService();
 
 		assertThat(generateBuilderService).isInstanceOf(GenerateBuilderServiceImpl.class);
-		assertThat(getJdtReadModel(generateBuilderService)).isEqualTo(jdtReadModel);
+		assertThat(getBuilderPatternEngine(generateBuilderService)).isNotNull();
+		assertThat(getJdtReadModel(getBuilderPatternEngine(generateBuilderService))).isEqualTo(jdtReadModel);
 		assertThat(getJdtWriteModel(generateBuilderService)).isEqualTo(jdtWriteModel);
 	}
 
-	private JdtReadModel getJdtReadModel(GenerateBuilderService generateBuilderService) {
-		return field("jdtReadModel").ofType(JdtReadModel.class).in(generateBuilderService).get();
+	private BuilderPatternEngine getBuilderPatternEngine(GenerateBuilderService generateBuilderService) {
+		return field("builderPatternEngine").ofType(BuilderPatternEngine.class).in(generateBuilderService).get();
+	}
+
+	private JdtReadModel getJdtReadModel(BuilderPatternEngine builderPatternEngine) {
+		return field("jdtReadModel").ofType(JdtReadModel.class).in(builderPatternEngine).get();
 	}
 
 	private JdtWriteModel getJdtWriteModel(GenerateBuilderService generateBuilderService) {

@@ -1,36 +1,28 @@
 package be.vanpeerdevelopment.eclipse.builder.core.internal;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteableCompilationUnit.WriteableCompilationUnitBuilder.writeableCompilationUnit;
-
 import org.eclipse.core.runtime.IPath;
 
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModel;
 import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.JdtWriteModel;
+import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteableCompilationUnit;
 
 public class GenerateBuilderServiceImpl implements GenerateBuilderService {
 
-	private JdtReadModel jdtReadModel;
+	private BuilderPatternEngine builderPatternEngine;
 	private JdtWriteModel jdtWriteModel;
 
-	public GenerateBuilderServiceImpl(JdtReadModel jdtReadModel, JdtWriteModel jdtWriteModel) {
-		this.jdtReadModel = jdtReadModel;
+	public GenerateBuilderServiceImpl(BuilderPatternEngine builderPatternEngine,
+			JdtWriteModel jdtWriteModel) {
+		this.builderPatternEngine = builderPatternEngine;
 		this.jdtWriteModel = jdtWriteModel;
 	}
 
 	@Override
 	public void generateBuilder(IPath compilationUnitLocation) {
+		WriteableCompilationUnit builder = builderPatternEngine
+				.generateBuilder(compilationUnitLocation);
 		jdtWriteModel
 				.getPackage(compilationUnitLocation)
-				.createCompilationUnit(writeableCompilationUnit()
-						.withName(getJavaClassName(compilationUnitLocation) + "Builder")
-						.build());
-	}
-
-	private String getJavaClassName(IPath compilationUnitLocation) {
-		return jdtReadModel
-				.getCompilationUnit(compilationUnitLocation)
-				.getOnlyType()
-				.getSimpleName();
+				.createCompilationUnit(builder);
 	}
 }
