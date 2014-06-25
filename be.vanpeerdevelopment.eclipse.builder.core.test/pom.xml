@@ -18,7 +18,6 @@
 	<description>Builder Core test plug-in contains the tests of the core part of the builder eclipse plug-in.</description>
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
