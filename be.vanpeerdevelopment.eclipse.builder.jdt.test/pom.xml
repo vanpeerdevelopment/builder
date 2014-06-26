@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>be.vanpeerdevelopment.eclipse.builder</groupId>
+		<artifactId>be.vanpeerdevelopment.eclipse.builder.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>be.vanpeerdevelopment.eclipse.builder.jdt.test</artifactId>
+	<packaging>eclipse-test-plugin</packaging>
+	
+	<name>Builder JDT Test Plug-in</name>
+	<description>Builder JDT test plug-in contains the tests of the JDT part of the builder eclipse plug-in.</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<useUIHarness>false</useUIHarness>
+					<useUIThread>false</useUIThread>
+					<product>org.eclipse.sdk.ide</product>
+					<application>org.eclipse.ui.ide.workbench</application>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>osx</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<swtbot.args>-XstartOnFirstThread</swtbot.args>
+			</properties>
+		</profile>
+	</profiles>
+
+</project>

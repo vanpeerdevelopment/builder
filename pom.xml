@@ -18,6 +18,7 @@
 	<modules>
 		<module>be.vanpeerdevelopment.eclipse.builder.target</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.jdt</module>
+		<module>be.vanpeerdevelopment.eclipse.builder.jdt.test</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.core</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.core.test</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.ui</module>
