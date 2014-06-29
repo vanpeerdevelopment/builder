@@ -10,4 +10,5 @@ Require-Bundle: org.junit;bundle-version="4.11.0",
  org.mockito.mockito-all;bundle-version="1.9.5",
  org.easytesting.fest-assert;bundle-version="1.4.0",
  org.easytesting.fest-reflect;bundle-version="1.4.0",
- org.easytesting.fest-util;bundle-version="1.1.6"
+ org.easytesting.fest-util;bundle-version="1.1.6",
+ be.vanpeerdevelopment.eclipse.builder.swtbot

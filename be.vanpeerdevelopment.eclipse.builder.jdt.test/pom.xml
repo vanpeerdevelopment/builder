@@ -24,10 +24,23 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
-					<useUIHarness>false</useUIHarness>
+					<useUIHarness>true</useUIHarness>
 					<useUIThread>false</useUIThread>
 					<product>org.eclipse.sdk.ide</product>
 					<application>org.eclipse.ui.ide.workbench</application>
+					<dependencies>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.eclipse.sdk.feature.group</artifactId>
+						</dependency>
+					</dependencies>
+					<systemProperties>
+						<org.eclipse.swtbot.screenshots.dir>${project.build.directory}/screenshots</org.eclipse.swtbot.screenshots.dir>
+						<org.eclipse.swtbot.keyboard.layout>EN_US</org.eclipse.swtbot.keyboard.layout>
+						<log4j.configuration>file:///${basedir}/config/log4j.xml</log4j.configuration>
+					</systemProperties>
+					<argLine>-Xms64m -Xmx256m -XX:PermSize=64M -XX:MaxPermSize=256M</argLine>
+					<appArgLine>-vmargs -Xms64m -Xmx256m -XX:PermSize=64M -XX:MaxPermSize=256M</appArgLine>
 				</configuration>
 			</plugin>
 		</plugins>
