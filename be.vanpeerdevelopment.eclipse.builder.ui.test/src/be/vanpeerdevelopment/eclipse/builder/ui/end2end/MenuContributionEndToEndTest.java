@@ -1,6 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 
-import static org.eclipse.jface.bindings.keys.KeyStroke.getInstance;
+import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.key;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,11 +8,11 @@ import static org.junit.Assert.assertTrue;
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.junit.Test;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.SWTBotTest;
-import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.FileEditor;
-import be.vanpeerdevelopment.eclipse.builder.ui.pageobject.editor.JavaEditor.SourceContextMenu;
+import be.vanpeerdevelopment.eclipse.builder.swtbot.pageobject.editor.FileEditor;
+import be.vanpeerdevelopment.eclipse.builder.swtbot.pageobject.editor.JavaEditor.SourceContextMenu;
+import be.vanpeerdevelopment.eclipse.builder.ui.EclipseTest;
 
-public class MenuContributionEndToEndTest extends SWTBotTest {
+public class MenuContributionEndToEndTest extends EclipseTest {
 
 	private static final String UNDERLINED_B = "&B";
 
@@ -92,8 +92,8 @@ public class MenuContributionEndToEndTest extends SWTBotTest {
 						JAVA_PACKAGE_NAME,
 						JAVA_CLASS_NAME)
 				.openContextMenu()
-				.pressShortcut(getInstance("S"))
-				.pressShortcut(getInstance("B"));
+				.pressShortcut(key("S"))
+				.pressShortcut(key("B"));
 
 		assertTrue(eclipse.willClassBeCreated(
 				JAVA_PROJECT_NAME,

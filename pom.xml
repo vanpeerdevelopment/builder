@@ -17,6 +17,7 @@
 	
 	<modules>
 		<module>be.vanpeerdevelopment.eclipse.builder.target</module>
+		<module>be.vanpeerdevelopment.eclipse.builder.swtbot</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.jdt</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.jdt.test</module>
 		<module>be.vanpeerdevelopment.eclipse.builder.core</module>

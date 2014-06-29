@@ -6,14 +6,9 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Van Peer Development
 Fragment-Host: be.vanpeerdevelopment.eclipse.builder.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.junit;bundle-version="4.11.0",
- org.eclipse.swtbot.junit4_x;bundle-version="2.2.1",
- org.eclipse.swtbot.forms.finder;bundle-version="2.2.1",
- org.eclipse.swtbot.eclipse.finder;bundle-version="2.2.1",
- org.apache.log4j;bundle-version="1.2.15",
+Require-Bundle: org.junit;bundle-version="4.11.0",
  org.mockito.mockito-all;bundle-version="1.9.5",
  org.easytesting.fest-assert;bundle-version="1.4.0",
- org.easytesting.fest-util;bundle-version="1.1.6"
+ org.easytesting.fest-util;bundle-version="1.1.6",
+ be.vanpeerdevelopment.eclipse.builder.swtbot
 Eclipse-RegisterBuddy: org.apache.log4j 

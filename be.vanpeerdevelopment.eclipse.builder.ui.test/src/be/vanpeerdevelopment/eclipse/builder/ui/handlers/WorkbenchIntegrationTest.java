@@ -1,16 +1,15 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
 
-import static org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable.syncExec;
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.swtbot.swt.finder.results.Result;
 import org.junit.Before;
 import org.junit.Test;
 
-import be.vanpeerdevelopment.eclipse.builder.ui.SWTBotTest;
+import be.vanpeerdevelopment.eclipse.builder.swtbot.pageobject.eclipse.Function;
+import be.vanpeerdevelopment.eclipse.builder.ui.EclipseTest;
 
-public class WorkbenchIntegrationTest extends SWTBotTest {
+public class WorkbenchIntegrationTest extends EclipseTest {
 
 	private Workbench workbench;
 
@@ -27,9 +26,9 @@ public class WorkbenchIntegrationTest extends SWTBotTest {
 						JAVA_PACKAGE_NAME,
 						JAVA_CLASS_NAME);
 
-		IPath location = syncExec(eclipse.getDisplay(), new Result<IPath>() {
+		IPath location = eclipse.runInUiThread(new Function<IPath>() {
 			@Override
-			public IPath run() {
+			public IPath execute() {
 				return workbench.getActiveCompilationUnitLocation();
 			}
 		});
