@@ -3,9 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.ALT;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.CTRL;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.key;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.fest.assertions.Assertions.assertThat;
 
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.junit.Test;
@@ -24,11 +22,13 @@ public class KeyBindingEndToEndTest extends EclipseTest {
 						JAVA_CLASS_NAME)
 				.pressShortcut(CTRL, ALT, key("B"));
 
-		assertTrue(eclipse.willClassBeCreated(
-				JAVA_PROJECT_NAME,
-				JAVA_SOURCE_FOLDER_NAME,
-				JAVA_PACKAGE_NAME,
-				JAVA_CLASS_NAME + "Builder"));
+		assertThat(eclipse
+				.willClassBeCreated(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME + "Builder"))
+				.isTrue();
 
 		eclipse
 				.deleteClass(
@@ -47,10 +47,12 @@ public class KeyBindingEndToEndTest extends EclipseTest {
 						TEXT_FILE_NAME_WITH_EXTENSION)
 				.pressShortcut(CTRL, ALT, key("B"));
 
-		assertFalse(eclipse.willFileBeCreated(
-				JAVA_PROJECT_NAME,
-				TEXT_FILE_FOLDER,
-				TEXT_FILE_NAME + "Builder" + TEXT_FILE_EXTENSION));
+		assertThat(eclipse
+				.willFileBeCreated(
+						JAVA_PROJECT_NAME,
+						TEXT_FILE_FOLDER,
+						TEXT_FILE_NAME + "Builder" + TEXT_FILE_EXTENSION))
+				.isFalse();
 	}
 
 	@Test
@@ -63,7 +65,7 @@ public class KeyBindingEndToEndTest extends EclipseTest {
 				.sourceContextMenu()
 				.generateBuilderMenuText();
 
-		assertTrue(generateBuilderMenuText.contains("Ctrl+Alt+B"));
+		assertThat(generateBuilderMenuText).contains("Ctrl+Alt+B");
 	}
 
 	@Test
@@ -74,22 +76,13 @@ public class KeyBindingEndToEndTest extends EclipseTest {
 				.generalKeys()
 				.setScheme("Default");
 
-		assertTrue(keysPreferencesShell.containsCommand("Generate Builder"));
-		assertEquals(
-				"Generate Builder",
-				keysPreferencesShell.getCommandName("Generate Builder"));
-		assertEquals(
-				"A builder class will be generated for the active class.",
-				keysPreferencesShell.getDescription("Generate Builder"));
-		assertEquals(
-				"Ctrl+Alt+B",
-				keysPreferencesShell.getKeyBinding("Generate Builder"));
-		assertEquals(
-				"Editing Java Source",
-				keysPreferencesShell.getWhenActive("Generate Builder"));
-		assertEquals(
-				"Source",
-				keysPreferencesShell.getCategory("Generate Builder"));
+		assertThat(keysPreferencesShell.containsCommand("Generate Builder")).isTrue();
+		assertThat(keysPreferencesShell.getCommandName("Generate Builder")).isEqualTo("Generate Builder");
+		assertThat(keysPreferencesShell.getDescription("Generate Builder"))
+				.isEqualTo("A builder class will be generated for the active class.");
+		assertThat(keysPreferencesShell.getKeyBinding("Generate Builder")).isEqualTo("Ctrl+Alt+B");
+		assertThat(keysPreferencesShell.getWhenActive("Generate Builder")).isEqualTo("Editing Java Source");
+		assertThat(keysPreferencesShell.getCategory("Generate Builder")).isEqualTo("Source");
 
 		keysPreferencesShell
 				.cancel();

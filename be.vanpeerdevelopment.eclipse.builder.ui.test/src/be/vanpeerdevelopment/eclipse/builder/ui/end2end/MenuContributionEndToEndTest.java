@@ -2,8 +2,6 @@ package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.key;
 import static org.fest.assertions.Assertions.assertThat;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import org.eclipse.jface.bindings.keys.ParseException;
 import org.junit.Test;
@@ -26,7 +24,7 @@ public class MenuContributionEndToEndTest extends EclipseTest {
 						JAVA_CLASS_NAME)
 				.sourceContextMenu();
 
-		assertTrue(sourceContextMenu.containsGenerateBuilder());
+		assertThat(sourceContextMenu.containsGenerateBuilder()).isTrue();
 	}
 
 	@Test
@@ -53,8 +51,9 @@ public class MenuContributionEndToEndTest extends EclipseTest {
 						JAVA_CLASS_NAME)
 				.sourceContextMenu();
 
-		assertTrue(sourceContextMenu
-				.isGenerateBuilderAddedAfterGenerateConstructorsFromSuperClass());
+		assertThat(sourceContextMenu
+				.isGenerateBuilderAddedAfterGenerateConstructorsFromSuperClass())
+				.isTrue();
 	}
 
 	@Test
@@ -68,11 +67,13 @@ public class MenuContributionEndToEndTest extends EclipseTest {
 				.sourceContextMenu()
 				.generateBuilder();
 
-		assertTrue(eclipse.willClassBeCreated(
-				JAVA_PROJECT_NAME,
-				JAVA_SOURCE_FOLDER_NAME,
-				JAVA_PACKAGE_NAME,
-				JAVA_CLASS_NAME + "Builder"));
+		assertThat(eclipse
+				.willClassBeCreated(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME + "Builder"))
+				.isTrue();
 
 		eclipse
 				.deleteClass(
@@ -95,11 +96,13 @@ public class MenuContributionEndToEndTest extends EclipseTest {
 				.pressShortcut(key("S"))
 				.pressShortcut(key("B"));
 
-		assertTrue(eclipse.willClassBeCreated(
-				JAVA_PROJECT_NAME,
-				JAVA_SOURCE_FOLDER_NAME,
-				JAVA_PACKAGE_NAME,
-				JAVA_CLASS_NAME + "Builder"));
+		assertThat(eclipse
+				.willClassBeCreated(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME + "Builder"))
+				.isTrue();
 
 		eclipse
 				.deleteClass(
@@ -118,6 +121,6 @@ public class MenuContributionEndToEndTest extends EclipseTest {
 						TEXT_FILE_FOLDER,
 						TEXT_FILE_NAME_WITH_EXTENSION);
 
-		assertFalse(fileEditor.hasGenerateBuilderInSourceContextMenu());
+		assertThat(fileEditor.hasGenerateBuilderInSourceContextMenu()).isFalse();
 	}
 }
