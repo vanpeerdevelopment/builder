@@ -1,20 +1,14 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
 
+import static org.eclipse.ui.PlatformUI.getWorkbench;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.PlatformUI;
 
 public class Workbench {
 
-	private IWorkbench workbench;
-
-	public Workbench() {
-		workbench = PlatformUI.getWorkbench();
-	}
-
 	public IPath getActiveCompilationUnitLocation() {
-		return ((IFile) workbench
+		return ((IFile) getWorkbench()
 				.getActiveWorkbenchWindow()
 				.getActivePage()
 				.getActiveEditor()

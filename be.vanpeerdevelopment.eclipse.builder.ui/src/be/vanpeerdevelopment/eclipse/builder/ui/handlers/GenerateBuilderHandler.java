@@ -4,16 +4,12 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderServiceFactory;
-
 public class GenerateBuilderHandler extends AbstractHandler {
 
 	private GenerateBuilderHandlerModel generateBuilderHandlerModel;
 
 	public GenerateBuilderHandler() {
-		generateBuilderHandlerModel = new GenerateBuilderHandlerModel(
-				new GenerateBuilderServiceFactory().createGenerateBuilderService(),
-				new Workbench());
+		generateBuilderHandlerModel = new GenerateBuilderHandlerModel();
 	}
 
 	@Override

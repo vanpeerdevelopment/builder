@@ -1,16 +1,16 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
 
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
+import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderServiceFactory;
 
 public class GenerateBuilderHandlerModel {
 
-	private GenerateBuilderService generateBuilderService;
 	private Workbench workbench;
+	private GenerateBuilderService generateBuilderService;
 
-	public GenerateBuilderHandlerModel(GenerateBuilderService generateBuilderService,
-			Workbench workbench) {
-		this.generateBuilderService = generateBuilderService;
-		this.workbench = workbench;
+	public GenerateBuilderHandlerModel() {
+		this.workbench = new Workbench();
+		this.generateBuilderService = new GenerateBuilderServiceFactory().createGenerateBuilderService();
 	}
 
 	public void generateBuilder() {
