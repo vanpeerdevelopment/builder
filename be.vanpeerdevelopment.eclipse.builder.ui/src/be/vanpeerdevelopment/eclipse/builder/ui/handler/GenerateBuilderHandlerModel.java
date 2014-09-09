@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
+package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderServiceFactory;

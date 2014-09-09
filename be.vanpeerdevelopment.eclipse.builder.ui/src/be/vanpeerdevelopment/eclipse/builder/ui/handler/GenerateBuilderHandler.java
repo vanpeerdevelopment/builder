@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
+package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;

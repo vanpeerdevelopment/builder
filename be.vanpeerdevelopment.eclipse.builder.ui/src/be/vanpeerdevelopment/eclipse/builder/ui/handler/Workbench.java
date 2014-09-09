@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
+package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import static org.eclipse.ui.PlatformUI.getWorkbench;
 

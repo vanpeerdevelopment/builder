@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
+package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.swtbot.pageobject.eclipse.Function;
 import be.vanpeerdevelopment.eclipse.builder.ui.EclipseTest;
+import be.vanpeerdevelopment.eclipse.builder.ui.handler.Workbench;
 
 public class WorkbenchIntegrationTest extends EclipseTest {
 

@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
+package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import static org.mockito.Mockito.verify;
 
@@ -8,6 +8,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.ui.UnitTest;
+import be.vanpeerdevelopment.eclipse.builder.ui.handler.GenerateBuilderHandler;
+import be.vanpeerdevelopment.eclipse.builder.ui.handler.GenerateBuilderHandlerModel;
 
 public class GenerateBuilderHandlerTest extends UnitTest {
 

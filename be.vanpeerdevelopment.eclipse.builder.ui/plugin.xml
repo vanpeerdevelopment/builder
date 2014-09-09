@@ -23,7 +23,7 @@
 
 	<extension point="org.eclipse.ui.handlers">
     	<handler
-   			class="be.vanpeerdevelopment.eclipse.builder.ui.handlers.GenerateBuilderHandler"
+   			class="be.vanpeerdevelopment.eclipse.builder.ui.handler.GenerateBuilderHandler"
         	commandId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder">
         	<enabledWhen>
         		<reference definitionId="be.vanpeerdevelopment.eclipse.builder.ui.command.generatebuilder.active"/>

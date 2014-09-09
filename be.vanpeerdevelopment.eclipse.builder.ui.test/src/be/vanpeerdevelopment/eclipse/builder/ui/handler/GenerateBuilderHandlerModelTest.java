@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.ui.handlers;
+package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -10,6 +10,8 @@ import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
 import be.vanpeerdevelopment.eclipse.builder.ui.UnitTest;
+import be.vanpeerdevelopment.eclipse.builder.ui.handler.GenerateBuilderHandlerModel;
+import be.vanpeerdevelopment.eclipse.builder.ui.handler.Workbench;
 
 public class GenerateBuilderHandlerModelTest extends UnitTest {
 
