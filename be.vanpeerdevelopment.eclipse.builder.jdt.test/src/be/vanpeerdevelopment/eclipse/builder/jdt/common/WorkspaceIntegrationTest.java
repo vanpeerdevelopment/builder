@@ -5,11 +5,19 @@ import static org.fest.assertions.Assertions.assertThat;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
+import org.junit.Before;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
 
-public class FileUtilsIntegrationTest extends EclipseTest {
+public class WorkspaceIntegrationTest extends EclipseTest {
+
+	private Workspace workspace;
+
+	@Before
+	public void setup() {
+		workspace = new Workspace();
+	}
 
 	@Test
 	public void getFile() throws Exception {
@@ -21,7 +29,7 @@ public class FileUtilsIntegrationTest extends EclipseTest {
 				.append(JAVA_PACKAGE_NAME)
 				.append(JAVA_CLASS_NAME + ".java");
 
-		IFile file = FileUtils.getFile(javaClassLocation);
+		IFile file = workspace.getFile(javaClassLocation);
 
 		assertThat(file.getName()).isEqualTo(JAVA_CLASS_NAME + ".java");
 	}

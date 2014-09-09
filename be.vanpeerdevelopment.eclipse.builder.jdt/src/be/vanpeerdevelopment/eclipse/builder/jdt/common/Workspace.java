@@ -5,9 +5,9 @@ import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
 
-public class FileUtils {
+public class Workspace {
 
-	public static IFile getFile(IPath fileLocation) {
+	public IFile getFile(IPath fileLocation) {
 		return getWorkspace()
 				.getRoot()
 				.getFileForLocation(fileLocation);
