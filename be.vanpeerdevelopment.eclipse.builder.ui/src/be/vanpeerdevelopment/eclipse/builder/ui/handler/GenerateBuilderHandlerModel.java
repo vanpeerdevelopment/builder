@@ -1,7 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
-import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderServiceFactory;
 
 public class GenerateBuilderHandlerModel {
 
@@ -10,7 +9,7 @@ public class GenerateBuilderHandlerModel {
 
 	public GenerateBuilderHandlerModel() {
 		this.workbench = new Workbench();
-		this.generateBuilderService = new GenerateBuilderServiceFactory().createGenerateBuilderService();
+		this.generateBuilderService = new GenerateBuilderService();
 	}
 
 	public void generateBuilder() {
