@@ -5,7 +5,6 @@ import static be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteableCompi
 import org.eclipse.core.runtime.IPath;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModel;
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModelFactory;
 import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteableCompilationUnit;
 
 public class BuilderPatternEngine {
@@ -13,7 +12,7 @@ public class BuilderPatternEngine {
 	private JdtReadModel jdtReadModel;
 
 	public BuilderPatternEngine() {
-		this.jdtReadModel = new JdtReadModelFactory().createJdtReadModel();
+		this.jdtReadModel = new JdtReadModel();
 	}
 
 	public WriteableCompilationUnit generateBuilder(IPath compilationUnitLocation) {

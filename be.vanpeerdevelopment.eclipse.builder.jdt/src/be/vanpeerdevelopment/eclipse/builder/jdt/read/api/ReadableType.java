@@ -1,6 +1,16 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.read.api;
 
-public interface ReadableType {
+import org.eclipse.jdt.core.IType;
 
-	String getSimpleName();
+public class ReadableType {
+
+	private IType type;
+
+	ReadableType(IType type) {
+		this.type = type;
+	}
+
+	public String getSimpleName() {
+		return type.getElementName();
+	}
 }
