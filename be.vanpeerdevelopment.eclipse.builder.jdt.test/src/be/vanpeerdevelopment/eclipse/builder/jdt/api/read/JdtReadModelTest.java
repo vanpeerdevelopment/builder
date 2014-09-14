@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.read;
 
+import static be.vanpeerdevelopment.eclipse.builder.jdt.ICompilationUnitTestBuilder.anICompilationUnit;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.field;
 import static org.mockito.Mockito.when;
@@ -22,8 +23,7 @@ public class JdtReadModelTest extends UnitTest {
 
 	@Mock
 	private IPath compilationUnitLocation;
-	@Mock
-	private ICompilationUnit compilationUnit;
+	private ICompilationUnit compilationUnit = anICompilationUnit().build();
 
 	@Test
 	public void getCompilationUnit() {
