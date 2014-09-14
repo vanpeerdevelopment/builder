@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.eclipse.jdt.core.IType;
 
@@ -18,5 +19,10 @@ public class ITypeTestBuilder {
 
 	public IType build() {
 		return type;
+	}
+
+	public ITypeTestBuilder withName(String name) {
+		when(type.getElementName()).thenReturn(name);
+		return this;
 	}
 }
