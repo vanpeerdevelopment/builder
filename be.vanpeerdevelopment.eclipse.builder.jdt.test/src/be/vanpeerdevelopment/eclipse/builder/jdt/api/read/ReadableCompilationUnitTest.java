@@ -16,6 +16,18 @@ public class ReadableCompilationUnitTest extends UnitTest {
 	private static final String COMPILATION_UNIT_NAME = "CompilationUnitName";
 
 	@Test
+	public void getName() throws Exception {
+		ICompilationUnit compilationUnit = anICompilationUnit()
+				.withName(COMPILATION_UNIT_NAME)
+				.build();
+		ReadableCompilationUnit readableCompilationUnit = new ReadableCompilationUnit(compilationUnit);
+
+		String name = readableCompilationUnit.getName();
+
+		assertThat(name).isEqualTo(COMPILATION_UNIT_NAME);
+	}
+
+	@Test
 	public void getOnlyType() {
 		IType type = anIType().build();
 		ICompilationUnit compilationUnit = anICompilationUnit()

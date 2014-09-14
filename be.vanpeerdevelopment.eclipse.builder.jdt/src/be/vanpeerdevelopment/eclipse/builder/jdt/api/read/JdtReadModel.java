@@ -1,7 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.read;
 
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.jdt.core.ICompilationUnit;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.Workspace;
 
@@ -14,7 +13,6 @@ public class JdtReadModel {
 	}
 
 	public ReadableCompilationUnit getCompilationUnit(IPath compilationUnitLocation) {
-		ICompilationUnit compilationUnit = workspace.getCompilationUnit(compilationUnitLocation);
-		return new ReadableCompilationUnit(compilationUnit);
+		return workspace.getCompilationUnit(compilationUnitLocation);
 	}
 }

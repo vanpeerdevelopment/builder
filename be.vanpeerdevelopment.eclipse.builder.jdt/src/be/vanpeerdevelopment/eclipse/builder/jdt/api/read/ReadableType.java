@@ -6,7 +6,7 @@ public class ReadableType {
 
 	private IType type;
 
-	ReadableType(IType type) {
+	public ReadableType(IType type) {
 		this.type = type;
 	}
 

@@ -11,8 +11,12 @@ public class ReadableCompilationUnit {
 
 	private ICompilationUnit compilationUnit;
 
-	ReadableCompilationUnit(ICompilationUnit compilationUnit) {
+	public ReadableCompilationUnit(ICompilationUnit compilationUnit) {
 		this.compilationUnit = compilationUnit;
+	}
+
+	public String getName() {
+		return compilationUnit.getElementName();
 	}
 
 	public ReadableType getOnlyType() {
@@ -55,9 +59,5 @@ public class ReadableCompilationUnit {
 			result.add(new ReadableType(type));
 		}
 		return result;
-	}
-
-	private String getName() {
-		return compilationUnit.getElementName();
 	}
 }

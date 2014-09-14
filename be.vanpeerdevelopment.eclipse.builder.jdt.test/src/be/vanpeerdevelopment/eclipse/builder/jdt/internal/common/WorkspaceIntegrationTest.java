@@ -4,12 +4,12 @@ import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.junit.Before;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
 
 public class WorkspaceIntegrationTest extends EclipseTest {
 
@@ -30,9 +30,9 @@ public class WorkspaceIntegrationTest extends EclipseTest {
 				.append(JAVA_PACKAGE_NAME)
 				.append(JAVA_CLASS_NAME + ".java");
 
-		ICompilationUnit compilationUnit = workspace.getCompilationUnit(compilationUnitLocation);
+		ReadableCompilationUnit readableCompilationUnit = workspace.getCompilationUnit(compilationUnitLocation);
 
-		assertThat(compilationUnit.getElementName()).isEqualTo(JAVA_CLASS_NAME + ".java");
+		assertThat(readableCompilationUnit.getName()).isEqualTo(JAVA_CLASS_NAME + ".java");
 	}
 
 	@Test
