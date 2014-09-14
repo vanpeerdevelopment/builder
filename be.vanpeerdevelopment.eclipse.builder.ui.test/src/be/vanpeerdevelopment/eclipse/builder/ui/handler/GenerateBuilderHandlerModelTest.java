@@ -10,15 +10,13 @@ import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
 import be.vanpeerdevelopment.eclipse.builder.ui.UnitTest;
-import be.vanpeerdevelopment.eclipse.builder.ui.handler.GenerateBuilderHandlerModel;
-import be.vanpeerdevelopment.eclipse.builder.ui.handler.Workbench;
 
 public class GenerateBuilderHandlerModelTest extends UnitTest {
 
 	@Mock
-	private GenerateBuilderService generateBuilderService;
-	@Mock
 	private Workbench workbench;
+	@Mock
+	private GenerateBuilderService generateBuilderService;
 	@InjectMocks
 	private GenerateBuilderHandlerModel generateBuilderHandlerModel;
 

@@ -10,10 +10,8 @@ import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.core.UnitTest;
 import be.vanpeerdevelopment.eclipse.builder.core.internal.BuilderPatternEngine;
-import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
 import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.JdtWriteModel;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteableCompilationUnit;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteablePackageFragment;
+import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand;
 
 public class GenerateBuilderServiceTest extends UnitTest {
 
@@ -22,22 +20,19 @@ public class GenerateBuilderServiceTest extends UnitTest {
 	@Mock
 	private JdtWriteModel jdtWriteModel;
 	@InjectMocks
-	private GenerateBuilderService generateBuilderServiceImpl;
+	private GenerateBuilderService generateBuilderService;
 
 	@Mock
 	private IPath compilationUnitLocation;
 	@Mock
-	private WriteableCompilationUnit builder;
-	@Mock
-	private WriteablePackageFragment packageFragment;
+	private CreateCompilationUnitCommand command;
 
 	@Test
 	public void generateBuilder() throws Exception {
-		when(builderPatternEngine.generateBuilder(compilationUnitLocation)).thenReturn(builder);
-		when(jdtWriteModel.getPackage(compilationUnitLocation)).thenReturn(packageFragment);
+		when(builderPatternEngine.generateBuilder(compilationUnitLocation)).thenReturn(command);
 
-		generateBuilderServiceImpl.generateBuilder(compilationUnitLocation);
+		generateBuilderService.generateBuilder(compilationUnitLocation);
 
-		verify(packageFragment).createCompilationUnit(builder);
+		verify(jdtWriteModel).createCompilationUnit(command);
 	}
 }

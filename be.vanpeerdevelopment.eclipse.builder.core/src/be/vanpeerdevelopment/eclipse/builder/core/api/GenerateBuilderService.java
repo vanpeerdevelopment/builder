@@ -4,7 +4,7 @@ import org.eclipse.core.runtime.IPath;
 
 import be.vanpeerdevelopment.eclipse.builder.core.internal.BuilderPatternEngine;
 import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.JdtWriteModel;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteableCompilationUnit;
+import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand;
 
 public class GenerateBuilderService {
 
@@ -17,10 +17,7 @@ public class GenerateBuilderService {
 	}
 
 	public void generateBuilder(IPath compilationUnitLocation) {
-		WriteableCompilationUnit builder = builderPatternEngine
-				.generateBuilder(compilationUnitLocation);
-		jdtWriteModel
-		.getPackage(compilationUnitLocation)
-		.createCompilationUnit(builder);
+		CreateCompilationUnitCommand command = builderPatternEngine.generateBuilder(compilationUnitLocation);
+		jdtWriteModel.createCompilationUnit(command);
 	}
 }

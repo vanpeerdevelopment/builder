@@ -12,7 +12,7 @@ import be.vanpeerdevelopment.eclipse.builder.core.UnitTest;
 import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModel;
 import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.ReadableCompilationUnit;
 import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.ReadableType;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.WriteableCompilationUnit;
+import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand;
 
 public class BuilderPatternEngineTest extends UnitTest {
 
@@ -36,8 +36,9 @@ public class BuilderPatternEngineTest extends UnitTest {
 		when(compilationUnit.getOnlyType()).thenReturn(type);
 		when(type.getSimpleName()).thenReturn(TYPE_NAME);
 
-		WriteableCompilationUnit builder = builderPatternEngine.generateBuilder(compilationUnitLocation);
+		CreateCompilationUnitCommand command = builderPatternEngine.generateBuilder(compilationUnitLocation);
 
-		assertThat(builder.getName()).isEqualTo(TYPE_NAME + "Builder");
+		assertThat(command.getSiblingCompilationUnitLocation()).isEqualTo(compilationUnitLocation);
+		assertThat(command.getName()).isEqualTo(TYPE_NAME + "Builder");
 	}
 }
