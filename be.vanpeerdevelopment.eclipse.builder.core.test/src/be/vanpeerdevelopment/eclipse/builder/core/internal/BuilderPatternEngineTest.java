@@ -10,7 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.core.UnitTest;
-import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderContext;
+import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderCommand;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.JdtReadModel;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableType;
@@ -26,7 +26,7 @@ public class BuilderPatternEngineTest extends UnitTest {
 	private BuilderPatternEngine builderPatternEngine;
 
 	@Mock
-	private GenerateBuilderContext context;
+	private GenerateBuilderCommand command;
 	@Mock
 	private IPath compilationUnitLocation;
 	@Mock
@@ -38,15 +38,15 @@ public class BuilderPatternEngineTest extends UnitTest {
 
 	@Test
 	public void generateBuilder() {
-		when(context.getCompilationUnitLocation()).thenReturn(compilationUnitLocation);
-		when(context.getPackageLocation()).thenReturn(packageLocation);
+		when(command.getCompilationUnitLocation()).thenReturn(compilationUnitLocation);
+		when(command.getPackageLocation()).thenReturn(packageLocation);
 		when(jdtReadModel.getCompilationUnit(compilationUnitLocation)).thenReturn(compilationUnit);
 		when(compilationUnit.getOnlyType()).thenReturn(type);
 		when(type.getSimpleName()).thenReturn(TYPE_NAME);
 
-		CreateCompilationUnitCommand command = builderPatternEngine.generateBuilder(context);
+		CreateCompilationUnitCommand createCompilationUnitCommand = builderPatternEngine.generateBuilder(command);
 
-		assertThat(command.getPackageLocation()).isEqualTo(packageLocation);
-		assertThat(command.getName()).isEqualTo(TYPE_NAME + BUILDER_SUFFIX);
+		assertThat(createCompilationUnitCommand.getPackageLocation()).isEqualTo(packageLocation);
+		assertThat(createCompilationUnitCommand.getName()).isEqualTo(TYPE_NAME + BUILDER_SUFFIX);
 	}
 }

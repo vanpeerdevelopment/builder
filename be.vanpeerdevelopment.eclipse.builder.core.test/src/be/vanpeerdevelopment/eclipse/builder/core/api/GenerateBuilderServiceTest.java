@@ -22,16 +22,16 @@ public class GenerateBuilderServiceTest extends UnitTest {
 	private GenerateBuilderService generateBuilderService;
 
 	@Mock
-	private GenerateBuilderContext context;
+	private GenerateBuilderCommand command;
 	@Mock
-	private CreateCompilationUnitCommand command;
+	private CreateCompilationUnitCommand createCompilationUnitCommand;
 
 	@Test
 	public void generateBuilder() throws Exception {
-		when(builderPatternEngine.generateBuilder(context)).thenReturn(command);
+		when(builderPatternEngine.generateBuilder(command)).thenReturn(createCompilationUnitCommand);
 
-		generateBuilderService.generateBuilder(context);
+		generateBuilderService.generateBuilder(command);
 
-		verify(jdtWriteModel).createCompilationUnit(command);
+		verify(jdtWriteModel).createCompilationUnit(createCompilationUnitCommand);
 	}
 }

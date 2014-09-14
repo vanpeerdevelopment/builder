@@ -14,8 +14,8 @@ public class GenerateBuilderService {
 		this.jdtWriteModel = new JdtWriteModel();
 	}
 
-	public void generateBuilder(GenerateBuilderContext context) {
-		CreateCompilationUnitCommand command = builderPatternEngine.generateBuilder(context);
-		jdtWriteModel.createCompilationUnit(command);
+	public void generateBuilder(GenerateBuilderCommand command) {
+		CreateCompilationUnitCommand createCompilationUnitCommand = builderPatternEngine.generateBuilder(command);
+		jdtWriteModel.createCompilationUnit(createCompilationUnitCommand);
 	}
 }

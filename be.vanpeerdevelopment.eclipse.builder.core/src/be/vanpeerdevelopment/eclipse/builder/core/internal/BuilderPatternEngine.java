@@ -4,7 +4,7 @@ import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Create
 
 import org.eclipse.core.runtime.IPath;
 
-import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderContext;
+import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderCommand;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.JdtReadModel;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 
@@ -18,10 +18,10 @@ public class BuilderPatternEngine {
 		this.jdtReadModel = new JdtReadModel();
 	}
 
-	public CreateCompilationUnitCommand generateBuilder(GenerateBuilderContext context) {
+	public CreateCompilationUnitCommand generateBuilder(GenerateBuilderCommand command) {
 		return createCompilationUnitCommand()
-				.withPackageLocation(context.getPackageLocation())
-				.withName(getJavaClassName(context.getCompilationUnitLocation()) + BUILDER_SUFFIX)
+				.withPackageLocation(command.getPackageLocation())
+				.withName(getJavaClassName(command.getCompilationUnitLocation()) + BUILDER_SUFFIX)
 				.build();
 	}
 
