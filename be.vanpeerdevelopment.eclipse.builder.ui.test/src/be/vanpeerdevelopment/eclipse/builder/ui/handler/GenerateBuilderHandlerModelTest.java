@@ -1,13 +1,17 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
+import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.core.runtime.IPath;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderContext;
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
 import be.vanpeerdevelopment.eclipse.builder.ui.UnitTest;
 
@@ -22,6 +26,8 @@ public class GenerateBuilderHandlerModelTest extends UnitTest {
 
 	@Mock
 	private IPath compilationUnitlocation;
+	@Captor
+	private ArgumentCaptor<GenerateBuilderContext> contextCaptor;
 
 	@Test
 	public void generateBuilder_delegatesToGenerateBuilderService() {
@@ -29,6 +35,7 @@ public class GenerateBuilderHandlerModelTest extends UnitTest {
 
 		generateBuilderHandlerModel.generateBuilder();
 
-		verify(generateBuilderService).generateBuilder(compilationUnitlocation);
+		verify(generateBuilderService).generateBuilder(contextCaptor.capture());
+		assertThat(contextCaptor.getValue().getCompilationUnitLocation()).isEqualTo(compilationUnitlocation);
 	}
 }

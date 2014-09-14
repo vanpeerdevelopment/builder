@@ -1,5 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
+import static be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderContext.GenerateBuilderContextBuilder.generateBuilderContext;
+import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderContext;
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
 
 public class GenerateBuilderHandlerModel {
@@ -13,6 +15,9 @@ public class GenerateBuilderHandlerModel {
 	}
 
 	public void generateBuilder() {
-		generateBuilderService.generateBuilder(workbench.getActiveCompilationUnitLocation());
+		GenerateBuilderContext context = generateBuilderContext()
+				.withCompilationUnitLocation(workbench.getActiveCompilationUnitLocation())
+				.build();
+		generateBuilderService.generateBuilder(context);
 	}
 }

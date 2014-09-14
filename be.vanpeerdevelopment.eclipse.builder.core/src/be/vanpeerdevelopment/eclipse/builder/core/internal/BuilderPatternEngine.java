@@ -4,10 +4,13 @@ import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Create
 
 import org.eclipse.core.runtime.IPath;
 
+import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderContext;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.JdtReadModel;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 
 public class BuilderPatternEngine {
+
+	public static final String BUILDER_SUFFIX = "Builder";
 
 	private JdtReadModel jdtReadModel;
 
@@ -15,15 +18,11 @@ public class BuilderPatternEngine {
 		this.jdtReadModel = new JdtReadModel();
 	}
 
-	public CreateCompilationUnitCommand generateBuilder(IPath compilationUnitLocation) {
+	public CreateCompilationUnitCommand generateBuilder(GenerateBuilderContext context) {
 		return createCompilationUnitCommand()
-				.withPackageLocation(getPackageLocation(compilationUnitLocation))
-				.withName(getJavaClassName(compilationUnitLocation) + "Builder")
+				.withPackageLocation(context.getPackageLocation())
+				.withName(getJavaClassName(context.getCompilationUnitLocation()) + BUILDER_SUFFIX)
 				.build();
-	}
-
-	private IPath getPackageLocation(IPath compilationUnitLocation) {
-		return compilationUnitLocation.removeLastSegments(1);
 	}
 
 	private String getJavaClassName(IPath compilationUnitLocation) {

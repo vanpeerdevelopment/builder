@@ -3,7 +3,6 @@ package be.vanpeerdevelopment.eclipse.builder.core.api;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.eclipse.core.runtime.IPath;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -23,15 +22,15 @@ public class GenerateBuilderServiceTest extends UnitTest {
 	private GenerateBuilderService generateBuilderService;
 
 	@Mock
-	private IPath compilationUnitLocation;
+	private GenerateBuilderContext context;
 	@Mock
 	private CreateCompilationUnitCommand command;
 
 	@Test
 	public void generateBuilder() throws Exception {
-		when(builderPatternEngine.generateBuilder(compilationUnitLocation)).thenReturn(command);
+		when(builderPatternEngine.generateBuilder(context)).thenReturn(command);
 
-		generateBuilderService.generateBuilder(compilationUnitLocation);
+		generateBuilderService.generateBuilder(context);
 
 		verify(jdtWriteModel).createCompilationUnit(command);
 	}
