@@ -1,11 +1,12 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command;
+package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder;
 
 public class CreateCompilationUnitCommandTestBuilder {
 

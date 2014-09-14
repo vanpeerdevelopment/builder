@@ -9,10 +9,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.core.UnitTest;
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModel;
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.ReadableCompilationUnit;
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.ReadableType;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.JdtReadModel;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableType;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 
 public class BuilderPatternEngineTest extends UnitTest {
 

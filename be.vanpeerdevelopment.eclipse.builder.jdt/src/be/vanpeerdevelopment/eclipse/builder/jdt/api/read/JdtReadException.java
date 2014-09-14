@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.read.api;
+package be.vanpeerdevelopment.eclipse.builder.jdt.api.read;
 
 public class JdtReadException extends RuntimeException {
 

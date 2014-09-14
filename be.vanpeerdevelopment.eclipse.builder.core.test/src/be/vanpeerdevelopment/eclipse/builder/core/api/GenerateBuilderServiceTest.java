@@ -10,8 +10,8 @@ import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.core.UnitTest;
 import be.vanpeerdevelopment.eclipse.builder.core.internal.BuilderPatternEngine;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.JdtWriteModel;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.JdtWriteModel;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 
 public class GenerateBuilderServiceTest extends UnitTest {
 

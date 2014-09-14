@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.read.api;
+package be.vanpeerdevelopment.eclipse.builder.jdt.api.read;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.common;
+package be.vanpeerdevelopment.eclipse.builder.jdt.internal.common;
 
 import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import static org.fest.assertions.Assertions.assertThat;
@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
+import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.Workspace;
 
 public class WorkspaceIntegrationTest extends EclipseTest {
 

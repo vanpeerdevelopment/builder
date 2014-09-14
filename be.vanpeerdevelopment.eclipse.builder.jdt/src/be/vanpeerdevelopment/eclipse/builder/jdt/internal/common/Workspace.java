@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.common;
+package be.vanpeerdevelopment.eclipse.builder.jdt.internal.common;
 
 import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 

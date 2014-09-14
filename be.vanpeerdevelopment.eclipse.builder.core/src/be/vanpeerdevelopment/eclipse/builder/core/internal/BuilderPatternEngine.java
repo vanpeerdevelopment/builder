@@ -1,11 +1,11 @@
 package be.vanpeerdevelopment.eclipse.builder.core.internal;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 
 import org.eclipse.core.runtime.IPath;
 
-import be.vanpeerdevelopment.eclipse.builder.jdt.read.api.JdtReadModel;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.JdtReadModel;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 
 public class BuilderPatternEngine {
 

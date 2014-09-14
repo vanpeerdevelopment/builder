@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.write.api;
+package be.vanpeerdevelopment.eclipse.builder.jdt.api.write;
 
 public class JdtWriteException extends RuntimeException {
 

@@ -1,15 +1,16 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.write.api;
+package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.JavaModelException;
 
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.JdtWriteException;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 
 public class WriteablePackageFragment {
 
 	private IPackageFragment packageFragment;
 
-	WriteablePackageFragment(IPackageFragment packageFragment) {
+	public WriteablePackageFragment(IPackageFragment packageFragment) {
 		this.packageFragment = packageFragment;
 	}
 

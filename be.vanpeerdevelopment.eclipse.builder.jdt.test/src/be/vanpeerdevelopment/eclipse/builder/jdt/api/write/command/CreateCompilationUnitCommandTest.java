@@ -1,6 +1,6 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command;
+package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommandTestBuilder.aCreateCompilationUnitCommand;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommandTestBuilder.aCreateCompilationUnitCommand;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 

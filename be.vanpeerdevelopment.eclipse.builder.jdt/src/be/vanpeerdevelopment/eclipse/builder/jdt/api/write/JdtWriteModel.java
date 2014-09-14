@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.write.api;
+package be.vanpeerdevelopment.eclipse.builder.jdt.api.write;
 
 import static org.eclipse.jdt.core.JavaCore.createCompilationUnitFrom;
 
@@ -7,8 +7,9 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 
-import be.vanpeerdevelopment.eclipse.builder.jdt.common.Workspace;
-import be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command.CreateCompilationUnitCommand;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
+import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.Workspace;
+import be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.WriteablePackageFragment;
 
 public class JdtWriteModel {
 

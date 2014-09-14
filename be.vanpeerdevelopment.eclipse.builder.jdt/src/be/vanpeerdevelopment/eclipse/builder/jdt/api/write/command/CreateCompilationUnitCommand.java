@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt.write.api.command;
+package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import org.eclipse.core.runtime.IPath;
 
