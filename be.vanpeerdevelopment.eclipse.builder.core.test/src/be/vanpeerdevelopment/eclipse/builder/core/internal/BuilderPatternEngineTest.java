@@ -4,6 +4,7 @@ import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -23,8 +24,8 @@ public class BuilderPatternEngineTest extends UnitTest {
 	@InjectMocks
 	private BuilderPatternEngine builderPatternEngine;
 
-	@Mock
-	private IPath compilationUnitLocation;
+	private IPath packageLocation = new Path("/workspace-root/project/source-folder/package");
+	private IPath compilationUnitLocation = new Path("/workspace-root/project/source-folder/package/class.java");
 	@Mock
 	private ReadableCompilationUnit compilationUnit;
 	@Mock
@@ -38,7 +39,7 @@ public class BuilderPatternEngineTest extends UnitTest {
 
 		CreateCompilationUnitCommand command = builderPatternEngine.generateBuilder(compilationUnitLocation);
 
-		assertThat(command.getSiblingCompilationUnitLocation()).isEqualTo(compilationUnitLocation);
+		assertThat(command.getPackageLocation()).isEqualTo(packageLocation);
 		assertThat(command.getName()).isEqualTo(TYPE_NAME + "Builder");
 	}
 }

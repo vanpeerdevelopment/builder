@@ -6,14 +6,14 @@ public class CreateCompilationUnitCommand {
 
 	public static final String JAVA_EXTENSION = ".java";
 
-	private IPath siblingCompilationUnitLocation;
+	private IPath packageLocation;
 	private String name;
 
 	private CreateCompilationUnitCommand() {
 	}
 
-	public IPath getSiblingCompilationUnitLocation() {
-		return siblingCompilationUnitLocation;
+	public IPath getPackageLocation() {
+		return packageLocation;
 	}
 
 	public String getName() {
@@ -22,8 +22,8 @@ public class CreateCompilationUnitCommand {
 
 	public String getNameWithExtension() {
 		return new StringBuilder(name)
-		.append(JAVA_EXTENSION)
-		.toString();
+				.append(JAVA_EXTENSION)
+				.toString();
 	}
 
 	public static class CreateCompilationUnitCommandBuilder {
@@ -42,9 +42,8 @@ public class CreateCompilationUnitCommand {
 			return command;
 		}
 
-		public CreateCompilationUnitCommandBuilder withSiblingCompilationUnitLocation(
-				IPath siblingCompilationUnitLocation) {
-			command.siblingCompilationUnitLocation = siblingCompilationUnitLocation;
+		public CreateCompilationUnitCommandBuilder withPackageLocation(IPath packageLocation) {
+			command.packageLocation = packageLocation;
 			return this;
 		}
 

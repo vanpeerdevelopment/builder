@@ -5,33 +5,31 @@ import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Create
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 
-import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder;
 
 public class CreateCompilationUnitCommandTestBuilder {
 
-	private static final IPath DEFAULT_SIBLING_COMPILATION_UNIT_LOCATION = new Path("default location");
+	private static final IPath DEFAULT_PACKAGE_LOCATION = new Path("Default package location");
 	private static final String DEFAULT_NAME = "Vehicle";
 
 	private CreateCompilationUnitCommandBuilder builder;
 
 	private CreateCompilationUnitCommandTestBuilder() {
-		builder = createCompilationUnitCommand()
-				.withSiblingCompilationUnitLocation(DEFAULT_SIBLING_COMPILATION_UNIT_LOCATION)
-				.withName(DEFAULT_NAME);
+		builder = createCompilationUnitCommand();
 	}
 
 	public static CreateCompilationUnitCommandTestBuilder aCreateCompilationUnitCommand() {
-		return new CreateCompilationUnitCommandTestBuilder();
+		return new CreateCompilationUnitCommandTestBuilder()
+				.withPackageLocation(DEFAULT_PACKAGE_LOCATION)
+				.withName(DEFAULT_NAME);
 	}
 
 	public CreateCompilationUnitCommand build() {
 		return builder.build();
 	}
 
-	public CreateCompilationUnitCommandTestBuilder withSiblingCompilationUnitLocation(
-			IPath siblingCompilationUnitLocation) {
-		builder.withSiblingCompilationUnitLocation(siblingCompilationUnitLocation);
+	public CreateCompilationUnitCommandTestBuilder withPackageLocation(IPath packageLocation) {
+		builder.withPackageLocation(packageLocation);
 		return this;
 	}
 

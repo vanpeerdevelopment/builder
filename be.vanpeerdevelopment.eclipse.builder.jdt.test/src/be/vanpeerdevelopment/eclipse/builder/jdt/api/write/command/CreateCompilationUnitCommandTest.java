@@ -12,13 +12,13 @@ import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
 public class CreateCompilationUnitCommandTest extends UnitTest {
 
 	@Test
-	public void getSiblingCompilationUnitLocation() {
-		IPath siblingCompilationUnitLocation = mock(IPath.class);
+	public void getPackageLocation() {
+		IPath packageLocation = mock(IPath.class);
 		CreateCompilationUnitCommand command = aCreateCompilationUnitCommand()
-				.withSiblingCompilationUnitLocation(siblingCompilationUnitLocation)
+				.withPackageLocation(packageLocation)
 				.build();
 
-		assertThat(command.getSiblingCompilationUnitLocation()).isEqualTo(siblingCompilationUnitLocation);
+		assertThat(command.getPackageLocation()).isEqualTo(packageLocation);
 	}
 
 	@Test

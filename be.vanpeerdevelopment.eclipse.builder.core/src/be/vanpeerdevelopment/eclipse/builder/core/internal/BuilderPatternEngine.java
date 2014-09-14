@@ -17,9 +17,13 @@ public class BuilderPatternEngine {
 
 	public CreateCompilationUnitCommand generateBuilder(IPath compilationUnitLocation) {
 		return createCompilationUnitCommand()
-				.withSiblingCompilationUnitLocation(compilationUnitLocation)
+				.withPackageLocation(getPackageLocation(compilationUnitLocation))
 				.withName(getJavaClassName(compilationUnitLocation) + "Builder")
 				.build();
+	}
+
+	private IPath getPackageLocation(IPath compilationUnitLocation) {
+		return compilationUnitLocation.removeLastSegments(1);
 	}
 
 	private String getJavaClassName(IPath compilationUnitLocation) {

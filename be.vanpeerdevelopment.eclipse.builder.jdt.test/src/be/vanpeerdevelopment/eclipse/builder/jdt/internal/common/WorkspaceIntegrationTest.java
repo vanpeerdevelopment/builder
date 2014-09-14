@@ -3,13 +3,13 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.internal.common;
 import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import static org.fest.assertions.Assertions.assertThat;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IPackageFragment;
 import org.junit.Before;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
-import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.Workspace;
 
 public class WorkspaceIntegrationTest extends EclipseTest {
 
@@ -22,7 +22,7 @@ public class WorkspaceIntegrationTest extends EclipseTest {
 
 	@Test
 	public void getFile() throws Exception {
-		IPath javaClassLocation = getWorkspace()
+		IPath compilationUnitLocation = getWorkspace()
 				.getRoot()
 				.getLocation()
 				.append(JAVA_PROJECT_NAME)
@@ -30,8 +30,22 @@ public class WorkspaceIntegrationTest extends EclipseTest {
 				.append(JAVA_PACKAGE_NAME)
 				.append(JAVA_CLASS_NAME + ".java");
 
-		IFile file = workspace.getFile(javaClassLocation);
+		ICompilationUnit compilationUnit = workspace.getCompilationUnit(compilationUnitLocation);
 
-		assertThat(file.getName()).isEqualTo(JAVA_CLASS_NAME + ".java");
+		assertThat(compilationUnit.getElementName()).isEqualTo(JAVA_CLASS_NAME + ".java");
+	}
+
+	@Test
+	public void getPackage() {
+		IPath packageLocation = getWorkspace()
+				.getRoot()
+				.getLocation()
+				.append(JAVA_PROJECT_NAME)
+				.append(JAVA_SOURCE_FOLDER_NAME)
+				.append(JAVA_PACKAGE_NAME);
+
+		IPackageFragment packageFragment = workspace.getPackage(packageLocation);
+
+		assertThat(packageFragment.getElementName()).isEqualTo(JAVA_PACKAGE_NAME);
 	}
 }
