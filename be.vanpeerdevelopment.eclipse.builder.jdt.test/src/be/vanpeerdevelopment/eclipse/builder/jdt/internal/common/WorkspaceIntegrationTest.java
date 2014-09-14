@@ -2,6 +2,7 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.internal.common;
 
 import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.reflect.core.Reflection.field;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.IPackageFragment;
@@ -10,6 +11,7 @@ import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
+import be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.WriteablePackageFragment;
 
 public class WorkspaceIntegrationTest extends EclipseTest {
 
@@ -44,8 +46,12 @@ public class WorkspaceIntegrationTest extends EclipseTest {
 				.append(JAVA_SOURCE_FOLDER_NAME)
 				.append(JAVA_PACKAGE_NAME);
 
-		IPackageFragment packageFragment = workspace.getPackage(packageLocation);
+		WriteablePackageFragment writeablePackageFragment = workspace.getPackage(packageLocation);
 
-		assertThat(packageFragment.getElementName()).isEqualTo(JAVA_PACKAGE_NAME);
+		assertThat(getPackageFragment(writeablePackageFragment).getElementName()).isEqualTo(JAVA_PACKAGE_NAME);
+	}
+
+	private IPackageFragment getPackageFragment(WriteablePackageFragment writeablePackageFragment) {
+		return field("packageFragment").ofType(IPackageFragment.class).in(writeablePackageFragment).get();
 	}
 }

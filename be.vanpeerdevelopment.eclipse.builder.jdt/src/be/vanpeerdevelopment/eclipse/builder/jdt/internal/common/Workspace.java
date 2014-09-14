@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.IPackageFragment;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
+import be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.WriteablePackageFragment;
 
 public class Workspace {
 
@@ -20,10 +21,10 @@ public class Workspace {
 		return new ReadableCompilationUnit(createCompilationUnitFrom(compilationUnit));
 	}
 
-	public IPackageFragment getPackage(IPath packageLocation) {
+	public WriteablePackageFragment getPackage(IPath packageLocation) {
 		IContainer packageFragment = getWorkspace()
 				.getRoot()
 				.getContainerForLocation(packageLocation);
-		return (IPackageFragment) create(packageFragment);
+		return new WriteablePackageFragment((IPackageFragment) create(packageFragment));
 	}
 }

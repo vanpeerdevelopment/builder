@@ -1,7 +1,5 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write;
 
-import org.eclipse.jdt.core.IPackageFragment;
-
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.Workspace;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.WriteablePackageFragment;
@@ -15,8 +13,7 @@ public class JdtWriteModel {
 	}
 
 	public void createCompilationUnit(CreateCompilationUnitCommand command) {
-		IPackageFragment packageFragment = workspace.getPackage(command.getPackageLocation());
-		WriteablePackageFragment writeablePackageFragment = new WriteablePackageFragment(packageFragment);
+		WriteablePackageFragment writeablePackageFragment = workspace.getPackage(command.getPackageLocation());
 		writeablePackageFragment.createCompilationUnit(command);
 	}
 }
