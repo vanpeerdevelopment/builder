@@ -13,10 +13,10 @@ import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
 
 public class ReadableCompilationUnitTest extends UnitTest {
 
-	private static final String COMPILATION_UNIT_NAME = "CompilationUnitName";
+	private static final String COMPILATION_UNIT_NAME = "CompilationUnitName.java";
 
 	@Test
-	public void getName() throws Exception {
+	public void getName() {
 		ICompilationUnit compilationUnit = anICompilationUnit()
 				.withName(COMPILATION_UNIT_NAME)
 				.build();

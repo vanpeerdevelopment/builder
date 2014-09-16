@@ -19,6 +19,13 @@ public class ReadableCompilationUnitIntegrationTest extends EclipseTest {
 	}
 
 	@Test
+	public void getName() {
+		String name = compilationUnit.getName();
+
+		assertThat(name).isEqualTo(JAVA_CLASS_NAME + ".java");
+	}
+
+	@Test
 	public void getOnlyType() {
 		ReadableType onlyType = compilationUnit.getOnlyType();
 
