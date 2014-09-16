@@ -1,7 +1,9 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt;
 
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.pageobject.eclipse.Eclipse.eclipse;
+import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 
+import org.eclipse.core.runtime.IPath;
 import org.junit.BeforeClass;
 
 import be.vanpeerdevelopment.eclipse.builder.swtbot.SWTBotTest;
@@ -75,5 +77,15 @@ public abstract class EclipseTest extends SWTBotTest {
 				.setPackage(JAVA_PACKAGE_NAME)
 				.setClassName(JAVA_CLASS_NAME)
 				.finish();
+	}
+
+	protected IPath javaClassLocation() {
+		return getWorkspace()
+				.getRoot()
+				.getLocation()
+				.append(JAVA_PROJECT_NAME)
+				.append(JAVA_SOURCE_FOLDER_NAME)
+				.append(JAVA_PACKAGE_NAME)
+				.append(JAVA_CLASS_NAME + ".java");
 	}
 }
