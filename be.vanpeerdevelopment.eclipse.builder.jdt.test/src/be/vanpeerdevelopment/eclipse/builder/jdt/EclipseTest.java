@@ -24,6 +24,7 @@ public abstract class EclipseTest extends SWTBotTest {
 		closeWelcomeViewIfNeeded();
 		openJavaPerspectiveIfNeeded();
 		createJavaProjectIfNotExists();
+		showlineNumbers();
 	}
 
 	private static void closeWelcomeViewIfNeeded() {
@@ -77,6 +78,15 @@ public abstract class EclipseTest extends SWTBotTest {
 				.setPackage(JAVA_PACKAGE_NAME)
 				.setClassName(JAVA_CLASS_NAME)
 				.finish();
+	}
+
+	private static void showlineNumbers() {
+		eclipse
+				.windowMenu()
+				.preferences()
+				.generalTextEditors()
+				.checkShowLineNumbers()
+				.ok();
 	}
 
 	protected IPath javaClassLocation() {

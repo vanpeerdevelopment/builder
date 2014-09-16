@@ -13,14 +13,36 @@ public class PreferencesShell extends ShellObject {
 		super(workbench, "Preferences");
 	}
 
+	public TextEditorsPreferencesShell generalTextEditors() {
+		workbench.tree().expandNode("General").expandNode("Editors").select("Text Editors");
+		return new TextEditorsPreferencesShell(workbench);
+	}
+
 	public KeysPreferencesShell generalKeys() {
 		workbench.tree().expandNode("General").select("Keys");
 		return new KeysPreferencesShell(workbench);
 	}
 
+	public void ok() {
+		workbench.button("OK").click();
+		workbench.waitUntil(shellClosed("Preferences"));
+	}
+
 	public void cancel() {
 		workbench.button("Cancel").click();
 		workbench.waitUntil(shellClosed("Preferences"));
+	}
+
+	public static class TextEditorsPreferencesShell extends PreferencesShell {
+
+		public TextEditorsPreferencesShell(Workbench workbench) {
+			super(workbench);
+		}
+
+		public TextEditorsPreferencesShell checkShowLineNumbers() {
+			workbench.checkBox("Show line numbers").select();
+			return this;
+		}
 	}
 
 	public static class KeysPreferencesShell extends PreferencesShell {
