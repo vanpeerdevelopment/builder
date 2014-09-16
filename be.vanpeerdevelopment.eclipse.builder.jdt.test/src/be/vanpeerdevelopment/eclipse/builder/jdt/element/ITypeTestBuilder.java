@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt;
+package be.vanpeerdevelopment.eclipse.builder.jdt.element;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

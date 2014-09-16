@@ -1,4 +1,4 @@
-package be.vanpeerdevelopment.eclipse.builder.jdt;
+package be.vanpeerdevelopment.eclipse.builder.jdt.element;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyBoolean;

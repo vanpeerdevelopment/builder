@@ -1,7 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.read;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.ICompilationUnitTestBuilder.anICompilationUnit;
-import static be.vanpeerdevelopment.eclipse.builder.jdt.ITypeTestBuilder.anIType;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ICompilationUnitTestBuilder.anICompilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ITypeTestBuilder.anIType;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.field;
 

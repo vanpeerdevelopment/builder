@@ -1,7 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.IPackageFragmentTestBuilder.anIPackageFragment;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.anIPackageFragment;
 import static org.mockito.Mockito.verify;
 
 import org.eclipse.jdt.core.IPackageFragment;
