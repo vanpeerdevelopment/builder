@@ -58,7 +58,7 @@ public class ReadableCompilationUnitTest extends UnitTest {
 	}
 
 	@Test
-	public void getOnlyType_WhenNoTypes_ThrowsJdtReadModelException() {
+	public void getOnlyType_WhenNoTypes_ThrowsJdtReadException() {
 		ICompilationUnit compilationUnit = anICompilationUnit()
 				.withName(COMPILATION_UNIT_NAME)
 				.withoutTypes()
@@ -67,13 +67,13 @@ public class ReadableCompilationUnitTest extends UnitTest {
 
 		expectExceptionWithMessage(JdtReadException.class,
 				"Exception while getting the only type in compilation unit: " + COMPILATION_UNIT_NAME
-				+ ". No type exists.");
+						+ ". No type exists.");
 
 		readableCompilationUnit.getOnlyType();
 	}
 
 	@Test
-	public void getOnlyType_WhenMultipleTypes_ThrowsJdtReadModelException() {
+	public void getOnlyType_WhenMultipleTypes_ThrowsJdtReadException() {
 		ICompilationUnit compilationUnit = anICompilationUnit()
 				.withName(COMPILATION_UNIT_NAME)
 				.withTypes(anIType().build(), anIType().build())
@@ -82,7 +82,7 @@ public class ReadableCompilationUnitTest extends UnitTest {
 
 		expectExceptionWithMessage(JdtReadException.class,
 				"Exception while getting the only type in compilation unit: " + COMPILATION_UNIT_NAME
-				+ ". More than one type exists.");
+						+ ". More than one type exists.");
 
 		readableCompilationUnit.getOnlyType();
 	}

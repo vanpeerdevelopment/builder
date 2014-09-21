@@ -1,9 +1,12 @@
 package be.vanpeerdevelopment.eclipse.builder.swtbot.pageobject.editor;
 
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.internal.utils.MenuItemAddedAfterMenuItemPredicate.is;
+import static be.vanpeerdevelopment.eclipse.builder.swtbot.internal.utils.Sleeper.sleep;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.CTRL;
+import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.DELETE;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.SHIFT;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.key;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 import org.eclipse.swt.SWTException;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
@@ -19,9 +22,18 @@ public class JavaEditor extends EditorObject<JavaEditor> {
 		super(workbench, className + ".java");
 	}
 
-	public JavaEditor navigateTo(int line) {
-		editor.navigateTo(line - 1, 0);
+	public JavaEditor selectLine(int lineNumber) {
+		editor.selectLine(lineNumber - 1);
 		return this;
+	}
+
+	public JavaEditor navigateToLine(int lineNumber) {
+		editor.navigateTo(lineNumber - 1, 0);
+		return this;
+	}
+
+	public JavaEditor deleteLine(int lineNumber) {
+		return selectLine(lineNumber).pressShortcut(DELETE);
 	}
 
 	public JavaEditor typeText(String text) {
@@ -36,6 +48,7 @@ public class JavaEditor extends EditorObject<JavaEditor> {
 
 	public JavaEditor save() {
 		pressShortcut(CTRL, key("S"));
+		sleep(500, MILLISECONDS);
 		return this;
 	}
 

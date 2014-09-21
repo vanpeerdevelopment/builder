@@ -9,6 +9,7 @@ public class Key {
 	public final static Key CTRL = new Key(Keystrokes.CTRL);
 	public final static Key ALT = new Key(Keystrokes.ALT);
 	public final static Key SHIFT = new Key(Keystrokes.SHIFT);
+	public final static Key DELETE = new Key(Keystrokes.DELETE);
 	public final static Key F10 = new Key(Keystrokes.F10);
 
 	private KeyStroke key;
