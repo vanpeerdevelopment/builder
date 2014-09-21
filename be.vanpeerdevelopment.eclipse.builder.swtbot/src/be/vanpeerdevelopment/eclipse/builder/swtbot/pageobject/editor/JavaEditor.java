@@ -4,7 +4,6 @@ import static be.vanpeerdevelopment.eclipse.builder.swtbot.internal.utils.MenuIt
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.internal.utils.Sleeper.sleep;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.CTRL;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.DELETE;
-import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.SHIFT;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.key;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
@@ -36,13 +35,8 @@ public class JavaEditor extends EditorObject<JavaEditor> {
 		return selectLine(lineNumber).pressShortcut(DELETE);
 	}
 
-	public JavaEditor typeText(String text) {
-		editor.typeText(text);
-		return this;
-	}
-
-	public JavaEditor format() {
-		pressShortcut(CTRL, SHIFT, key("F"));
+	public JavaEditor insertText(String text) {
+		editor.insertText(text);
 		return this;
 	}
 
