@@ -93,13 +93,17 @@ public abstract class EclipseTest extends SWTBotTest {
 				.ok();
 	}
 
-	protected IPath javaClassLocation() {
+	protected IPath getPackageLocation() {
 		return getWorkspace()
 				.getRoot()
 				.getLocation()
 				.append(JAVA_PROJECT_NAME)
 				.append(JAVA_SOURCE_FOLDER_NAME)
-				.append(JAVA_PACKAGE_NAME)
+				.append(JAVA_PACKAGE_NAME);
+	}
+
+	protected IPath javaClassLocation() {
+		return getPackageLocation()
 				.append(JAVA_CLASS_NAME + ".java");
 	}
 
