@@ -4,10 +4,12 @@ import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Create
 import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import static org.fest.assertions.Assertions.assertThat;
 
+import org.eclipse.core.runtime.IPath;
 import org.junit.Before;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.Workspace;
 
 public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
@@ -30,9 +32,10 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 
 	@Test
 	public void createCompilationUnit() {
-		writeablePackageFragment.createCompilationUnit(aCreateCompilationUnitCommand()
-				.withName(COMPILATION_UNIT_NAME)
-				.build());
+		ReadableCompilationUnit readableCompilationUnit = writeablePackageFragment
+				.createCompilationUnit(aCreateCompilationUnitCommand()
+						.withName(COMPILATION_UNIT_NAME)
+						.build());
 
 		assertThat(eclipse
 				.willClassBeCreated(
@@ -41,6 +44,10 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 						JAVA_PACKAGE_NAME,
 						COMPILATION_UNIT_NAME))
 				.isTrue();
+		assertThat(getProject(readableCompilationUnit.getPath())).isEqualTo(JAVA_PROJECT_NAME);
+		assertThat(getSourceFolder(readableCompilationUnit.getPath())).isEqualTo(JAVA_SOURCE_FOLDER_NAME);
+		assertThat(getPackage(readableCompilationUnit.getPath())).isEqualTo(JAVA_PACKAGE_NAME);
+		assertThat(getClass(readableCompilationUnit.getPath())).isEqualTo(COMPILATION_UNIT_NAME + ".java");
 
 		eclipse
 				.deleteClass(
@@ -49,5 +56,21 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 						JAVA_PACKAGE_NAME,
 						COMPILATION_UNIT_NAME)
 				.ok();
+	}
+
+	private String getProject(IPath location) {
+		return location.removeLastSegments(3).lastSegment();
+	}
+
+	private String getSourceFolder(IPath location) {
+		return location.removeLastSegments(2).lastSegment();
+	}
+
+	private String getPackage(IPath location) {
+		return location.removeLastSegments(1).lastSegment();
+	}
+
+	private String getClass(IPath location) {
+		return location.lastSegment();
 	}
 }

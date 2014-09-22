@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import static org.fest.assertions.Assertions.assertThat;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -25,17 +26,22 @@ public class GenerateBuilderHandlerModelTest extends UnitTest {
 	private GenerateBuilderHandlerModel generateBuilderHandlerModel;
 
 	@Mock
-	private IPath compilationUnitlocation;
+	private IPath compilationUnitLocation;
+	@Mock
+	private IPath createdBuilderLocation;
 	@Captor
 	private ArgumentCaptor<GenerateBuilderCommand> commandCaptor;
 
 	@Test
 	public void generateBuilder_delegatesToGenerateBuilderService() {
-		when(workbench.getActiveCompilationUnitLocation()).thenReturn(compilationUnitlocation);
+		when(workbench.getActiveCompilationUnitLocation()).thenReturn(compilationUnitLocation);
+		when(generateBuilderService.generateBuilder(any(GenerateBuilderCommand.class)))
+				.thenReturn(createdBuilderLocation);
 
 		generateBuilderHandlerModel.generateBuilder();
 
 		verify(generateBuilderService).generateBuilder(commandCaptor.capture());
-		assertThat(commandCaptor.getValue().getCompilationUnitLocation()).isEqualTo(compilationUnitlocation);
+		assertThat(commandCaptor.getValue().getCompilationUnitLocation()).isEqualTo(compilationUnitLocation);
+		verify(workbench).openCompilationUnit(createdBuilderLocation);
 	}
 }

@@ -1,19 +1,25 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.read;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ICompilationUnitTestBuilder.anICompilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IResourceTestBuilder.anIResource;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ITypeTestBuilder.anIType;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.field;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IType;
 import org.junit.Test;
+import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
 
 public class ReadableCompilationUnitTest extends UnitTest {
 
 	private static final String COMPILATION_UNIT_NAME = "CompilationUnitName.java";
+
+	@Mock
+	private IPath compilationUnitLocation;
 
 	@Test
 	public void getName() {
@@ -25,6 +31,20 @@ public class ReadableCompilationUnitTest extends UnitTest {
 		String name = readableCompilationUnit.getName();
 
 		assertThat(name).isEqualTo(COMPILATION_UNIT_NAME);
+	}
+
+	@Test
+	public void getPath() {
+		ICompilationUnit compilationUnit = anICompilationUnit()
+				.withResource(anIResource()
+						.withLocation(compilationUnitLocation)
+						.build())
+				.build();
+		ReadableCompilationUnit readableCompilationUnit = new ReadableCompilationUnit(compilationUnit);
+
+		IPath path = readableCompilationUnit.getPath();
+
+		assertThat(path).isEqualTo(compilationUnitLocation);
 	}
 
 	@Test

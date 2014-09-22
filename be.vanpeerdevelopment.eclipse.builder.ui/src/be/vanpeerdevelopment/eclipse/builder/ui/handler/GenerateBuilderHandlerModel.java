@@ -1,6 +1,9 @@
 package be.vanpeerdevelopment.eclipse.builder.ui.handler;
 
 import static be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderCommand.GenerateBuilderCommandBuilder.generateBuilderCommand;
+
+import org.eclipse.core.runtime.IPath;
+
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderCommand;
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderService;
 
@@ -18,6 +21,7 @@ public class GenerateBuilderHandlerModel {
 		GenerateBuilderCommand command = generateBuilderCommand()
 				.withCompilationUnitLocation(workbench.getActiveCompilationUnitLocation())
 				.build();
-		generateBuilderService.generateBuilder(command);
+		IPath createdBuilderLocation = generateBuilderService.generateBuilder(command);
+		workbench.openCompilationUnit(createdBuilderLocation);
 	}
 }

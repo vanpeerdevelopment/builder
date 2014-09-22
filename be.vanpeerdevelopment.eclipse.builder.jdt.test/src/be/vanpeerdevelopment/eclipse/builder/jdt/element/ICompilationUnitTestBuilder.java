@@ -3,6 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.element;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
@@ -25,6 +26,11 @@ public class ICompilationUnitTestBuilder {
 
 	public ICompilationUnitTestBuilder withName(String name) {
 		when(compilationUnit.getElementName()).thenReturn(name);
+		return this;
+	}
+
+	public ICompilationUnitTestBuilder withResource(IResource resource) {
+		when(compilationUnit.getResource()).thenReturn(resource);
 		return this;
 	}
 

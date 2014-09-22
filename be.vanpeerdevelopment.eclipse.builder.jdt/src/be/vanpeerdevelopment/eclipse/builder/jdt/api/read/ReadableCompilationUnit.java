@@ -3,6 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.api.read;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
@@ -17,6 +18,10 @@ public class ReadableCompilationUnit {
 
 	public String getName() {
 		return compilationUnit.getElementName();
+	}
+
+	public IPath getPath() {
+		return compilationUnit.getResource().getLocation();
 	}
 
 	public ReadableType getOnlyType() {

@@ -38,14 +38,28 @@ public class ReadableCompilationUnitIntegrationTest extends EclipseTest {
 	@Test
 	public void getName() {
 		ReadableCompilationUnit compilationUnitWithOneType = jdtReadModel.getCompilationUnit(javaClassLocation());
+
 		String name = compilationUnitWithOneType.getName();
 
 		assertThat(name).isEqualTo(JAVA_CLASS_NAME + ".java");
 	}
 
 	@Test
+	public void getPath() {
+		ReadableCompilationUnit compilationUnitWithOneType = jdtReadModel.getCompilationUnit(javaClassLocation());
+
+		IPath path = compilationUnitWithOneType.getPath();
+
+		assertThat(getProject(path)).isEqualTo(JAVA_PROJECT_NAME);
+		assertThat(getSourceFolder(path)).isEqualTo(JAVA_SOURCE_FOLDER_NAME);
+		assertThat(getPackage(path)).isEqualTo(JAVA_PACKAGE_NAME);
+		assertThat(getClass(path)).isEqualTo(JAVA_CLASS_NAME + ".java");
+	}
+
+	@Test
 	public void getOnlyType() {
 		ReadableCompilationUnit compilationUnitWithOneType = jdtReadModel.getCompilationUnit(javaClassLocation());
+
 		ReadableType onlyType = compilationUnitWithOneType.getOnlyType();
 
 		assertThat(onlyType.getSimpleName()).isEqualTo(JAVA_CLASS_NAME);
@@ -155,5 +169,21 @@ public class ReadableCompilationUnitIntegrationTest extends EclipseTest {
 				.append(JAVA_SOURCE_FOLDER_NAME)
 				.append(JAVA_PACKAGE_NAME)
 				.append(CLASS_WITH_TWO_TYPES + ".java");
+	}
+
+	private String getProject(IPath location) {
+		return location.removeLastSegments(3).lastSegment();
+	}
+
+	private String getSourceFolder(IPath location) {
+		return location.removeLastSegments(2).lastSegment();
+	}
+
+	private String getPackage(IPath location) {
+		return location.removeLastSegments(1).lastSegment();
+	}
+
+	private String getClass(IPath location) {
+		return location.lastSegment();
 	}
 }
