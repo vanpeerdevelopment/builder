@@ -93,5 +93,4 @@ public abstract class EclipseTest extends SWTBotTest {
 				.setFileName(TEXT_FILE_NAME_WITH_EXTENSION)
 				.finish();
 	}
-
 }

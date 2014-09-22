@@ -5,6 +5,7 @@ Bundle-SymbolicName: be.vanpeerdevelopment.eclipse.builder.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Van Peer Development
 Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.ide,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  be.vanpeerdevelopment.eclipse.builder.core

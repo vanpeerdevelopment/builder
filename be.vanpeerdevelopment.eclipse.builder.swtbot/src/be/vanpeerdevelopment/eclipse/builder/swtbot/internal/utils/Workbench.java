@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.swtbot.internal.utils;
 
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.internal.conditions.ConditionFactory.classCreated;
+import static be.vanpeerdevelopment.eclipse.builder.swtbot.internal.conditions.ConditionFactory.editorOpened;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.internal.conditions.ConditionFactory.fileCreated;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
@@ -41,12 +42,25 @@ public class Workbench extends SWTWorkbenchBot {
 		return activePerspective().getLabel().equals(perspectiveLabel);
 	}
 
+	public boolean isEditorActive(String editorTitle) {
+		SWTBotEditor editor = getEditor(editorTitle);
+		if (editor == null)
+			return false;
+		return editor.isActive();
+	}
+
 	public boolean isEditorOpen(String editorTitle) {
-		for (SWTBotEditor editor : editors()) {
-			if (editor.getTitle().equals(editorTitle))
-				return true;
+		SWTBotEditor editor = getEditor(editorTitle);
+		return editor != null;
+	}
+
+	public boolean willEditorBeOpened(String editorTitle) {
+		try {
+			waitUntil(editorOpened(editorTitle));
+			return true;
+		} catch (TimeoutException e) {
+			return false;
 		}
-		return false;
 	}
 
 	public boolean projectExists(String projectName) {
@@ -101,5 +115,13 @@ public class Workbench extends SWTWorkbenchBot {
 
 	private PackageExplorerView getPackageExplorerView() {
 		return new PackageExplorerView(this);
+	}
+
+	private SWTBotEditor getEditor(String editorTitle) {
+		for (SWTBotEditor editor : editors()) {
+			if (editor.getTitle().equals(editorTitle))
+				return editor;
+		}
+		return null;
 	}
 }

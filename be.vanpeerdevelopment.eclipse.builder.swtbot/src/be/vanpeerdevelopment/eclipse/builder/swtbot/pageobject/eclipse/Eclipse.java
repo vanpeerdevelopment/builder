@@ -5,6 +5,7 @@ import static org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable.syncExec;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swtbot.swt.finder.results.Result;
+import org.eclipse.swtbot.swt.finder.results.VoidResult;
 
 import be.vanpeerdevelopment.eclipse.builder.swtbot.internal.utils.Workbench;
 import be.vanpeerdevelopment.eclipse.builder.swtbot.pageobject.EclipseObject;
@@ -72,6 +73,14 @@ public class Eclipse extends EclipseObject {
 				.willClassBeCreated(projectName, sourceFolderName, packageName, className);
 	}
 
+	public boolean isEditorActive(String editorTitle) {
+		return workbench.isEditorActive(editorTitle);
+	}
+
+	public boolean willEditorBeOpened(String editorTitle) {
+		return workbench.willEditorBeOpened(editorTitle);
+	}
+
 	public JavaEditor openClass(String projectName, String sourceFolderName, String packageName,
 			String className) {
 		return workbench.openClass(projectName, sourceFolderName, packageName, className);
@@ -85,6 +94,15 @@ public class Eclipse extends EclipseObject {
 			String packageName,
 			String className) {
 		return workbench.deleteClass(projectName, sourceFolderName, packageName, className);
+	}
+
+	public void runInUiThread(final Executable executable) {
+		syncExec(getDisplay(), new VoidResult() {
+			@Override
+			public void run() {
+				executable.execute();
+			}
+		});
 	}
 
 	public <T> T runInUiThread(final Function<T> function) {
