@@ -2,7 +2,6 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.api.write;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommandTestBuilder.aCreateCompilationUnitCommand;
 import static org.fest.assertions.Assertions.assertThat;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.core.runtime.IPath;
@@ -40,7 +39,6 @@ public class JdtWriteModelTest extends UnitTest {
 
 		ReadableCompilationUnit result = jdtWriteModel.createCompilationUnit(command);
 
-		verify(writeablePackageFragment).createCompilationUnit(command);
 		assertThat(result).isEqualTo(readableCompilationUnit);
 	}
 }

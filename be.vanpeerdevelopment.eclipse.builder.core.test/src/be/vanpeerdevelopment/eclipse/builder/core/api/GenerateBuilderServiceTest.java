@@ -1,7 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.core.api;
 
 import static org.fest.assertions.Assertions.assertThat;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.core.runtime.IPath;
@@ -41,7 +40,6 @@ public class GenerateBuilderServiceTest extends UnitTest {
 
 		IPath result = generateBuilderService.generateBuilder(command);
 
-		verify(jdtWriteModel).createCompilationUnit(createCompilationUnitCommand);
 		assertThat(result).isEqualTo(createdBuilderLocation);
 	}
 }

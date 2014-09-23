@@ -5,7 +5,6 @@ import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ICompilationUnit
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.anIPackageFragment;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.field;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.jdt.core.ICompilationUnit;
@@ -40,11 +39,6 @@ public class WriteablePackageFragmentTest extends UnitTest {
 
 		ReadableCompilationUnit readableCompilationUnit = writeablePackageFragment.createCompilationUnit(command);
 
-		verify(packageFragment).createCompilationUnit(
-				COMPILATION_UNIT_NAME + ".java",
-				"",
-				true,
-				null);
 		assertThat(getICompilationUnit(readableCompilationUnit)).isEqualTo(compilationUnit);
 	}
 
