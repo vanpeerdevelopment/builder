@@ -46,6 +46,10 @@ public class JavaEditor extends EditorObject<JavaEditor> {
 		return this;
 	}
 
+	public String getText() {
+		return editor.getText();
+	}
+
 	public SourceContextMenu sourceContextMenu() {
 		return new SourceContextMenu(editor);
 	}

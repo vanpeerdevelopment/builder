@@ -2,6 +2,7 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ICompilationUnitTestBuilder.anICompilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.anIPackageFragment;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.field;
@@ -23,12 +24,14 @@ public class WriteablePackageFragmentTest extends UnitTest {
 
 	@Test
 	public void createCompilationUnit() throws JavaModelException {
-		IPackageFragment packageFragment = anIPackageFragment().build();
+		IPackageFragment packageFragment = anIPackageFragment()
+				.withName(PACKAGE_NAME)
+				.build();
 		ICompilationUnit compilationUnit = anICompilationUnit().build();
 		when(packageFragment
 				.createCompilationUnit(
 						COMPILATION_UNIT_NAME + ".java",
-						"",
+						"package " + PACKAGE_NAME + ";",
 						true,
 						null))
 				.thenReturn(compilationUnit);

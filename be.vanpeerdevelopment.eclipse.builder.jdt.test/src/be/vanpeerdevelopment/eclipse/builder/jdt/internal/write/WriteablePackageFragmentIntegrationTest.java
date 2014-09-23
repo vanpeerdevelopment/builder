@@ -31,8 +31,8 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 	}
 
 	@Test
-	public void createCompilationUnit() {
-		ReadableCompilationUnit readableCompilationUnit = writeablePackageFragment
+	public void createCompilationUnit_WillCreateNewCompilationUnit() {
+		writeablePackageFragment
 				.createCompilationUnit(aCreateCompilationUnitCommand()
 						.withName(COMPILATION_UNIT_NAME)
 						.build());
@@ -44,6 +44,48 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 						JAVA_PACKAGE_NAME,
 						COMPILATION_UNIT_NAME))
 				.isTrue();
+
+		eclipse
+				.deleteClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						COMPILATION_UNIT_NAME)
+				.ok();
+	}
+
+	@Test
+	public void createCompilationUnit_HasCorrectContent() {
+		writeablePackageFragment
+				.createCompilationUnit(aCreateCompilationUnitCommand()
+						.withName(COMPILATION_UNIT_NAME)
+						.build());
+
+		assertThat(eclipse
+				.openClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						COMPILATION_UNIT_NAME)
+				.getText())
+				.isEqualTo("package " + JAVA_PACKAGE_NAME + ";");
+
+		eclipse
+				.deleteClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						COMPILATION_UNIT_NAME)
+				.ok();
+	}
+
+	@Test
+	public void createCompilationUnit_ReturnsPathToNewCompilationUnit() {
+		ReadableCompilationUnit readableCompilationUnit = writeablePackageFragment
+				.createCompilationUnit(aCreateCompilationUnitCommand()
+						.withName(COMPILATION_UNIT_NAME)
+						.build());
+
 		assertThat(getProject(readableCompilationUnit.getPath())).isEqualTo(JAVA_PROJECT_NAME);
 		assertThat(getSourceFolder(readableCompilationUnit.getPath())).isEqualTo(JAVA_SOURCE_FOLDER_NAME);
 		assertThat(getPackage(readableCompilationUnit.getPath())).isEqualTo(JAVA_PACKAGE_NAME);

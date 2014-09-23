@@ -30,7 +30,7 @@ public class WriteablePackageFragment {
 			throws JavaModelException {
 		ICompilationUnit compilationUnit = packageFragment.createCompilationUnit(
 				command.getNameWithExtension(),
-				"",
+				"package " + packageFragment.getElementName() + ";",
 				true,
 				null);
 		return new ReadableCompilationUnit(compilationUnit);

@@ -12,6 +12,8 @@ import org.eclipse.jdt.core.JavaModelException;
 
 public class IPackageFragmentTestBuilder {
 
+	public static final String PACKAGE_NAME = "be.vanpeerdevelopment.eclipse.builder";
+
 	private IPackageFragment packageFragment;
 
 	private IPackageFragmentTestBuilder() {
@@ -24,6 +26,11 @@ public class IPackageFragmentTestBuilder {
 
 	public IPackageFragment build() {
 		return packageFragment;
+	}
+
+	public IPackageFragmentTestBuilder withName(String packageName) {
+		when(packageFragment.getElementName()).thenReturn(packageName);
+		return this;
 	}
 
 	public IPackageFragmentTestBuilder withFailingCreateCompilationUnit() {

@@ -28,6 +28,14 @@ public class GenerateBuilderHandlerEndToEndTest extends EclipseTest {
 						JAVA_PACKAGE_NAME,
 						JAVA_CLASS_NAME + "Builder"))
 				.isTrue();
+		assertThat(eclipse
+				.openClass(
+						JAVA_PROJECT_NAME,
+						JAVA_SOURCE_FOLDER_NAME,
+						JAVA_PACKAGE_NAME,
+						JAVA_CLASS_NAME + "Builder")
+				.getText())
+				.isEqualTo("package " + JAVA_PACKAGE_NAME + ";");
 		assertThat(eclipse.willEditorBeOpened(JAVA_CLASS_NAME + "Builder.java")).isTrue();
 		assertThat(eclipse.isEditorActive(JAVA_CLASS_NAME + "Builder.java")).isTrue();
 
