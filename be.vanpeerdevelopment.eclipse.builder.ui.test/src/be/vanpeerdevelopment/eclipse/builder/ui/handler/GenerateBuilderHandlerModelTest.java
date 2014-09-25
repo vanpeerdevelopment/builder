@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.core.runtime.IPath;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
@@ -28,20 +29,22 @@ public class GenerateBuilderHandlerModelTest extends UnitTest {
 	@Mock
 	private IPath compilationUnitLocation;
 	@Mock
-	private IPath createdBuilderLocation;
+	private IPath builderLocation;
 	@Captor
 	private ArgumentCaptor<GenerateBuilderCommand> commandCaptor;
 
+	@Before
+	public void setup() {
+		when(workbench.getActiveCompilationUnitLocation()).thenReturn(compilationUnitLocation);
+		when(generateBuilderService.generateBuilder(any(GenerateBuilderCommand.class))).thenReturn(builderLocation);
+	}
+
 	@Test
 	public void generateBuilder_delegatesToGenerateBuilderService() {
-		when(workbench.getActiveCompilationUnitLocation()).thenReturn(compilationUnitLocation);
-		when(generateBuilderService.generateBuilder(any(GenerateBuilderCommand.class)))
-				.thenReturn(createdBuilderLocation);
-
 		generateBuilderHandlerModel.generateBuilder();
 
 		verify(generateBuilderService).generateBuilder(commandCaptor.capture());
 		assertThat(commandCaptor.getValue().getCompilationUnitLocation()).isEqualTo(compilationUnitLocation);
-		verify(workbench).openCompilationUnit(createdBuilderLocation);
+		verify(workbench).openCompilationUnit(builderLocation);
 	}
 }

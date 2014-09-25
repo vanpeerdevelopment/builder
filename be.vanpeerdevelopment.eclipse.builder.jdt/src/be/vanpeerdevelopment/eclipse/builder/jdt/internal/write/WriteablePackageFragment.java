@@ -1,10 +1,8 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
-import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.JavaModelException;
 
-import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.JdtWriteException;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 
@@ -16,9 +14,9 @@ public class WriteablePackageFragment {
 		this.packageFragment = packageFragment;
 	}
 
-	public ReadableCompilationUnit createCompilationUnit(CreateCompilationUnitCommand command) {
+	public void createCompilationUnit(CreateCompilationUnitCommand command) {
 		try {
-			return createCompilationUnitIgnoringException(command);
+			createCompilationUnitIgnoringException(command);
 		} catch (JavaModelException e) {
 			throw new JdtWriteException(
 					"Something went wrong while creating the following compilation unit: "
@@ -26,13 +24,12 @@ public class WriteablePackageFragment {
 		}
 	}
 
-	private ReadableCompilationUnit createCompilationUnitIgnoringException(CreateCompilationUnitCommand command)
+	private void createCompilationUnitIgnoringException(CreateCompilationUnitCommand command)
 			throws JavaModelException {
-		ICompilationUnit compilationUnit = packageFragment.createCompilationUnit(
+		packageFragment.createCompilationUnit(
 				command.getNameWithExtension(),
 				"package " + packageFragment.getElementName() + ";",
 				true,
 				null);
-		return new ReadableCompilationUnit(compilationUnit);
 	}
 }

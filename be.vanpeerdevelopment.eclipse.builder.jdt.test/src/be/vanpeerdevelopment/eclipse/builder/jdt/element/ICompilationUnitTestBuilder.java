@@ -10,6 +10,8 @@ import org.eclipse.jdt.core.JavaModelException;
 
 public class ICompilationUnitTestBuilder {
 
+	public static final String COMPILATION_UNIT_NAME = "CompilationUnitName";
+
 	private ICompilationUnit compilationUnit;
 
 	private ICompilationUnitTestBuilder() {

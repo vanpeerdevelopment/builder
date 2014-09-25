@@ -18,10 +18,14 @@ public class GenerateBuilderHandlerModel {
 	}
 
 	public void generateBuilder() {
-		GenerateBuilderCommand command = generateBuilderCommand()
+		GenerateBuilderCommand generateBuilderCommand = createGenerateBuilderCommand();
+		IPath builderLocation = generateBuilderService.generateBuilder(generateBuilderCommand);
+		workbench.openCompilationUnit(builderLocation);
+	}
+
+	private GenerateBuilderCommand createGenerateBuilderCommand() {
+		return generateBuilderCommand()
 				.withCompilationUnitLocation(workbench.getActiveCompilationUnitLocation())
 				.build();
-		IPath createdBuilderLocation = generateBuilderService.generateBuilder(command);
-		workbench.openCompilationUnit(createdBuilderLocation);
 	}
 }
