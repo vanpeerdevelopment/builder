@@ -38,8 +38,8 @@ public class BuilderPatternEngineTest extends UnitTest {
 
 	@Test
 	public void generateBuilder() {
-		when(command.getCompilationUnitLocation()).thenReturn(compilationUnitLocation);
-		when(command.getPackageLocation()).thenReturn(packageLocation);
+		when(command.getSourceCompilationUnitLocation()).thenReturn(compilationUnitLocation);
+		when(command.getDestinationPackageLocation()).thenReturn(packageLocation);
 		when(jdtReadModel.getCompilationUnit(compilationUnitLocation)).thenReturn(compilationUnit);
 		when(compilationUnit.getOnlyType()).thenReturn(type);
 		when(type.getSimpleName()).thenReturn(TYPE_NAME);

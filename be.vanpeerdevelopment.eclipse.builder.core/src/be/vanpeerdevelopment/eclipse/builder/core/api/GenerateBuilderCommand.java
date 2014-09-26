@@ -4,17 +4,17 @@ import org.eclipse.core.runtime.IPath;
 
 public class GenerateBuilderCommand {
 
-	private IPath compilationUnitLocation;
+	private IPath sourceCompilationUnitLocation;
 
 	private GenerateBuilderCommand() {
 	}
 
-	public IPath getCompilationUnitLocation() {
-		return compilationUnitLocation;
+	public IPath getSourceCompilationUnitLocation() {
+		return sourceCompilationUnitLocation;
 	}
 
-	public IPath getPackageLocation() {
-		return compilationUnitLocation.removeLastSegments(1);
+	public IPath getDestinationPackageLocation() {
+		return sourceCompilationUnitLocation.removeLastSegments(1);
 	}
 
 	public static class GenerateBuilderCommandBuilder {
@@ -33,8 +33,8 @@ public class GenerateBuilderCommand {
 			return generateBuilderCommand;
 		}
 
-		public GenerateBuilderCommandBuilder withCompilationUnitLocation(IPath compilationUnitLocation) {
-			generateBuilderCommand.compilationUnitLocation = compilationUnitLocation;
+		public GenerateBuilderCommandBuilder withSourceCompilationUnitLocation(IPath sourceCompilationUnitLocation) {
+			generateBuilderCommand.sourceCompilationUnitLocation = sourceCompilationUnitLocation;
 			return this;
 		}
 	}

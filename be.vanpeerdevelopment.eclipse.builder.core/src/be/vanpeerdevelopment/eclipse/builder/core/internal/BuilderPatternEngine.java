@@ -20,8 +20,8 @@ public class BuilderPatternEngine {
 
 	public CreateCompilationUnitCommand generateBuilder(GenerateBuilderCommand command) {
 		return createCompilationUnitCommand()
-				.withPackageLocation(command.getPackageLocation())
-				.withName(getJavaClassName(command.getCompilationUnitLocation()) + BUILDER_SUFFIX)
+				.withPackageLocation(command.getDestinationPackageLocation())
+				.withName(getJavaClassName(command.getSourceCompilationUnitLocation()) + BUILDER_SUFFIX)
 				.build();
 	}
 

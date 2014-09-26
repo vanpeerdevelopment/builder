@@ -44,7 +44,7 @@ public class GenerateBuilderHandlerModelTest extends UnitTest {
 		generateBuilderHandlerModel.generateBuilder();
 
 		verify(generateBuilderService).generateBuilder(commandCaptor.capture());
-		assertThat(commandCaptor.getValue().getCompilationUnitLocation()).isEqualTo(compilationUnitLocation);
+		assertThat(commandCaptor.getValue().getSourceCompilationUnitLocation()).isEqualTo(compilationUnitLocation);
 		verify(workbench).openCompilationUnit(builderLocation);
 	}
 }

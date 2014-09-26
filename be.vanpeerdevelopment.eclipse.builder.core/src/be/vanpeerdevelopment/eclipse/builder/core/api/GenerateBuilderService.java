@@ -23,7 +23,7 @@ public class GenerateBuilderService {
 		CreateCompilationUnitCommand createCompilationUnitCommand = builderPatternEngine.generateBuilder(command);
 		jdtWriteModel.createCompilationUnit(createCompilationUnitCommand);
 		return builderLocator.getBuilderLocation(
-				command.getPackageLocation(),
-				command.getCompilationUnitLocation());
+				command.getDestinationPackageLocation(),
+				command.getSourceCompilationUnitLocation());
 	}
 }

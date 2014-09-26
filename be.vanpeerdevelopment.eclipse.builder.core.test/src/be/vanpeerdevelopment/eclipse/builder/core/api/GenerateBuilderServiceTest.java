@@ -41,8 +41,8 @@ public class GenerateBuilderServiceTest extends UnitTest {
 	@Before
 	public void setup() {
 		when(builderPatternEngine.generateBuilder(command)).thenReturn(createCompilationUnitCommand);
-		when(command.getPackageLocation()).thenReturn(packageLocation);
-		when(command.getCompilationUnitLocation()).thenReturn(compilationUnitLocation);
+		when(command.getDestinationPackageLocation()).thenReturn(packageLocation);
+		when(command.getSourceCompilationUnitLocation()).thenReturn(compilationUnitLocation);
 		when(builderLocator.getBuilderLocation(packageLocation, compilationUnitLocation))
 				.thenReturn(builderLocation);
 	}

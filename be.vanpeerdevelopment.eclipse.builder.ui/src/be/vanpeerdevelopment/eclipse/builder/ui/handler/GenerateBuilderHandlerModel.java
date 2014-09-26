@@ -25,7 +25,7 @@ public class GenerateBuilderHandlerModel {
 
 	private GenerateBuilderCommand createGenerateBuilderCommand() {
 		return generateBuilderCommand()
-				.withCompilationUnitLocation(workbench.getActiveCompilationUnitLocation())
+				.withSourceCompilationUnitLocation(workbench.getActiveCompilationUnitLocation())
 				.build();
 	}
 }

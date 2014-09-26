@@ -22,8 +22,8 @@ public class GenerateBuilderCommandTestBuilder {
 		return builder.build();
 	}
 
-	public GenerateBuilderCommandTestBuilder withCompilationUnitLocation(IPath compilationUnitLocation) {
-		builder.withCompilationUnitLocation(compilationUnitLocation);
+	public GenerateBuilderCommandTestBuilder withSourceCompilationUnitLocation(IPath sourceCompilationUnitLocation) {
+		builder.withSourceCompilationUnitLocation(sourceCompilationUnitLocation);
 		return this;
 	}
 }

@@ -16,20 +16,20 @@ public class GenerateBuilderCommandTest extends UnitTest {
 			"/workspace-root/project/source-folder/package/class.java");
 
 	@Test
-	public void getCompilationUnitLocation() {
+	public void getSourceCompilationUnitLocation() {
 		GenerateBuilderCommand command = aGenerateBuilderCommand()
-				.withCompilationUnitLocation(COMPILATION_UNIT_LOCATION)
+				.withSourceCompilationUnitLocation(COMPILATION_UNIT_LOCATION)
 				.build();
 
-		assertThat(command.getCompilationUnitLocation()).isEqualTo(COMPILATION_UNIT_LOCATION);
+		assertThat(command.getSourceCompilationUnitLocation()).isEqualTo(COMPILATION_UNIT_LOCATION);
 	}
 
 	@Test
-	public void getPackageLocation() {
+	public void getDestinationPackageLocation() {
 		GenerateBuilderCommand command = aGenerateBuilderCommand()
-				.withCompilationUnitLocation(COMPILATION_UNIT_LOCATION)
+				.withSourceCompilationUnitLocation(COMPILATION_UNIT_LOCATION)
 				.build();
 
-		assertThat(command.getPackageLocation()).isEqualTo(PACKAGE_LOCATION);
+		assertThat(command.getDestinationPackageLocation()).isEqualTo(PACKAGE_LOCATION);
 	}
 }
