@@ -14,6 +14,6 @@ public class JdtWriteModel {
 
 	public void createCompilationUnit(CreateCompilationUnitCommand command) {
 		WriteablePackageFragment writeablePackageFragment = workspace.getPackage(command.getPackageLocation());
-		writeablePackageFragment.createCompilationUnit(command);
+		writeablePackageFragment.createCompilationUnit(command.getCompilationUnit());
 	}
 }

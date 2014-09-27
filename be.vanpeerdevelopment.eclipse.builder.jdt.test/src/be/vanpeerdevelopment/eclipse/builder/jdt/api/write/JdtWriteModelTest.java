@@ -10,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.Workspace;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.WriteablePackageFragment;
@@ -22,6 +23,8 @@ public class JdtWriteModelTest extends UnitTest {
 	private JdtWriteModel jdtWriteModel;
 
 	@Mock
+	private CompilationUnit compilationUnit;
+	@Mock
 	private IPath packageLocation;
 	@Mock
 	private WriteablePackageFragment writeablePackageFragment;
@@ -30,11 +33,12 @@ public class JdtWriteModelTest extends UnitTest {
 	public void createCompilationUnit() {
 		CreateCompilationUnitCommand command = aCreateCompilationUnitCommand()
 				.withPackageLocation(packageLocation)
+				.withCompilationUnit(compilationUnit)
 				.build();
 		when(workspace.getPackage(packageLocation)).thenReturn(writeablePackageFragment);
 
 		jdtWriteModel.createCompilationUnit(command);
 
-		verify(writeablePackageFragment).createCompilationUnit(command);
+		verify(writeablePackageFragment).createCompilationUnit(compilationUnit);
 	}
 }

@@ -1,7 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
-import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommandTestBuilder.aCreateCompilationUnitCommand;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ICompilationUnitTestBuilder.COMPILATION_UNIT_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.anIPackageFragment;
@@ -13,23 +12,21 @@ import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.JdtWriteException;
-import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit;
 
 public class WriteablePackageFragmentTest extends UnitTest {
 
 	@Test
 	public void createCompilationUnit() throws JavaModelException {
-		CreateCompilationUnitCommand command = aCreateCompilationUnitCommand()
-				.withCompilationUnit(aCompilationUnit()
-						.withName(COMPILATION_UNIT_NAME)
-						.build())
+		CompilationUnit compilationUnit = aCompilationUnit()
+				.withName(COMPILATION_UNIT_NAME)
 				.build();
 		IPackageFragment packageFragment = anIPackageFragment()
 				.withName(PACKAGE_NAME)
 				.build();
 		WriteablePackageFragment writeablePackageFragment = new WriteablePackageFragment(packageFragment);
 
-		writeablePackageFragment.createCompilationUnit(command);
+		writeablePackageFragment.createCompilationUnit(compilationUnit);
 
 		verify(packageFragment).createCompilationUnit(
 				COMPILATION_UNIT_NAME + ".java",
@@ -40,10 +37,8 @@ public class WriteablePackageFragmentTest extends UnitTest {
 
 	@Test
 	public void createCompilationUnit_WhenFails_ThrowsJdtWriteException() {
-		CreateCompilationUnitCommand command = aCreateCompilationUnitCommand()
-				.withCompilationUnit(aCompilationUnit()
-						.withName(COMPILATION_UNIT_NAME)
-						.build())
+		CompilationUnit compilationUnit = aCompilationUnit()
+				.withName(COMPILATION_UNIT_NAME)
 				.build();
 		IPackageFragment packageFragment = anIPackageFragment()
 				.withFailingCreateCompilationUnit()
@@ -55,6 +50,6 @@ public class WriteablePackageFragmentTest extends UnitTest {
 				"Something went wrong while creating the following compilation unit: " + COMPILATION_UNIT_NAME
 						+ ".java");
 
-		writeablePackageFragment.createCompilationUnit(command);
+		writeablePackageFragment.createCompilationUnit(compilationUnit);
 	}
 }
