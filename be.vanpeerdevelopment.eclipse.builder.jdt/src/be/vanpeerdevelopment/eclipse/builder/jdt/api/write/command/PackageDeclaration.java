@@ -13,6 +13,14 @@ public class PackageDeclaration extends ValueObject {
 		return name;
 	}
 
+	public String toCode() {
+		return new StringBuilder()
+				.append("package ")
+				.append(name)
+				.append(";")
+				.toString();
+	}
+
 	public static class PackageDeclarationBuilder {
 
 		private PackageDeclaration packageDeclaration;

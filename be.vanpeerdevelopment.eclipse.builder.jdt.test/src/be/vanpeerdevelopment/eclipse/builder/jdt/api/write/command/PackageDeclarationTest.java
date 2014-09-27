@@ -21,4 +21,15 @@ public class PackageDeclarationTest extends UnitTest {
 
 		assertThat(result).isEqualTo(PACKAGE_NAME);
 	}
+
+	@Test
+	public void toCode() {
+		PackageDeclaration packageDeclaration = aPackageDeclaration()
+				.withName(PACKAGE_NAME)
+				.build();
+
+		String code = packageDeclaration.toCode();
+
+		assertThat(code).isEqualTo("package " + PACKAGE_NAME + ";");
+	}
 }

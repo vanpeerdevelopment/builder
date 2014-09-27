@@ -45,4 +45,17 @@ public class CompilationUnitTest extends UnitTest {
 
 		assertThat(result).isEqualTo(packageDeclaration);
 	}
+
+	@Test
+	public void toCode() {
+		CompilationUnit compilationUnit = aCompilationUnit()
+				.withPackageDeclaration(aPackageDeclaration()
+						.withName("be.vanpeerdevelopment.eclipse.builder")
+						.build())
+				.build();
+
+		String code = compilationUnit.toCode();
+
+		assertThat(code).isEqualTo("package be.vanpeerdevelopment.eclipse.builder;");
+	}
 }

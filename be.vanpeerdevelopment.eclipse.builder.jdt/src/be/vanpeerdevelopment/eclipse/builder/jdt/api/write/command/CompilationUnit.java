@@ -26,6 +26,10 @@ public class CompilationUnit extends ValueObject {
 		return packageDeclaration;
 	}
 
+	public String toCode() {
+		return packageDeclaration.toCode();
+	}
+
 	public static class CompilationUnitBuilder {
 
 		private CompilationUnit compilationUnit;

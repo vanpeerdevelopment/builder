@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclarationTestBuilder.aPackageDeclaration;
 import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -57,6 +58,9 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 		writeablePackageFragment
 				.createCompilationUnit(aCompilationUnit()
 						.withName(COMPILATION_UNIT_NAME)
+						.withPackageDeclaration(aPackageDeclaration()
+								.withName(JAVA_PACKAGE_NAME)
+								.build())
 						.build());
 
 		assertThat(eclipse

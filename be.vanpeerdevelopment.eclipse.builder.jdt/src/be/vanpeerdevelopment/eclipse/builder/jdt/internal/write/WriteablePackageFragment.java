@@ -28,7 +28,7 @@ public class WriteablePackageFragment {
 			throws JavaModelException {
 		packageFragment.createCompilationUnit(
 				compilationUnit.getNameWithExtension(),
-				"package " + packageFragment.getElementName() + ";",
+				compilationUnit.toCode(),
 				true,
 				null);
 	}
