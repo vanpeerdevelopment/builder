@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommandTestBuilder.aCreateCompilationUnitCommand;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -18,26 +19,20 @@ public class CreateCompilationUnitCommandTest extends UnitTest {
 				.withPackageLocation(packageLocation)
 				.build();
 
-		assertThat(command.getPackageLocation()).isEqualTo(packageLocation);
+		IPath result = command.getPackageLocation();
+
+		assertThat(result).isEqualTo(packageLocation);
 	}
 
 	@Test
-	public void getName() {
-		String name = "Person";
+	public void getCompilationUnit() throws Exception {
+		CompilationUnit compilationUnit = aCompilationUnit().build();
 		CreateCompilationUnitCommand command = aCreateCompilationUnitCommand()
-				.withName(name)
+				.withCompilationUnit(compilationUnit)
 				.build();
 
-		assertThat(command.getName()).isEqualTo(name);
-	}
+		CompilationUnit result = command.getCompilationUnit();
 
-	@Test
-	public void getNameWithExtension() {
-		String name = "Person";
-		CreateCompilationUnitCommand command = aCreateCompilationUnitCommand()
-				.withName(name)
-				.build();
-
-		assertThat(command.getNameWithExtension()).isEqualTo(name + ".java");
+		assertThat(result).isEqualTo(compilationUnit);
 	}
 }

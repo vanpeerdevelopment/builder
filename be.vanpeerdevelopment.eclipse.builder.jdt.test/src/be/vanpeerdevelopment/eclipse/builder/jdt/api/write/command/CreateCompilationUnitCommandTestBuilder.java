@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 
 import org.eclipse.core.runtime.IPath;
@@ -10,7 +11,7 @@ import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompila
 public class CreateCompilationUnitCommandTestBuilder {
 
 	private static final IPath DEFAULT_PACKAGE_LOCATION = new Path("Default package location");
-	private static final String DEFAULT_NAME = "Vehicle";
+	private static final CompilationUnit DEFAULT_COMPILATION_UNIT = aCompilationUnit().build();
 
 	private CreateCompilationUnitCommandBuilder builder;
 
@@ -21,7 +22,7 @@ public class CreateCompilationUnitCommandTestBuilder {
 	public static CreateCompilationUnitCommandTestBuilder aCreateCompilationUnitCommand() {
 		return new CreateCompilationUnitCommandTestBuilder()
 				.withPackageLocation(DEFAULT_PACKAGE_LOCATION)
-				.withName(DEFAULT_NAME);
+				.withCompilationUnit(DEFAULT_COMPILATION_UNIT);
 	}
 
 	public CreateCompilationUnitCommand build() {
@@ -33,8 +34,8 @@ public class CreateCompilationUnitCommandTestBuilder {
 		return this;
 	}
 
-	public CreateCompilationUnitCommandTestBuilder withName(String name) {
-		builder.withName(name);
+	public CreateCompilationUnitCommandTestBuilder withCompilationUnit(CompilationUnit compilationUnit) {
+		builder.withCompilationUnit(compilationUnit);
 		return this;
 	}
 }

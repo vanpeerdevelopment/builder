@@ -11,3 +11,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Export-Package: be.vanpeerdevelopment.eclipse.builder.jdt.api.read,
  be.vanpeerdevelopment.eclipse.builder.jdt.api.write,
  be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command
+Bundle-ClassPath: libs/commons-lang3-3.3.2.jar,
+ .

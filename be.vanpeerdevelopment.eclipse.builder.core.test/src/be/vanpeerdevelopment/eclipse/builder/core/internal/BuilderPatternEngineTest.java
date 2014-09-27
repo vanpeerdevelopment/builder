@@ -1,6 +1,8 @@
 package be.vanpeerdevelopment.eclipse.builder.core.internal;
 
 import static be.vanpeerdevelopment.eclipse.builder.core.internal.BuilderPatternEngine.BUILDER_SUFFIX;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -46,7 +48,11 @@ public class BuilderPatternEngineTest extends UnitTest {
 
 		CreateCompilationUnitCommand createCompilationUnitCommand = builderPatternEngine.generateBuilder(command);
 
-		assertThat(createCompilationUnitCommand.getPackageLocation()).isEqualTo(packageLocation);
-		assertThat(createCompilationUnitCommand.getName()).isEqualTo(TYPE_NAME + BUILDER_SUFFIX);
+		assertThat(createCompilationUnitCommand).isEqualTo(createCompilationUnitCommand()
+				.withPackageLocation(packageLocation)
+				.withCompilationUnit(compilationUnit()
+						.withName(TYPE_NAME + BUILDER_SUFFIX)
+						.build())
+				.build());
 	}
 }

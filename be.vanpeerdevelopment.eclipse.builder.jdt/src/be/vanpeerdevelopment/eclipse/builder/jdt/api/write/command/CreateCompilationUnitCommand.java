@@ -2,12 +2,12 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import org.eclipse.core.runtime.IPath;
 
-public class CreateCompilationUnitCommand {
+import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.ValueObject;
 
-	public static final String JAVA_EXTENSION = ".java";
+public class CreateCompilationUnitCommand extends ValueObject {
 
 	private IPath packageLocation;
-	private String name;
+	private CompilationUnit compilationUnit;
 
 	private CreateCompilationUnitCommand() {
 	}
@@ -16,14 +16,8 @@ public class CreateCompilationUnitCommand {
 		return packageLocation;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getNameWithExtension() {
-		return new StringBuilder(name)
-				.append(JAVA_EXTENSION)
-				.toString();
+	public CompilationUnit getCompilationUnit() {
+		return compilationUnit;
 	}
 
 	public static class CreateCompilationUnitCommandBuilder {
@@ -47,8 +41,8 @@ public class CreateCompilationUnitCommand {
 			return this;
 		}
 
-		public CreateCompilationUnitCommandBuilder withName(String name) {
-			command.name = name;
+		public CreateCompilationUnitCommandBuilder withCompilationUnit(CompilationUnit compilationUnit) {
+			command.compilationUnit = compilationUnit;
 			return this;
 		}
 	}

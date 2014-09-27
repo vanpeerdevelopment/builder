@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommandTestBuilder.aCreateCompilationUnitCommand;
 import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import static org.fest.assertions.Assertions.assertThat;
@@ -32,7 +33,9 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 	public void createCompilationUnit_WillCreateNewCompilationUnit() {
 		writeablePackageFragment
 				.createCompilationUnit(aCreateCompilationUnitCommand()
-						.withName(COMPILATION_UNIT_NAME)
+						.withCompilationUnit(aCompilationUnit()
+								.withName(COMPILATION_UNIT_NAME)
+								.build())
 						.build());
 
 		assertThat(eclipse
@@ -56,7 +59,9 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 	public void createCompilationUnit_HasCorrectContent() {
 		writeablePackageFragment
 				.createCompilationUnit(aCreateCompilationUnitCommand()
-						.withName(COMPILATION_UNIT_NAME)
+						.withCompilationUnit(aCompilationUnit()
+								.withName(COMPILATION_UNIT_NAME)
+								.build())
 						.build());
 
 		assertThat(eclipse

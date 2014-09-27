@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommandTestBuilder.aCreateCompilationUnitCommand;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ICompilationUnitTestBuilder.COMPILATION_UNIT_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.anIPackageFragment;
@@ -18,13 +19,15 @@ public class WriteablePackageFragmentTest extends UnitTest {
 
 	@Test
 	public void createCompilationUnit() throws JavaModelException {
+		CreateCompilationUnitCommand command = aCreateCompilationUnitCommand()
+				.withCompilationUnit(aCompilationUnit()
+						.withName(COMPILATION_UNIT_NAME)
+						.build())
+				.build();
 		IPackageFragment packageFragment = anIPackageFragment()
 				.withName(PACKAGE_NAME)
 				.build();
 		WriteablePackageFragment writeablePackageFragment = new WriteablePackageFragment(packageFragment);
-		CreateCompilationUnitCommand command = createCompilationUnitCommand()
-				.withName(COMPILATION_UNIT_NAME)
-				.build();
 
 		writeablePackageFragment.createCompilationUnit(command);
 
@@ -37,13 +40,15 @@ public class WriteablePackageFragmentTest extends UnitTest {
 
 	@Test
 	public void createCompilationUnit_WhenFails_ThrowsJdtWriteException() {
+		CreateCompilationUnitCommand command = aCreateCompilationUnitCommand()
+				.withCompilationUnit(aCompilationUnit()
+						.withName(COMPILATION_UNIT_NAME)
+						.build())
+				.build();
 		IPackageFragment packageFragment = anIPackageFragment()
 				.withFailingCreateCompilationUnit()
 				.build();
 		WriteablePackageFragment writeablePackageFragment = new WriteablePackageFragment(packageFragment);
-		CreateCompilationUnitCommand command = createCompilationUnitCommand()
-				.withName(COMPILATION_UNIT_NAME)
-				.build();
 
 		expectExceptionWithMessage(
 				JdtWriteException.class,

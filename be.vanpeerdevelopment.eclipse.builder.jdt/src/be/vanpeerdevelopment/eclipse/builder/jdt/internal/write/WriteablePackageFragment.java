@@ -20,14 +20,14 @@ public class WriteablePackageFragment {
 		} catch (JavaModelException e) {
 			throw new JdtWriteException(
 					"Something went wrong while creating the following compilation unit: "
-							+ command.getNameWithExtension(), e);
+							+ command.getCompilationUnit().getNameWithExtension(), e);
 		}
 	}
 
 	private void createCompilationUnitIgnoringException(CreateCompilationUnitCommand command)
 			throws JavaModelException {
 		packageFragment.createCompilationUnit(
-				command.getNameWithExtension(),
+				command.getCompilationUnit().getNameWithExtension(),
 				"package " + packageFragment.getElementName() + ";",
 				true,
 				null);

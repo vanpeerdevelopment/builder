@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.core.internal;
 
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 
 import org.eclipse.core.runtime.IPath;
@@ -21,7 +22,9 @@ public class BuilderPatternEngine {
 	public CreateCompilationUnitCommand generateBuilder(GenerateBuilderCommand command) {
 		return createCompilationUnitCommand()
 				.withPackageLocation(command.getDestinationPackageLocation())
-				.withName(getJavaClassName(command.getSourceCompilationUnitLocation()) + BUILDER_SUFFIX)
+				.withCompilationUnit(compilationUnit()
+						.withName(getJavaClassName(command.getSourceCompilationUnitLocation()) + BUILDER_SUFFIX)
+						.build())
 				.build();
 	}
 
