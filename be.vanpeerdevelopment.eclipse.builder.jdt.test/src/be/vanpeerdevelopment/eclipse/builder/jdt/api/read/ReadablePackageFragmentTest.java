@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.read;
 
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.anIPackageFragment;
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -9,8 +10,6 @@ import org.junit.Test;
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
 
 public class ReadablePackageFragmentTest extends UnitTest {
-
-	private static final String PACKAGE_NAME = "be.vanpeerdevelopment.eclipse.builder";
 
 	@Test
 	public void getName() {

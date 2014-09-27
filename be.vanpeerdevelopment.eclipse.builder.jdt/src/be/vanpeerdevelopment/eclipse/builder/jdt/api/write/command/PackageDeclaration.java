@@ -9,10 +9,6 @@ public class PackageDeclaration extends ValueObject {
 	private PackageDeclaration() {
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public String toCode() {
 		return new StringBuilder()
 				.append("package ")

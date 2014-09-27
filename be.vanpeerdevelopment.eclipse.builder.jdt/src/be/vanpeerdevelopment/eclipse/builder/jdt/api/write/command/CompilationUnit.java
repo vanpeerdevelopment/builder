@@ -8,12 +8,9 @@ public class CompilationUnit extends ValueObject {
 
 	private String name;
 	private PackageDeclaration packageDeclaration;
+	private Type type;
 
 	private CompilationUnit() {
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public String getNameWithExtension() {
@@ -22,12 +19,12 @@ public class CompilationUnit extends ValueObject {
 				.toString();
 	}
 
-	public PackageDeclaration getPackageDeclaration() {
-		return packageDeclaration;
-	}
-
 	public String toCode() {
-		return packageDeclaration.toCode();
+		return new StringBuilder()
+				.append(packageDeclaration.toCode())
+				.append("\n")
+				.append(type.toCode())
+				.toString();
 	}
 
 	public static class CompilationUnitBuilder {
@@ -53,6 +50,11 @@ public class CompilationUnit extends ValueObject {
 
 		public CompilationUnitBuilder withPackageDeclaration(PackageDeclaration packageDeclaration) {
 			compilationUnit.packageDeclaration = packageDeclaration;
+			return this;
+		}
+
+		public CompilationUnitBuilder withType(Type type) {
+			compilationUnit.type = type;
 			return this;
 		}
 	}

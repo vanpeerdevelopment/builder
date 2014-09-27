@@ -2,6 +2,7 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclarationTestBuilder.aPackageDeclaration;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.TypeTestBuilder.aType;
 import static org.eclipse.core.resources.ResourcesPlugin.getWorkspace;
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -61,6 +62,9 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 						.withPackageDeclaration(aPackageDeclaration()
 								.withName(JAVA_PACKAGE_NAME)
 								.build())
+						.withType(aType()
+								.withName(COMPILATION_UNIT_NAME)
+								.build())
 						.build());
 
 		assertThat(eclipse
@@ -70,7 +74,7 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 						JAVA_PACKAGE_NAME,
 						COMPILATION_UNIT_NAME)
 				.getText())
-				.isEqualTo("package " + JAVA_PACKAGE_NAME + ";");
+				.isEqualTo("package " + JAVA_PACKAGE_NAME + ";\npublic class " + COMPILATION_UNIT_NAME + "{}");
 
 		eclipse
 				.deleteClass(

@@ -3,6 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.core.internal;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder.packageDeclaration;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Type.TypeBuilder.type;
 
 import org.eclipse.core.runtime.IPath;
 
@@ -24,12 +25,19 @@ public class BuilderPatternEngine {
 		return createCompilationUnitCommand()
 				.withPackageLocation(command.getDestinationPackageLocation())
 				.withCompilationUnit(compilationUnit()
-						.withName(getJavaClassName(command.getSourceCompilationUnitLocation()) + BUILDER_SUFFIX)
+						.withName(getBuilderName(command.getSourceCompilationUnitLocation()))
 						.withPackageDeclaration(packageDeclaration()
 								.withName(getPackageName(command.getDestinationPackageLocation()))
 								.build())
+						.withType(type()
+								.withName(getBuilderName(command.getSourceCompilationUnitLocation()))
+								.build())
 						.build())
 				.build();
+	}
+
+	private String getBuilderName(IPath sourceCompilationUnitLocation) {
+		return getJavaClassName(sourceCompilationUnitLocation) + BUILDER_SUFFIX;
 	}
 
 	private String getJavaClassName(IPath compilationUnitLocation) {

@@ -4,6 +4,7 @@ import static be.vanpeerdevelopment.eclipse.builder.core.internal.BuilderPattern
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder.packageDeclaration;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Type.TypeBuilder.type;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -65,6 +66,9 @@ public class BuilderPatternEngineTest extends UnitTest {
 						.withName(TYPE_NAME + BUILDER_SUFFIX)
 						.withPackageDeclaration(packageDeclaration()
 								.withName(PACKAGE_NAME)
+								.build())
+						.withType(type()
+								.withName(TYPE_NAME + BUILDER_SUFFIX)
 								.build())
 						.build())
 				.build());

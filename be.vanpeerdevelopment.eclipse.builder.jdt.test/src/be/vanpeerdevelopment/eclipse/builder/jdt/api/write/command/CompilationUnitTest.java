@@ -2,6 +2,9 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclarationTestBuilder.aPackageDeclaration;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.TypeTestBuilder.aType;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ITypeTestBuilder.TYPE_NAME;
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.junit.Test;
@@ -9,18 +12,6 @@ import org.junit.Test;
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
 
 public class CompilationUnitTest extends UnitTest {
-
-	@Test
-	public void getName() {
-		String name = "Person";
-		CompilationUnit compilationUnit = aCompilationUnit()
-				.withName(name)
-				.build();
-
-		String result = compilationUnit.getName();
-
-		assertThat(result).isEqualTo(name);
-	}
 
 	@Test
 	public void getNameWithExtension() {
@@ -35,27 +26,18 @@ public class CompilationUnitTest extends UnitTest {
 	}
 
 	@Test
-	public void getPackageDeclaration() {
-		PackageDeclaration packageDeclaration = aPackageDeclaration().build();
-		CompilationUnit compilationUnit = aCompilationUnit()
-				.withPackageDeclaration(packageDeclaration)
-				.build();
-
-		PackageDeclaration result = compilationUnit.getPackageDeclaration();
-
-		assertThat(result).isEqualTo(packageDeclaration);
-	}
-
-	@Test
 	public void toCode() {
 		CompilationUnit compilationUnit = aCompilationUnit()
 				.withPackageDeclaration(aPackageDeclaration()
-						.withName("be.vanpeerdevelopment.eclipse.builder")
+						.withName(PACKAGE_NAME)
+						.build())
+				.withType(aType()
+						.withName(TYPE_NAME)
 						.build())
 				.build();
 
 		String code = compilationUnit.toCode();
 
-		assertThat(code).isEqualTo("package be.vanpeerdevelopment.eclipse.builder;");
+		assertThat(code).isEqualTo("package " + PACKAGE_NAME + ";\npublic class " + TYPE_NAME + "{}");
 	}
 }

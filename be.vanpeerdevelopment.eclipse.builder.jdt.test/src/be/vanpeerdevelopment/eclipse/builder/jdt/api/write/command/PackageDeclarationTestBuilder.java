@@ -1,11 +1,12 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder.packageDeclaration;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder;
 
 public class PackageDeclarationTestBuilder {
 
-	private static final String DEFAULT_NAME = "be.vanpeerdevelopment.eclipse.builder";
+	private static final String DEFAULT_NAME = PACKAGE_NAME;
 
 	private PackageDeclarationBuilder builder;
 

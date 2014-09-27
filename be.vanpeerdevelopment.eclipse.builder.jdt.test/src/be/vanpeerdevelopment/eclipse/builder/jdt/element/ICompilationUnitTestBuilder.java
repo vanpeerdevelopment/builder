@@ -10,7 +10,7 @@ import org.eclipse.jdt.core.JavaModelException;
 
 public class ICompilationUnitTestBuilder {
 
-	public static final String COMPILATION_UNIT_NAME = "CompilationUnitName";
+	public static final String COMPILATION_UNIT_NAME = "Person";
 
 	private ICompilationUnit compilationUnit;
 
