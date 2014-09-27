@@ -1,6 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclarationTestBuilder.aPackageDeclaration;
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.junit.Test;
@@ -31,5 +32,17 @@ public class CompilationUnitTest extends UnitTest {
 		String result = compilationUnit.getNameWithExtension();
 
 		assertThat(result).isEqualTo(name + ".java");
+	}
+
+	@Test
+	public void getPackageDeclaration() {
+		PackageDeclaration packageDeclaration = aPackageDeclaration().build();
+		CompilationUnit compilationUnit = aCompilationUnit()
+				.withPackageDeclaration(packageDeclaration)
+				.build();
+
+		PackageDeclaration result = compilationUnit.getPackageDeclaration();
+
+		assertThat(result).isEqualTo(packageDeclaration);
 	}
 }
