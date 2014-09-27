@@ -2,6 +2,7 @@ package be.vanpeerdevelopment.eclipse.builder.core.internal;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder.packageDeclaration;
 
 import org.eclipse.core.runtime.IPath;
 
@@ -24,6 +25,9 @@ public class BuilderPatternEngine {
 				.withPackageLocation(command.getDestinationPackageLocation())
 				.withCompilationUnit(compilationUnit()
 						.withName(getJavaClassName(command.getSourceCompilationUnitLocation()) + BUILDER_SUFFIX)
+						.withPackageDeclaration(packageDeclaration()
+								.withName(getPackageName(command.getDestinationPackageLocation()))
+								.build())
 						.build())
 				.build();
 	}
@@ -33,5 +37,11 @@ public class BuilderPatternEngine {
 				.getCompilationUnit(compilationUnitLocation)
 				.getOnlyType()
 				.getSimpleName();
+	}
+
+	private String getPackageName(IPath destinationPackageLocation) {
+		return jdtReadModel
+				.getPackageFragment(destinationPackageLocation)
+				.getName();
 	}
 }
