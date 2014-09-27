@@ -13,7 +13,7 @@ public class JdtWriteModel {
 	}
 
 	public void createCompilationUnit(CreateCompilationUnitCommand command) {
-		WriteablePackageFragment writeablePackageFragment = workspace.getPackage(command.getPackageLocation());
+		WriteablePackageFragment writeablePackageFragment = workspace.getWriteablePackageFragment(command.getPackageLocation());
 		writeablePackageFragment.createCompilationUnit(command.getCompilationUnit());
 	}
 }

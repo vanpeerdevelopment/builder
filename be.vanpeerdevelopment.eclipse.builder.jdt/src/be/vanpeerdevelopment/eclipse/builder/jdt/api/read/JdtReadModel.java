@@ -13,6 +13,10 @@ public class JdtReadModel {
 	}
 
 	public ReadableCompilationUnit getCompilationUnit(IPath compilationUnitLocation) {
-		return workspace.getCompilationUnit(compilationUnitLocation);
+		return workspace.getReadableCompilationUnit(compilationUnitLocation);
+	}
+
+	public ReadablePackageFragment getPackageFragment(IPath packageLocation) {
+		return workspace.getReadablePackageFragment(packageLocation);
 	}
 }

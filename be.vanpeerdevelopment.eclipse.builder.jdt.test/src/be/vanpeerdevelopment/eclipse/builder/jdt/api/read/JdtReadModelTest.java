@@ -22,13 +22,26 @@ public class JdtReadModelTest extends UnitTest {
 	private IPath compilationUnitLocation;
 	@Mock
 	private ReadableCompilationUnit compilationUnit;
+	@Mock
+	private IPath packageLocation;
+	@Mock
+	private ReadablePackageFragment packageFragment;
 
 	@Test
 	public void getCompilationUnit() {
-		when(workspace.getCompilationUnit(compilationUnitLocation)).thenReturn(compilationUnit);
+		when(workspace.getReadableCompilationUnit(compilationUnitLocation)).thenReturn(compilationUnit);
 
-		ReadableCompilationUnit readableCompilationUnit = jdtReadModel.getCompilationUnit(compilationUnitLocation);
+		ReadableCompilationUnit result = jdtReadModel.getCompilationUnit(compilationUnitLocation);
 
-		assertThat(readableCompilationUnit).isEqualTo(compilationUnit);
+		assertThat(result).isEqualTo(compilationUnit);
+	}
+
+	@Test
+	public void getPackageFragment() {
+		when(workspace.getReadablePackageFragment(packageLocation)).thenReturn(packageFragment);
+
+		ReadablePackageFragment result = jdtReadModel.getPackageFragment(packageLocation);
+
+		assertThat(result).isEqualTo(packageFragment);
 	}
 }

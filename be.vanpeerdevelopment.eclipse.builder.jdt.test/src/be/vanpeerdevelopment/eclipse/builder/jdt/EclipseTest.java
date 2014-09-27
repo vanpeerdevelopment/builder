@@ -93,7 +93,7 @@ public abstract class EclipseTest extends SWTBotTest {
 				.ok();
 	}
 
-	protected IPath getPackageLocation() {
+	protected IPath packageLocation() {
 		return getWorkspace()
 				.getRoot()
 				.getLocation()
@@ -103,7 +103,7 @@ public abstract class EclipseTest extends SWTBotTest {
 	}
 
 	protected IPath javaClassLocation() {
-		return getPackageLocation()
+		return packageLocation()
 				.append(JAVA_CLASS_NAME + ".java");
 	}
 

@@ -19,7 +19,7 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 	@Before
 	public void setup() {
 		Workspace workspace = new Workspace();
-		writeablePackageFragment = workspace.getPackage(
+		writeablePackageFragment = workspace.getWriteablePackageFragment(
 				getWorkspace()
 						.getRoot()
 						.getLocation()

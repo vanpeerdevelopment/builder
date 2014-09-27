@@ -35,7 +35,7 @@ public class JdtWriteModelTest extends UnitTest {
 				.withPackageLocation(packageLocation)
 				.withCompilationUnit(compilationUnit)
 				.build();
-		when(workspace.getPackage(packageLocation)).thenReturn(writeablePackageFragment);
+		when(workspace.getWriteablePackageFragment(packageLocation)).thenReturn(writeablePackageFragment);
 
 		jdtWriteModel.createCompilationUnit(command);
 

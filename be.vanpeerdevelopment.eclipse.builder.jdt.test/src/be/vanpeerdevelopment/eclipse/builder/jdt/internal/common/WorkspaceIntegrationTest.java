@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadablePackageFragment;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.WriteablePackageFragment;
 
 public class WorkspaceIntegrationTest extends EclipseTest {
@@ -23,7 +24,7 @@ public class WorkspaceIntegrationTest extends EclipseTest {
 	}
 
 	@Test
-	public void getFile() throws Exception {
+	public void getReadableCompilationUnit() throws Exception {
 		IPath compilationUnitLocation = getWorkspace()
 				.getRoot()
 				.getLocation()
@@ -32,13 +33,13 @@ public class WorkspaceIntegrationTest extends EclipseTest {
 				.append(JAVA_PACKAGE_NAME)
 				.append(JAVA_CLASS_NAME + ".java");
 
-		ReadableCompilationUnit readableCompilationUnit = workspace.getCompilationUnit(compilationUnitLocation);
+		ReadableCompilationUnit readableCompilationUnit = workspace.getReadableCompilationUnit(compilationUnitLocation);
 
 		assertThat(readableCompilationUnit.getName()).isEqualTo(JAVA_CLASS_NAME + ".java");
 	}
 
 	@Test
-	public void getPackage() {
+	public void getWriteablePackageFragment() {
 		IPath packageLocation = getWorkspace()
 				.getRoot()
 				.getLocation()
@@ -46,12 +47,30 @@ public class WorkspaceIntegrationTest extends EclipseTest {
 				.append(JAVA_SOURCE_FOLDER_NAME)
 				.append(JAVA_PACKAGE_NAME);
 
-		WriteablePackageFragment writeablePackageFragment = workspace.getPackage(packageLocation);
+		WriteablePackageFragment writeablePackageFragment = workspace.getWriteablePackageFragment(packageLocation);
 
 		assertThat(getPackageFragment(writeablePackageFragment).getElementName()).isEqualTo(JAVA_PACKAGE_NAME);
 	}
 
+	@Test
+	public void getReadablePackageFragment() {
+		IPath packageLocation = getWorkspace()
+				.getRoot()
+				.getLocation()
+				.append(JAVA_PROJECT_NAME)
+				.append(JAVA_SOURCE_FOLDER_NAME)
+				.append(JAVA_PACKAGE_NAME);
+
+		ReadablePackageFragment readablePackageFragment = workspace.getReadablePackageFragment(packageLocation);
+
+		assertThat(getPackageFragment(readablePackageFragment).getElementName()).isEqualTo(JAVA_PACKAGE_NAME);
+	}
+
 	private IPackageFragment getPackageFragment(WriteablePackageFragment writeablePackageFragment) {
 		return field("packageFragment").ofType(IPackageFragment.class).in(writeablePackageFragment).get();
+	}
+
+	private IPackageFragment getPackageFragment(ReadablePackageFragment readablePackageFragment) {
+		return field("packageFragment").ofType(IPackageFragment.class).in(readablePackageFragment).get();
 	}
 }
