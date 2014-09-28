@@ -7,6 +7,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.JavaModelException;
 
@@ -44,6 +45,17 @@ public class IPackageFragmentTestBuilder {
 		} catch (JavaModelException e) {
 			throw new RuntimeException(e);
 		}
+		return this;
+	}
+
+	public IPackageFragmentTestBuilder withCompilationUnitToCreate(ICompilationUnit compilationUnit)
+			throws JavaModelException {
+		when(packageFragment.createCompilationUnit(
+				anyString(),
+				anyString(),
+				anyBoolean(),
+				any(IProgressMonitor.class)))
+				.thenReturn(compilationUnit);
 		return this;
 	}
 }

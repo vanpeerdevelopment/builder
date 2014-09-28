@@ -2,9 +2,12 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ICompilationUnitTestBuilder.COMPILATION_UNIT_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.anIPackageFragment;
+import static org.fest.assertions.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.JavaModelException;
 import org.junit.Before;
@@ -29,16 +32,20 @@ public class WriteablePackageFragmentTest extends UnitTest {
 
 	@Test
 	public void createCompilationUnit() throws JavaModelException {
-		IPackageFragment packageFragment = anIPackageFragment().build();
+		ICompilationUnit newlyCreatedCompilationUnit = mock(ICompilationUnit.class);
+		IPackageFragment packageFragment = anIPackageFragment()
+				.withCompilationUnitToCreate(newlyCreatedCompilationUnit)
+				.build();
 		WriteablePackageFragment writeablePackageFragment = new WriteablePackageFragment(packageFragment);
 
-		writeablePackageFragment.createCompilationUnit(compilationUnit);
+		ICompilationUnit result = writeablePackageFragment.createCompilationUnit(compilationUnit);
 
 		verify(packageFragment).createCompilationUnit(
 				COMPILATION_UNIT_NAME + ".java",
 				CODE,
 				true,
 				null);
+		assertThat(result).isEqualTo(newlyCreatedCompilationUnit);
 	}
 
 	@Test

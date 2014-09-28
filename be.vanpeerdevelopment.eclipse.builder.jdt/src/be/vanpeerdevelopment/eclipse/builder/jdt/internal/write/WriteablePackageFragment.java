@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write;
 
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.JavaModelException;
 
@@ -14,9 +15,9 @@ public class WriteablePackageFragment {
 		this.packageFragment = packageFragment;
 	}
 
-	public void createCompilationUnit(CompilationUnit compilationUnit) {
+	public ICompilationUnit createCompilationUnit(CompilationUnit compilationUnit) {
 		try {
-			createCompilationUnitIgnoringException(compilationUnit);
+			return createCompilationUnitIgnoringException(compilationUnit);
 		} catch (JavaModelException e) {
 			throw new JdtWriteException(
 					"Something went wrong while creating the following compilation unit: "
@@ -24,9 +25,9 @@ public class WriteablePackageFragment {
 		}
 	}
 
-	private void createCompilationUnitIgnoringException(CompilationUnit compilationUnit)
+	private ICompilationUnit createCompilationUnitIgnoringException(CompilationUnit compilationUnit)
 			throws JavaModelException {
-		packageFragment.createCompilationUnit(
+		return packageFragment.createCompilationUnit(
 				compilationUnit.getNameWithExtension(),
 				compilationUnit.toCode(),
 				true,

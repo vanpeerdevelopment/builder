@@ -37,7 +37,12 @@ public class GenerateBuilderHandlerEndToEndTest extends EclipseTest {
 						JAVA_PACKAGE_NAME,
 						JAVA_CLASS_NAME + "Builder")
 				.getText())
-				.isEqualTo("package " + JAVA_PACKAGE_NAME + ";\npublic class " + JAVA_CLASS_NAME + "Builder{}");
+				.isEqualTo(new StringBuilder()
+						.append("package " + JAVA_PACKAGE_NAME + ";\n")
+						.append("\n")
+						.append("public class " + JAVA_CLASS_NAME + "Builder {\n")
+						.append("}")
+						.toString());
 
 		eclipse
 				.deleteClass(
