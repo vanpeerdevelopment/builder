@@ -18,7 +18,6 @@ import org.junit.Test;
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.Workspace;
-import be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.format.FormatterOptionsFactory;
 
 public class FormatterOptionsFactoryIntegrationTest extends EclipseTest {
 
@@ -35,13 +34,13 @@ public class FormatterOptionsFactoryIntegrationTest extends EclipseTest {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Test
-	public void getFormatterOptions() {
+	public void createFormatterOptions() {
 		Map expected = getEclipseDefaultSettings();
 		expected.put(COMPILER_CODEGEN_TARGET_PLATFORM, VERSION_1_7);
 		expected.put(COMPILER_SOURCE, VERSION_1_7);
 		expected.put(COMPILER_COMPLIANCE, VERSION_1_7);
 
-		Map result = formatterOptionsFactory.getFormatterOptions(project);
+		Map result = formatterOptionsFactory.createFormatterOptions(project);
 
 		assertThat(result).isEqualTo(expected);
 	}

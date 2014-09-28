@@ -12,7 +12,7 @@ import org.eclipse.jdt.core.IJavaProject;
 public class FormatterOptionsFactory {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Map getFormatterOptions(IJavaProject project) {
+	public Map createFormatterOptions(IJavaProject project) {
 		Map options = getEclipseDefaultSettings();
 		options.put(COMPILER_CODEGEN_TARGET_PLATFORM, getCompilerCodegenTargetPlatform(project));
 		options.put(COMPILER_SOURCE, getCompilerSource(project));
