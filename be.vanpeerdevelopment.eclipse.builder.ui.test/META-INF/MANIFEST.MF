@@ -1,4 +1,4 @@
-Manifest-Version: 1.0
+anifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Builder UI Tests
 Bundle-SymbolicName: be.vanpeerdevelopment.eclipse.builder.ui.test
@@ -7,8 +7,9 @@ Bundle-Vendor: Van Peer Development
 Fragment-Host: be.vanpeerdevelopment.eclipse.builder.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.junit;bundle-version="4.11.0",
- org.mockito.mockito-all;bundle-version="1.9.5",
- org.easytesting.fest-assert;bundle-version="1.4.0",
- org.easytesting.fest-util;bundle-version="1.1.6",
  be.vanpeerdevelopment.eclipse.builder.swtbot
 Eclipse-RegisterBuddy: org.apache.log4j 
+Bundle-ClassPath: .,
+ libs/mockito-all-1.9.5.jar,
+ libs/fest-assert-1.4.jar,
+ libs/fest-util-1.1.6.jar
