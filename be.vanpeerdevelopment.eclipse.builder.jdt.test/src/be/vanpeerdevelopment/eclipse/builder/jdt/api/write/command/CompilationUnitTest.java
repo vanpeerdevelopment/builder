@@ -55,6 +55,20 @@ public class CompilationUnitTest extends UnitTest {
 	}
 
 	@Test
+	public void whenNameNotEqualToClassDefinitionName_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Name has to be equal to class definition name.");
+
+		aCompilationUnit()
+				.withName("CompilationUnit")
+				.withClassDefinition(aClassDefinition()
+						.withName("ClassDefinition")
+						.build())
+				.build();
+	}
+
+	@Test
 	public void whenNoPackageDeclaration_throwsValidationException() {
 		expectExceptionWithMessage(
 				ValidationException.class,

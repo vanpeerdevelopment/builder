@@ -11,6 +11,10 @@ public class ClassDefinition extends ValueObject {
 	private ClassDefinition() {
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public String toCode() {
 		return new StringBuilder()
 				.append("public class ")

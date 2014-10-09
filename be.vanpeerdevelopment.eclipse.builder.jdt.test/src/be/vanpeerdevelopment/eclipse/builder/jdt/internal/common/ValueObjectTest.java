@@ -1,51 +1,51 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.common;
 
-import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclarationTestBuilder.aPackageDeclaration;
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
-import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration;
 
 public class ValueObjectTest extends UnitTest {
 
 	@Test
 	public void equals_whenObjectsHaveSameFieldValues_thenObjectsAreEqual() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitTwo = aCompilationUnit().withName("Person").build();
+		PackageDeclaration packageDeclarationOne = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationTwo = aPackageDeclaration().withName("person").build();
 
-		boolean isEqual = compilationUnitOne.equals(compilationUnitTwo);
+		boolean isEqual = packageDeclarationOne.equals(packageDeclarationTwo);
 
 		assertThat(isEqual).isTrue();
 	}
 
 	@Test
 	public void equals_whenObjectsHaveDifferentFieldValues_thenObjectsAreNotEqual() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitTwo = aCompilationUnit().withName("Vehicle").build();
+		PackageDeclaration packageDeclarationOne = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationTwo = aPackageDeclaration().withName("vehicle").build();
 
-		boolean isEqual = compilationUnitOne.equals(compilationUnitTwo);
+		boolean isEqual = packageDeclarationOne.equals(packageDeclarationTwo);
 
 		assertThat(isEqual).isFalse();
 	}
 
 	@Test
 	public void equals_isReflexive() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
+		PackageDeclaration packageDeclaration = aPackageDeclaration().withName("person").build();
 
-		boolean isEqual = compilationUnitOne.equals(compilationUnitOne);
+		boolean isEqual = packageDeclaration.equals(packageDeclaration);
 
 		assertThat(isEqual).isTrue();
 	}
 
 	@Test
 	public void equals_isSymmetricForTrue() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitTwo = aCompilationUnit().withName("Person").build();
+		PackageDeclaration packageDeclarationOne = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationTwo = aPackageDeclaration().withName("person").build();
 
-		boolean isEqualOneTwo = compilationUnitOne.equals(compilationUnitTwo);
-		boolean isEqualTwoOne = compilationUnitTwo.equals(compilationUnitOne);
+		boolean isEqualOneTwo = packageDeclarationOne.equals(packageDeclarationTwo);
+		boolean isEqualTwoOne = packageDeclarationTwo.equals(packageDeclarationOne);
 
 		assertThat(isEqualOneTwo).isTrue();
 		assertThat(isEqualTwoOne).isTrue();
@@ -53,11 +53,11 @@ public class ValueObjectTest extends UnitTest {
 
 	@Test
 	public void equals_isSymmetricForFalse() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitTwo = aCompilationUnit().withName("Vehicle").build();
+		PackageDeclaration packageDeclarationOne = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationTwo = aPackageDeclaration().withName("vehicle").build();
 
-		boolean isEqualOneTwo = compilationUnitOne.equals(compilationUnitTwo);
-		boolean isEqualTwoOne = compilationUnitTwo.equals(compilationUnitOne);
+		boolean isEqualOneTwo = packageDeclarationOne.equals(packageDeclarationTwo);
+		boolean isEqualTwoOne = packageDeclarationTwo.equals(packageDeclarationOne);
 
 		assertThat(isEqualOneTwo).isFalse();
 		assertThat(isEqualTwoOne).isFalse();
@@ -65,13 +65,13 @@ public class ValueObjectTest extends UnitTest {
 
 	@Test
 	public void equals_isTransitive() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitTwo = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitThree = aCompilationUnit().withName("Person").build();
+		PackageDeclaration packageDeclarationOne = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationTwo = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationThree = aPackageDeclaration().withName("person").build();
 
-		boolean isEqualOneTwo = compilationUnitOne.equals(compilationUnitTwo);
-		boolean isEqualTwoThree = compilationUnitTwo.equals(compilationUnitThree);
-		boolean isEqualOneThree = compilationUnitOne.equals(compilationUnitThree);
+		boolean isEqualOneTwo = packageDeclarationOne.equals(packageDeclarationTwo);
+		boolean isEqualTwoThree = packageDeclarationTwo.equals(packageDeclarationThree);
+		boolean isEqualOneThree = packageDeclarationOne.equals(packageDeclarationThree);
 
 		assertThat(isEqualOneTwo).isTrue();
 		assertThat(isEqualTwoThree).isTrue();
@@ -80,12 +80,12 @@ public class ValueObjectTest extends UnitTest {
 
 	@Test
 	public void equals_isConsistentForTrue() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitTwo = aCompilationUnit().withName("Person").build();
+		PackageDeclaration packageDeclarationOne = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationTwo = aPackageDeclaration().withName("person").build();
 
-		boolean isEqualOne = compilationUnitOne.equals(compilationUnitTwo);
-		boolean isEqualTwo = compilationUnitOne.equals(compilationUnitTwo);
-		boolean isEqualThree = compilationUnitOne.equals(compilationUnitTwo);
+		boolean isEqualOne = packageDeclarationOne.equals(packageDeclarationTwo);
+		boolean isEqualTwo = packageDeclarationOne.equals(packageDeclarationTwo);
+		boolean isEqualThree = packageDeclarationOne.equals(packageDeclarationTwo);
 
 		assertThat(isEqualOne).isTrue();
 		assertThat(isEqualTwo).isTrue();
@@ -94,12 +94,12 @@ public class ValueObjectTest extends UnitTest {
 
 	@Test
 	public void equals_isConsistentForFalse() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitTwo = aCompilationUnit().withName("Vehicle").build();
+		PackageDeclaration packageDeclarationOne = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationTwo = aPackageDeclaration().withName("vehicle").build();
 
-		boolean isEqualOne = compilationUnitOne.equals(compilationUnitTwo);
-		boolean isEqualTwo = compilationUnitOne.equals(compilationUnitTwo);
-		boolean isEqualThree = compilationUnitOne.equals(compilationUnitTwo);
+		boolean isEqualOne = packageDeclarationOne.equals(packageDeclarationTwo);
+		boolean isEqualTwo = packageDeclarationOne.equals(packageDeclarationTwo);
+		boolean isEqualThree = packageDeclarationOne.equals(packageDeclarationTwo);
 
 		assertThat(isEqualOne).isFalse();
 		assertThat(isEqualTwo).isFalse();
@@ -108,12 +108,12 @@ public class ValueObjectTest extends UnitTest {
 
 	@Test
 	public void hashCode_whenTwoObjectsAreEquals_thenSameHashCode() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
-		CompilationUnit compilationUnitTwo = aCompilationUnit().withName("Person").build();
+		PackageDeclaration packageDeclarationOne = aPackageDeclaration().withName("person").build();
+		PackageDeclaration packageDeclarationTwo = aPackageDeclaration().withName("person").build();
 
-		boolean isEqualOne = compilationUnitOne.equals(compilationUnitTwo);
-		int hashCodeOne = compilationUnitOne.hashCode();
-		int hashCodeTwo = compilationUnitTwo.hashCode();
+		boolean isEqualOne = packageDeclarationOne.equals(packageDeclarationTwo);
+		int hashCodeOne = packageDeclarationOne.hashCode();
+		int hashCodeTwo = packageDeclarationTwo.hashCode();
 
 		assertThat(isEqualOne).isTrue();
 		assertThat(hashCodeOne).isEqualTo(hashCodeTwo);
@@ -121,11 +121,11 @@ public class ValueObjectTest extends UnitTest {
 
 	@Test
 	public void toString_returnsStringOfWithAllFieldValues() {
-		CompilationUnit compilationUnitOne = aCompilationUnit().withName("Person").build();
+		PackageDeclaration packageDeclaration = aPackageDeclaration().withName("person").build();
 
-		String toString = compilationUnitOne.toString();
+		String toString = packageDeclaration.toString();
 
-		assertThat(toString).contains(compilationUnitOne.getClass().getName());
-		assertThat(toString).contains("name=Person");
+		assertThat(toString).contains(packageDeclaration.getClass().getName());
+		assertThat(toString).contains("name=person");
 	}
 }

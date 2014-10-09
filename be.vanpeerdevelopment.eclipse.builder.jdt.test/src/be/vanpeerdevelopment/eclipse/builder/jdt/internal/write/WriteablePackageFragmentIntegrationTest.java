@@ -35,6 +35,9 @@ public class WriteablePackageFragmentIntegrationTest extends EclipseTest {
 		writeablePackageFragment
 				.createCompilationUnit(aCompilationUnit()
 						.withName(COMPILATION_UNIT_NAME)
+						.withClassDefinition(aClassDefinition()
+								.withName(COMPILATION_UNIT_NAME)
+								.build())
 						.build());
 
 		assertThat(eclipse

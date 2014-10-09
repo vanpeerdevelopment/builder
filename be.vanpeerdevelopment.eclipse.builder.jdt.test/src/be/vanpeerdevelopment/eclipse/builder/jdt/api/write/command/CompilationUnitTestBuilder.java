@@ -10,7 +10,7 @@ public class CompilationUnitTestBuilder {
 
 	private static final String DEFAULT_NAME = COMPILATION_UNIT_NAME;
 	private static final PackageDeclaration DEFAULT_PACKAGE_DECLARATION = aPackageDeclaration().build();
-	private static final ClassDefinition DEFAULT_CLASS_DEFINITION = aClassDefinition().build();
+	private static final ClassDefinition DEFAULT_CLASS_DEFINITION = aClassDefinition().withName(DEFAULT_NAME).build();
 
 	private CompilationUnitBuilder builder;
 
