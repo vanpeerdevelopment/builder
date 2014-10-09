@@ -7,22 +7,22 @@ import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.EclipseTest;
 
-public class ReadableTypeIntegrationTest extends EclipseTest {
+public class ReadableClassDefinitionIntegrationTest extends EclipseTest {
 
 	private JdtReadModel jdtReadModel;
-	private ReadableType type;
+	private ReadableClassDefinition classDefinition;
 
 	@Before
 	public void setup() {
 		jdtReadModel = new JdtReadModel();
 		ReadableCompilationUnit compilationUnit = jdtReadModel.getCompilationUnit(javaClassLocation());
-		type = compilationUnit.getOnlyType();
+		classDefinition = compilationUnit.getOnlyClassDefinition();
 	}
 
 	@Test
 	public void getSimpleName() {
-		String typeSimpleName = type.getSimpleName();
+		String classDefinitionSimpleName = classDefinition.getSimpleName();
 
-		assertThat(typeSimpleName).isEqualTo(JAVA_CLASS_NAME);
+		assertThat(classDefinitionSimpleName).isEqualTo(JAVA_CLASS_NAME);
 	}
 }

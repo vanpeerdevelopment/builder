@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
 
-public class ReadableTypeTest extends UnitTest {
+public class ReadableClassDefinitionTest extends UnitTest {
 
 	private static final String TYPE_NAME = "TypeName";
 
@@ -18,8 +18,8 @@ public class ReadableTypeTest extends UnitTest {
 				.withName(TYPE_NAME)
 				.build();
 
-		ReadableType readableType = new ReadableType(type);
+		ReadableClassDefinition readableClassDefinition = new ReadableClassDefinition(type);
 
-		assertThat(readableType.getSimpleName()).isEqualTo(TYPE_NAME);
+		assertThat(readableClassDefinition.getSimpleName()).isEqualTo(TYPE_NAME);
 	}
 }

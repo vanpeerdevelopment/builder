@@ -15,7 +15,7 @@
 <booleanAttribute key="includeOptional" value="true"/>
 <stringAttribute key="location" value="${workspace_loc}/../Eclipse-Test-Workspace/junit-workspace"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/be.vanpeerdevelopment.eclipse.builder.jdt.test/src/be/vanpeerdevelopment/eclipse/builder/jdt/api/read/ReadableTypeIntegrationTest.java"/>
+<listEntry value="/be.vanpeerdevelopment.eclipse.builder.jdt.test/src/be/vanpeerdevelopment/eclipse/builder/jdt/api/read/ReadableClassDefinitionIntegrationTest.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
@@ -28,7 +28,7 @@
 <stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
 <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableTypeIntegrationTest"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableClassDefinitionIntegrationTest"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="be.vanpeerdevelopment.eclipse.builder.jdt.test"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>

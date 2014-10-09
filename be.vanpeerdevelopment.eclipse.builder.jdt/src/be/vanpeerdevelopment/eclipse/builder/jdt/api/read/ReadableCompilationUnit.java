@@ -24,44 +24,44 @@ public class ReadableCompilationUnit {
 		return compilationUnit.getResource().getLocation();
 	}
 
-	public ReadableType getOnlyType() {
-		validateExactlyOneTypeExists();
-		return getTypes().get(0);
+	public ReadableClassDefinition getOnlyClassDefinition() {
+		validateExactlyOneClassDefinitionExists();
+		return getClassDefinitions().get(0);
 	}
 
-	private void validateExactlyOneTypeExists() {
-		validateAtLeastOneTypeExists();
-		validateAtMostOneTypeExists();
+	private void validateExactlyOneClassDefinitionExists() {
+		validateAtLeastOneClassDefinitionExists();
+		validateAtMostOneClassDefinitionExists();
 	}
 
-	private void validateAtLeastOneTypeExists() {
-		if (getTypes().size() < 1)
+	private void validateAtLeastOneClassDefinitionExists() {
+		if (getClassDefinitions().size() < 1)
 			throw new JdtReadException(
-					"Exception while getting the only type in compilation unit: "
-							+ getName() + ". No type exists.");
+					"Exception while getting the only class definition in compilation unit: "
+							+ getName() + ". No class definition exists.");
 	}
 
-	private void validateAtMostOneTypeExists() {
-		if (getTypes().size() > 1)
+	private void validateAtMostOneClassDefinitionExists() {
+		if (getClassDefinitions().size() > 1)
 			throw new JdtReadException(
-					"Exception while getting the only type in compilation unit: "
-							+ getName() + ". More than one type exists.");
+					"Exception while getting the only class definition in compilation unit: "
+							+ getName() + ". More than one class definition exists.");
 	}
 
-	private List<ReadableType> getTypes() {
+	private List<ReadableClassDefinition> getClassDefinitions() {
 		try {
-			return getTypesIgnoringException();
+			return getClassDefinitionsIgnoringException();
 		} catch (JavaModelException e) {
 			throw new JdtReadException(
-					"Something went wrong while getting the types in the following compilation unit: "
+					"Something went wrong while getting the class definitions in the following compilation unit: "
 							+ getName(), e);
 		}
 	}
 
-	private List<ReadableType> getTypesIgnoringException() throws JavaModelException {
-		List<ReadableType> result = new ArrayList<ReadableType>();
+	private List<ReadableClassDefinition> getClassDefinitionsIgnoringException() throws JavaModelException {
+		List<ReadableClassDefinition> result = new ArrayList<ReadableClassDefinition>();
 		for (IType type : compilationUnit.getTypes()) {
-			result.add(new ReadableType(type));
+			result.add(new ReadableClassDefinition(type));
 		}
 		return result;
 	}

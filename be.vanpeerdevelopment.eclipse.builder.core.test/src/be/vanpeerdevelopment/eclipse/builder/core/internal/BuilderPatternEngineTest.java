@@ -1,10 +1,10 @@
 package be.vanpeerdevelopment.eclipse.builder.core.internal;
 
 import static be.vanpeerdevelopment.eclipse.builder.core.internal.BuilderPatternEngine.BUILDER_SUFFIX;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.ClassDefinition.ClassDefinitionBuilder.classDefinition;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder.packageDeclaration;
-import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Type.TypeBuilder.type;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -17,14 +17,14 @@ import org.mockito.Mock;
 import be.vanpeerdevelopment.eclipse.builder.core.UnitTest;
 import be.vanpeerdevelopment.eclipse.builder.core.api.GenerateBuilderCommand;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.JdtReadModel;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableClassDefinition;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableCompilationUnit;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadablePackageFragment;
-import be.vanpeerdevelopment.eclipse.builder.jdt.api.read.ReadableType;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand;
 
 public class BuilderPatternEngineTest extends UnitTest {
 
-	private static final String TYPE_NAME = "Person";
+	private static final String CLASS_DEFINITION_NAME = "Person";
 	private static final String PACKAGE_NAME = "be.vanpeerdevelopment.eclipse.builder";
 
 	@Mock
@@ -43,7 +43,7 @@ public class BuilderPatternEngineTest extends UnitTest {
 	@Mock
 	private ReadableCompilationUnit compilationUnit;
 	@Mock
-	private ReadableType type;
+	private ReadableClassDefinition classDefinition;
 
 	@Before
 	public void setup() {
@@ -52,8 +52,8 @@ public class BuilderPatternEngineTest extends UnitTest {
 		when(jdtReadModel.getPackageFragment(packageLocation)).thenReturn(packageFragment);
 		when(packageFragment.getName()).thenReturn(PACKAGE_NAME);
 		when(jdtReadModel.getCompilationUnit(compilationUnitLocation)).thenReturn(compilationUnit);
-		when(compilationUnit.getOnlyType()).thenReturn(type);
-		when(type.getSimpleName()).thenReturn(TYPE_NAME);
+		when(compilationUnit.getOnlyClassDefinition()).thenReturn(classDefinition);
+		when(classDefinition.getSimpleName()).thenReturn(CLASS_DEFINITION_NAME);
 	}
 
 	@Test
@@ -63,12 +63,12 @@ public class BuilderPatternEngineTest extends UnitTest {
 		assertThat(createCompilationUnitCommand).isEqualTo(createCompilationUnitCommand()
 				.withPackageLocation(packageLocation)
 				.withCompilationUnit(compilationUnit()
-						.withName(TYPE_NAME + BUILDER_SUFFIX)
+						.withName(CLASS_DEFINITION_NAME + BUILDER_SUFFIX)
 						.withPackageDeclaration(packageDeclaration()
 								.withName(PACKAGE_NAME)
 								.build())
-						.withType(type()
-								.withName(TYPE_NAME + BUILDER_SUFFIX)
+						.withClassDefinition(classDefinition()
+								.withName(CLASS_DEFINITION_NAME + BUILDER_SUFFIX)
 								.build())
 						.build())
 				.build());

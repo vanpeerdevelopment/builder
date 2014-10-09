@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.IType;
 
 public class ITypeTestBuilder {
 
-	public static final String TYPE_NAME = "Person";
+	public static final String CLASS_DEFINITION_NAME = "Person";
 
 	private IType type;
 

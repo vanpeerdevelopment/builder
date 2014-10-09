@@ -1,8 +1,8 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.format;
 
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.ClassDefinitionTestBuilder.aClassDefinition;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder.packageDeclaration;
-import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Type.TypeBuilder.type;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.field;
 
@@ -72,7 +72,7 @@ public class FormatterIntegrationTest extends EclipseTest {
 				.withPackageDeclaration(packageDeclaration()
 						.withName(JAVA_PACKAGE_NAME)
 						.build())
-				.withType(type()
+				.withClassDefinition(aClassDefinition()
 						.withName(UNFORMATTED_COMPILATION_UNIT_NAME)
 						.build())
 				.build());

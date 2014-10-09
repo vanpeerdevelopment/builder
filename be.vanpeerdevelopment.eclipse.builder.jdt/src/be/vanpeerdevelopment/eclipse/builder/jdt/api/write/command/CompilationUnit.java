@@ -8,7 +8,7 @@ public class CompilationUnit extends ValueObject {
 
 	private String name;
 	private PackageDeclaration packageDeclaration;
-	private Type type;
+	private ClassDefinition classDefinition;
 
 	private CompilationUnit() {
 	}
@@ -23,7 +23,7 @@ public class CompilationUnit extends ValueObject {
 		return new StringBuilder()
 				.append(packageDeclaration.toCode())
 				.append("\n")
-				.append(type.toCode())
+				.append(classDefinition.toCode())
 				.toString();
 	}
 
@@ -53,8 +53,8 @@ public class CompilationUnit extends ValueObject {
 			return this;
 		}
 
-		public CompilationUnitBuilder withType(Type type) {
-			compilationUnit.type = type;
+		public CompilationUnitBuilder withClassDefinition(ClassDefinition classDefinition) {
+			compilationUnit.classDefinition = classDefinition;
 			return this;
 		}
 	}

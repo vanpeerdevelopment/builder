@@ -56,9 +56,9 @@ public class ReadableCompilationUnitTest extends UnitTest {
 				.build();
 		ReadableCompilationUnit readableCompilationUnit = new ReadableCompilationUnit(compilationUnit);
 
-		ReadableType readableType = readableCompilationUnit.getOnlyType();
+		ReadableClassDefinition readableClassDefinition = readableCompilationUnit.getOnlyClassDefinition();
 
-		assertThat(getType(readableType)).isEqualTo(type);
+		assertThat(getClassDefinition(readableClassDefinition)).isEqualTo(type);
 	}
 
 	@Test
@@ -71,10 +71,10 @@ public class ReadableCompilationUnitTest extends UnitTest {
 
 		expectExceptionWithMessage(
 				JdtReadException.class,
-				"Something went wrong while getting the types in the following compilation unit: "
+				"Something went wrong while getting the class definitions in the following compilation unit: "
 						+ COMPILATION_UNIT_NAME);
 
-		readableCompilationUnit.getOnlyType();
+		readableCompilationUnit.getOnlyClassDefinition();
 	}
 
 	@Test
@@ -86,10 +86,10 @@ public class ReadableCompilationUnitTest extends UnitTest {
 		ReadableCompilationUnit readableCompilationUnit = new ReadableCompilationUnit(compilationUnit);
 
 		expectExceptionWithMessage(JdtReadException.class,
-				"Exception while getting the only type in compilation unit: " + COMPILATION_UNIT_NAME
-						+ ". No type exists.");
+				"Exception while getting the only class definition in compilation unit: " + COMPILATION_UNIT_NAME
+						+ ". No class definition exists.");
 
-		readableCompilationUnit.getOnlyType();
+		readableCompilationUnit.getOnlyClassDefinition();
 	}
 
 	@Test
@@ -101,13 +101,13 @@ public class ReadableCompilationUnitTest extends UnitTest {
 		ReadableCompilationUnit readableCompilationUnit = new ReadableCompilationUnit(compilationUnit);
 
 		expectExceptionWithMessage(JdtReadException.class,
-				"Exception while getting the only type in compilation unit: " + COMPILATION_UNIT_NAME
-						+ ". More than one type exists.");
+				"Exception while getting the only class definition in compilation unit: " + COMPILATION_UNIT_NAME
+						+ ". More than one class definition exists.");
 
-		readableCompilationUnit.getOnlyType();
+		readableCompilationUnit.getOnlyClassDefinition();
 	}
 
-	private IType getType(ReadableType readableType) {
-		return field("type").ofType(IType.class).in(readableType).get();
+	private IType getClassDefinition(ReadableClassDefinition readableClassDefinition) {
+		return field("type").ofType(IType.class).in(readableClassDefinition).get();
 	}
 }

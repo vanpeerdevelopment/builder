@@ -1,8 +1,8 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.ClassDefinitionTestBuilder.aClassDefinition;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclarationTestBuilder.aPackageDeclaration;
-import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.TypeTestBuilder.aType;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ICompilationUnitTestBuilder.COMPILATION_UNIT_NAME;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder;
 
@@ -10,7 +10,7 @@ public class CompilationUnitTestBuilder {
 
 	private static final String DEFAULT_NAME = COMPILATION_UNIT_NAME;
 	private static final PackageDeclaration DEFAULT_PACKAGE_DECLARATION = aPackageDeclaration().build();
-	private static final Type DEFAULT_TYPE = aType().build();
+	private static final ClassDefinition DEFAULT_CLASS_DEFINITION = aClassDefinition().build();
 
 	private CompilationUnitBuilder builder;
 
@@ -22,7 +22,7 @@ public class CompilationUnitTestBuilder {
 		return new CompilationUnitTestBuilder()
 				.withName(DEFAULT_NAME)
 				.withPackageDeclaration(DEFAULT_PACKAGE_DECLARATION)
-				.withType(DEFAULT_TYPE);
+				.withClassDefinition(DEFAULT_CLASS_DEFINITION);
 	}
 
 	public CompilationUnit build() {
@@ -39,8 +39,8 @@ public class CompilationUnitTestBuilder {
 		return this;
 	}
 
-	public CompilationUnitTestBuilder withType(Type type) {
-		builder.withType(type);
+	public CompilationUnitTestBuilder withClassDefinition(ClassDefinition classDefinition) {
+		builder.withClassDefinition(classDefinition);
 		return this;
 	}
 }

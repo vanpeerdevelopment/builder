@@ -60,9 +60,9 @@ public class ReadableCompilationUnitIntegrationTest extends EclipseTest {
 	public void getOnlyType() {
 		ReadableCompilationUnit compilationUnitWithOneType = jdtReadModel.getCompilationUnit(javaClassLocation());
 
-		ReadableType onlyType = compilationUnitWithOneType.getOnlyType();
+		ReadableClassDefinition onlyClassDefinition = compilationUnitWithOneType.getOnlyClassDefinition();
 
-		assertThat(onlyType.getSimpleName()).isEqualTo(JAVA_CLASS_NAME);
+		assertThat(onlyClassDefinition.getSimpleName()).isEqualTo(JAVA_CLASS_NAME);
 	}
 
 	@Test
@@ -72,9 +72,9 @@ public class ReadableCompilationUnitIntegrationTest extends EclipseTest {
 
 		expectExceptionWithMessage(
 				JdtReadException.class,
-				"Exception while getting the only type in compilation unit: " + CLASS_WITHOUT_TYPE + ".java."
-						+ " No type exists.");
-		compilationUnitWithoutType.getOnlyType();
+				"Exception while getting the only class definition in compilation unit: " + CLASS_WITHOUT_TYPE
+						+ ".java. No class definition exists.");
+		compilationUnitWithoutType.getOnlyClassDefinition();
 	}
 
 	@Test
@@ -84,9 +84,9 @@ public class ReadableCompilationUnitIntegrationTest extends EclipseTest {
 
 		expectExceptionWithMessage(
 				JdtReadException.class,
-				"Exception while getting the only type in compilation unit: " + CLASS_WITH_TWO_TYPES + ".java."
-						+ " More than one type exists.");
-		compilationUnitWithTwoTypes.getOnlyType();
+				"Exception while getting the only class definition in compilation unit: " + CLASS_WITH_TWO_TYPES
+						+ ".java. More than one class definition exists.");
+		compilationUnitWithTwoTypes.getOnlyClassDefinition();
 	}
 
 	private static void createCompilationUnitWithoutType() {
