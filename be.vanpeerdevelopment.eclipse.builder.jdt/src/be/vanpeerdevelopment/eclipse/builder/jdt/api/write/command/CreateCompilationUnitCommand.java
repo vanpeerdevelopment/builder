@@ -2,6 +2,7 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import org.eclipse.core.runtime.IPath;
 
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.ValueObject;
 
 public class CreateCompilationUnitCommand extends ValueObject {
@@ -20,6 +21,21 @@ public class CreateCompilationUnitCommand extends ValueObject {
 		return compilationUnit;
 	}
 
+	private void validate() {
+		validatePackageLocation();
+		validateCompilationUnit();
+	}
+
+	private void validatePackageLocation() {
+		if (packageLocation == null)
+			throw new ValidationException("Package location is required.");
+	}
+
+	private void validateCompilationUnit() {
+		if (compilationUnit == null)
+			throw new ValidationException("Compilation unit is required.");
+	}
+
 	public static class CreateCompilationUnitCommandBuilder {
 
 		private CreateCompilationUnitCommand command;
@@ -33,6 +49,7 @@ public class CreateCompilationUnitCommand extends ValueObject {
 		}
 
 		public CreateCompilationUnitCommand build() {
+			command.validate();
 			return command;
 		}
 

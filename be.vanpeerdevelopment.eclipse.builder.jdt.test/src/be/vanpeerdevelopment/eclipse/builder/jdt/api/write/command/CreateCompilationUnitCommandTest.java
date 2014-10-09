@@ -9,8 +9,38 @@ import org.eclipse.core.runtime.IPath;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 
 public class CreateCompilationUnitCommandTest extends UnitTest {
+
+	@Test
+	public void testBuilderCreatesDefaultValidCommand() {
+		expectNoException();
+
+		aCreateCompilationUnitCommand().build();
+	}
+
+	@Test
+	public void whenNoPackageLocation_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Package location is required.");
+
+		aCreateCompilationUnitCommand()
+				.withPackageLocation(null)
+				.build();
+	}
+
+	@Test
+	public void whenNoCompilationUnit_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Compilation unit is required.");
+
+		aCreateCompilationUnitCommand()
+				.withCompilationUnit(null)
+				.build();
+	}
 
 	@Test
 	public void getPackageLocation() {

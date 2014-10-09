@@ -11,6 +11,9 @@ public abstract class UnitTest {
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
 
+	protected void expectNoException() {
+	}
+
 	protected void expectExceptionWithMessage(Class<? extends Throwable> exceptionClass, String message) {
 		expectedException.expect(exceptionClass);
 		expectedException.expectMessage(message);
