@@ -10,8 +10,49 @@ import static org.fest.assertions.Assertions.assertThat;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 
 public class CompilationUnitTest extends UnitTest {
+
+	@Test
+	public void testBuilderCreatesDefaultValidCompilationUnit() {
+		expectNoException();
+
+		aCompilationUnit().build();
+	}
+
+	@Test
+	public void whenNoName_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Name is required.");
+
+		aCompilationUnit()
+				.withName(null)
+				.build();
+	}
+
+	@Test
+	public void whenNoPackageDeclaration_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Package declaration is required.");
+
+		aCompilationUnit()
+				.withPackageDeclaration(null)
+				.build();
+	}
+
+	@Test
+	public void whenNoClassDefinition_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Class definition is required.");
+
+		aCompilationUnit()
+				.withClassDefinition(null)
+				.build();
+	}
 
 	@Test
 	public void getNameWithExtension() {

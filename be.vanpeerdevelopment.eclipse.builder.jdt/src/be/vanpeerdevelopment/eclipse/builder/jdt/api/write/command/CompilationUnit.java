@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.ValueObject;
 
 public class CompilationUnit extends ValueObject {
@@ -27,6 +28,27 @@ public class CompilationUnit extends ValueObject {
 				.toString();
 	}
 
+	private void validate() {
+		validateName();
+		validatePackageDeclaration();
+		validateClassDefinition();
+	}
+
+	private void validateName() {
+		if (name == null)
+			throw new ValidationException("Name is required.");
+	}
+
+	private void validatePackageDeclaration() {
+		if (packageDeclaration == null)
+			throw new ValidationException("Package declaration is required.");
+	}
+
+	private void validateClassDefinition() {
+		if (classDefinition == null)
+			throw new ValidationException("Class definition is required.");
+	}
+
 	public static class CompilationUnitBuilder {
 
 		private CompilationUnit compilationUnit;
@@ -40,6 +62,7 @@ public class CompilationUnit extends ValueObject {
 		}
 
 		public CompilationUnit build() {
+			compilationUnit.validate();
 			return compilationUnit;
 		}
 
