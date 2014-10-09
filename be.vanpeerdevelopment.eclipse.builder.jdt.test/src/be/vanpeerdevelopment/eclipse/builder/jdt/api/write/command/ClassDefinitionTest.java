@@ -7,8 +7,49 @@ import static org.fest.assertions.Assertions.assertThat;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 
 public class ClassDefinitionTest extends UnitTest {
+
+	@Test
+	public void testBuilderCreatesDefaultValidClassDefinition() {
+		expectNoException();
+
+		aClassDefinition().build();
+	}
+
+	@Test
+	public void whenNoName_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Name can not be blank.");
+
+		aClassDefinition()
+				.withName(null)
+				.build();
+	}
+
+	@Test
+	public void whenEmptyName_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Name can not be blank.");
+
+		aClassDefinition()
+				.withName("")
+				.build();
+	}
+
+	@Test
+	public void whenBlankName_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Name can not be blank.");
+
+		aClassDefinition()
+				.withName(" ")
+				.build();
+	}
 
 	@Test
 	public void toCode() {

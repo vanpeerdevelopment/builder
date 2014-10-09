@@ -1,5 +1,7 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.ValueObject;
 
 public class ClassDefinition extends ValueObject {
@@ -17,6 +19,11 @@ public class ClassDefinition extends ValueObject {
 				.toString();
 	}
 
+	private void validate() {
+		if (isBlank(name))
+			throw new ValidationException("Name can not be blank.");
+	}
+
 	public static class ClassDefinitionBuilder {
 
 		private ClassDefinition classDefinition;
@@ -30,6 +37,7 @@ public class ClassDefinition extends ValueObject {
 		}
 
 		public ClassDefinition build() {
+			classDefinition.validate();
 			return classDefinition;
 		}
 
