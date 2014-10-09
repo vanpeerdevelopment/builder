@@ -1,5 +1,6 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.ValueObject;
 
@@ -35,8 +36,8 @@ public class CompilationUnit extends ValueObject {
 	}
 
 	private void validateName() {
-		if (name == null)
-			throw new ValidationException("Name is required.");
+		if (isBlank(name))
+			throw new ValidationException("Name can not be blank.");
 	}
 
 	private void validatePackageDeclaration() {

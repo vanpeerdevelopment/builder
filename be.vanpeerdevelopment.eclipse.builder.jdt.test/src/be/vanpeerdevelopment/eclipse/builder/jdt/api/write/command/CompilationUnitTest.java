@@ -25,10 +25,32 @@ public class CompilationUnitTest extends UnitTest {
 	public void whenNoName_throwsValidationException() {
 		expectExceptionWithMessage(
 				ValidationException.class,
-				"Name is required.");
+				"Name can not be blank.");
 
 		aCompilationUnit()
 				.withName(null)
+				.build();
+	}
+
+	@Test
+	public void whenEmptyName_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Name can not be blank.");
+
+		aCompilationUnit()
+				.withName("")
+				.build();
+	}
+
+	@Test
+	public void whenBlankName_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Name can not be blank.");
+
+		aCompilationUnit()
+				.withName(" ")
 				.build();
 	}
 
