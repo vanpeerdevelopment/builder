@@ -53,14 +53,35 @@ public class ClassDefinitionTest extends UnitTest {
 
 	@Test
 	public void getName() throws Exception {
-		String name = "Person";
 		ClassDefinition classDefinition = aClassDefinition()
-				.withName(name)
+				.withName("Person")
 				.build();
 
 		String result = classDefinition.getName();
 
-		assertThat(result).isEqualTo(name);
+		assertThat(result).isEqualTo("Person");
+	}
+
+	@Test
+	public void hasName_True() {
+		ClassDefinition classDefinition = aClassDefinition()
+				.withName("Person")
+				.build();
+
+		boolean result = classDefinition.hasName("Person");
+
+		assertThat(result).isTrue();
+	}
+
+	@Test
+	public void hasName_False() {
+		ClassDefinition classDefinition = aClassDefinition()
+				.withName("Person")
+				.build();
+
+		boolean result = classDefinition.hasName("Dog");
+
+		assertThat(result).isFalse();
 	}
 
 	@Test

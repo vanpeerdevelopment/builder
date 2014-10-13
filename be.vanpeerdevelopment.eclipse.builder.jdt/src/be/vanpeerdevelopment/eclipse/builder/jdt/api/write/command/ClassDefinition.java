@@ -15,6 +15,10 @@ public class ClassDefinition extends ValueObject {
 		return name;
 	}
 
+	public boolean hasName(String name) {
+		return this.name.equals(name);
+	}
+
 	public String toCode() {
 		return new StringBuilder()
 				.append("public class ")

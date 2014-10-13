@@ -33,7 +33,7 @@ public class CompilationUnit extends ValueObject {
 		validateName();
 		validatePackageDeclaration();
 		validateClassDefinition();
-		validateNameIsEqualToClassDefinitionName();
+		validateClassDefinitionHasSameName();
 	}
 
 	private void validateName() {
@@ -51,9 +51,9 @@ public class CompilationUnit extends ValueObject {
 			throw new ValidationException("Class definition is required.");
 	}
 
-	private void validateNameIsEqualToClassDefinitionName() {
-		if (!name.equals(classDefinition.getName()))
-			throw new ValidationException("Name has to be equal to class definition name.");
+	private void validateClassDefinitionHasSameName() {
+		if (!classDefinition.hasName(name))
+			throw new ValidationException("Class definition name has to be same as compilation unit name.");
 	}
 
 	public static class CompilationUnitBuilder {
