@@ -24,6 +24,7 @@ public class CreateCompilationUnitCommand extends ValueObject {
 	private void validate() {
 		validatePackageLocation();
 		validateCompilationUnit();
+		validateCompilationUnitIsInSamePackage();
 	}
 
 	private void validatePackageLocation() {
@@ -34,6 +35,12 @@ public class CreateCompilationUnitCommand extends ValueObject {
 	private void validateCompilationUnit() {
 		if (compilationUnit == null)
 			throw new ValidationException("Compilation unit is required.");
+	}
+
+	private void validateCompilationUnitIsInSamePackage() {
+		if (!compilationUnit.isInPackage(packageLocation))
+			throw new ValidationException(
+					"Compilation unit has to be in same package as create compilation unit command.");
 	}
 
 	public static class CreateCompilationUnitCommandBuilder {

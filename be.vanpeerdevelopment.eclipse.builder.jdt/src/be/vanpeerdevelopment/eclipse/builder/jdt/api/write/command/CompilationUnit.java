@@ -1,6 +1,9 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+
+import org.eclipse.core.runtime.IPath;
+
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.ValueObject;
 
@@ -19,6 +22,10 @@ public class CompilationUnit extends ValueObject {
 		return new StringBuilder(name)
 				.append(JAVA_EXTENSION)
 				.toString();
+	}
+
+	public boolean isInPackage(IPath packageLocation) {
+		return packageDeclaration.isFor(packageLocation);
 	}
 
 	public String toCode() {

@@ -1,6 +1,9 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+
+import org.eclipse.core.runtime.IPath;
+
 import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.ValidationException;
 import be.vanpeerdevelopment.eclipse.builder.jdt.internal.common.ValueObject;
 
@@ -9,6 +12,10 @@ public class PackageDeclaration extends ValueObject {
 	private String name;
 
 	private PackageDeclaration() {
+	}
+
+	public boolean isFor(IPath packageLocation) {
+		return name.equals(packageLocation.lastSegment());
 	}
 
 	public String toCode() {

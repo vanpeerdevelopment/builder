@@ -2,6 +2,7 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclarationTestBuilder.aPackageDeclaration;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
@@ -10,8 +11,12 @@ import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompila
 
 public class CreateCompilationUnitCommandTestBuilder {
 
-	private static final IPath DEFAULT_PACKAGE_LOCATION = new Path("Default package location");
-	private static final CompilationUnit DEFAULT_COMPILATION_UNIT = aCompilationUnit().build();
+	private static final IPath DEFAULT_PACKAGE_LOCATION = new Path("/project/src/be.vanpeerdevelopment.eclipse.builder");
+	private static final CompilationUnit DEFAULT_COMPILATION_UNIT = aCompilationUnit()
+			.withPackageDeclaration(aPackageDeclaration()
+					.withName("be.vanpeerdevelopment.eclipse.builder")
+					.build())
+			.build();
 
 	private CreateCompilationUnitCommandBuilder builder;
 

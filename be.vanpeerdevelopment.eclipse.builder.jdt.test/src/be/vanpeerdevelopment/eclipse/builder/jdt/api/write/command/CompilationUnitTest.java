@@ -6,7 +6,10 @@ import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Packag
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ITypeTestBuilder.CLASS_DEFINITION_NAME;
 import static org.fest.assertions.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
+import org.eclipse.core.runtime.IPath;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
@@ -100,6 +103,20 @@ public class CompilationUnitTest extends UnitTest {
 		String result = compilationUnit.getNameWithExtension();
 
 		assertThat(result).isEqualTo(name + ".java");
+	}
+
+	@Test
+	public void isInPackage_delegatesToPackageDeclaration() {
+		IPath packageLocation = mock(IPath.class);
+		PackageDeclaration packageDeclaration = mock(PackageDeclaration.class);
+		when(packageDeclaration.isFor(packageLocation)).thenReturn(true);
+		CompilationUnit compilationUnit = aCompilationUnit()
+				.withPackageDeclaration(packageDeclaration)
+				.build();
+
+		boolean result = compilationUnit.isInPackage(packageLocation);
+
+		assertThat(result).isTrue();
 	}
 
 	@Test

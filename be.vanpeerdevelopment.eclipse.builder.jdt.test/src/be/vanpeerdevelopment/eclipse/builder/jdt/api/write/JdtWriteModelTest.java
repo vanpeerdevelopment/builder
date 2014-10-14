@@ -48,6 +48,7 @@ public class JdtWriteModelTest extends UnitTest {
 		when(writeablePackageFragment.createCompilationUnit(compilationUnit)).thenReturn(createdCompilationUnit);
 		when(createdCompilationUnit.getJavaProject()).thenReturn(javaProject);
 		when(formatterFactory.createNewCompilationUnitFormatter(javaProject)).thenReturn(formatter);
+		when(compilationUnit.isInPackage(packageLocation)).thenReturn(true);
 	}
 
 	@Test

@@ -4,6 +4,7 @@ import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Packag
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
 import static org.fest.assertions.Assertions.assertThat;
 
+import org.eclipse.core.runtime.Path;
 import org.junit.Test;
 
 import be.vanpeerdevelopment.eclipse.builder.jdt.UnitTest;
@@ -49,6 +50,28 @@ public class PackageDeclarationTest extends UnitTest {
 		aPackageDeclaration()
 				.withName(" ")
 				.build();
+	}
+
+	@Test
+	public void isFor_True() {
+		PackageDeclaration packageDeclaration = aPackageDeclaration()
+				.withName("be.vanpeerdevelopment.eclipse.builder")
+				.build();
+
+		boolean result = packageDeclaration.isFor(new Path("/project/src/be.vanpeerdevelopment.eclipse.builder"));
+
+		assertThat(result).isTrue();
+	}
+
+	@Test
+	public void isFor_False() {
+		PackageDeclaration packageDeclaration = aPackageDeclaration()
+				.withName("be.vanpeerdevelopment.eclipse.builder")
+				.build();
+
+		boolean result = packageDeclaration.isFor(new Path("/project/src/be.vanpeerdevelopment.eclipse"));
+
+		assertThat(result).isFalse();
 	}
 
 	@Test

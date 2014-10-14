@@ -9,6 +9,7 @@ import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -26,6 +27,7 @@ public class BuilderPatternEngineTest extends UnitTest {
 
 	private static final String CLASS_DEFINITION_NAME = "Person";
 	private static final String PACKAGE_NAME = "be.vanpeerdevelopment.eclipse.builder";
+	private static final IPath PACKAGE_LOCATION = new Path("/project/src/" + PACKAGE_NAME);
 
 	@Mock
 	private JdtReadModel jdtReadModel;
@@ -34,8 +36,6 @@ public class BuilderPatternEngineTest extends UnitTest {
 
 	@Mock
 	private GenerateBuilderCommand command;
-	@Mock
-	private IPath packageLocation;
 	@Mock
 	private IPath compilationUnitLocation;
 	@Mock
@@ -47,9 +47,9 @@ public class BuilderPatternEngineTest extends UnitTest {
 
 	@Before
 	public void setup() {
-		when(command.getDestinationPackageLocation()).thenReturn(packageLocation);
+		when(command.getDestinationPackageLocation()).thenReturn(PACKAGE_LOCATION);
 		when(command.getSourceCompilationUnitLocation()).thenReturn(compilationUnitLocation);
-		when(jdtReadModel.getPackageFragment(packageLocation)).thenReturn(packageFragment);
+		when(jdtReadModel.getPackageFragment(PACKAGE_LOCATION)).thenReturn(packageFragment);
 		when(packageFragment.getName()).thenReturn(PACKAGE_NAME);
 		when(jdtReadModel.getCompilationUnit(compilationUnitLocation)).thenReturn(compilationUnit);
 		when(compilationUnit.getOnlyClassDefinition()).thenReturn(classDefinition);
@@ -61,7 +61,7 @@ public class BuilderPatternEngineTest extends UnitTest {
 		CreateCompilationUnitCommand createCompilationUnitCommand = builderPatternEngine.generateBuilder(command);
 
 		assertThat(createCompilationUnitCommand).isEqualTo(createCompilationUnitCommand()
-				.withPackageLocation(packageLocation)
+				.withPackageLocation(PACKAGE_LOCATION)
 				.withCompilationUnit(compilationUnit()
 						.withName(CLASS_DEFINITION_NAME + BUILDER_SUFFIX)
 						.withPackageDeclaration(packageDeclaration()
