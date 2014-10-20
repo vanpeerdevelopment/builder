@@ -4,7 +4,9 @@ import static be.vanpeerdevelopment.eclipse.builder.core.internal.BuilderPattern
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.ClassDefinition.ClassDefinitionBuilder.classDefinition;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompilationUnitCommand.CreateCompilationUnitCommandBuilder.createCompilationUnitCommand;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Field.FieldBuilder.field;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder.packageDeclaration;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.Type.TypeBuilder.type;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
@@ -26,6 +28,7 @@ import be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CreateCompila
 public class BuilderPatternEngineTest extends UnitTest {
 
 	private static final String CLASS_DEFINITION_NAME = "Person";
+	private static final String CLASS_DEFINITION_VARIABLE_NAME = "person";
 	private static final String PACKAGE_NAME = "be.vanpeerdevelopment.eclipse.builder";
 	private static final IPath PACKAGE_LOCATION = new Path("/project/src/" + PACKAGE_NAME);
 
@@ -69,6 +72,12 @@ public class BuilderPatternEngineTest extends UnitTest {
 								.build())
 						.withClassDefinition(classDefinition()
 								.withName(CLASS_DEFINITION_NAME + BUILDER_SUFFIX)
+								.withField(field()
+										.withType(type()
+												.withName(CLASS_DEFINITION_NAME)
+												.build())
+										.withName(CLASS_DEFINITION_VARIABLE_NAME)
+										.build())
 								.build())
 						.build())
 				.build());

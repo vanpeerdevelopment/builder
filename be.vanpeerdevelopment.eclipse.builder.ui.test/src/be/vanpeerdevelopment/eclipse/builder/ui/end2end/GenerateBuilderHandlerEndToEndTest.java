@@ -3,6 +3,7 @@ package be.vanpeerdevelopment.eclipse.builder.ui.end2end;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.ALT;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.CTRL;
 import static be.vanpeerdevelopment.eclipse.builder.swtbot.shortcut.Key.key;
+import static org.apache.commons.lang3.StringUtils.uncapitalize;
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.eclipse.jface.bindings.keys.ParseException;
@@ -41,6 +42,7 @@ public class GenerateBuilderHandlerEndToEndTest extends EclipseTest {
 						.append("package " + JAVA_PACKAGE_NAME + ";\n")
 						.append("\n")
 						.append("public class " + JAVA_CLASS_NAME + "Builder {\n")
+						.append("\tprivate " + JAVA_CLASS_NAME + " " + uncapitalize(JAVA_CLASS_NAME) + ";")
 						.append("\n}")
 						.toString());
 

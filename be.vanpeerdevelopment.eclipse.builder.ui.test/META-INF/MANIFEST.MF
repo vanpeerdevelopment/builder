@@ -12,4 +12,5 @@ Eclipse-RegisterBuddy: org.apache.log4j
 Bundle-ClassPath: .,
  libs/mockito-all-1.9.5.jar,
  libs/fest-assert-1.4.jar,
- libs/fest-util-1.1.6.jar
+ libs/fest-util-1.1.6.jar,
+ libs/commons-lang3-3.3.2.jar
