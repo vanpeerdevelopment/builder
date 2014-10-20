@@ -1,6 +1,8 @@
 package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.ClassDefinitionTestBuilder.aClassDefinition;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.FieldTestBuilder.aField;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.TypeTestBuilder.aType;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ITypeTestBuilder.CLASS_DEFINITION_NAME;
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -52,6 +54,17 @@ public class ClassDefinitionTest extends UnitTest {
 	}
 
 	@Test
+	public void whenNullField_throwsValidationException() {
+		expectExceptionWithMessage(
+				ValidationException.class,
+				"Field can not be null.");
+
+		aClassDefinition()
+				.withField(null)
+				.build();
+	}
+
+	@Test
 	public void getName() throws Exception {
 		ClassDefinition classDefinition = aClassDefinition()
 				.withName("Person")
@@ -88,10 +101,16 @@ public class ClassDefinitionTest extends UnitTest {
 	public void toCode() {
 		ClassDefinition classDefinition = aClassDefinition()
 				.withName(CLASS_DEFINITION_NAME)
+				.withField(aField()
+						.withType(aType()
+								.withName("Person")
+								.build())
+						.withName("person")
+						.build())
 				.build();
 
 		String code = classDefinition.toCode();
 
-		assertThat(code).isEqualTo("public class " + CLASS_DEFINITION_NAME + "{}");
+		assertThat(code).isEqualTo("public class " + CLASS_DEFINITION_NAME + "{\nprivate Person person;\n}");
 	}
 }

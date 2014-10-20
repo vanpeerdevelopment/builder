@@ -2,7 +2,9 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.ClassDefinitionTestBuilder.aClassDefinition;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnitTestBuilder.aCompilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.FieldTestBuilder.aField;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclarationTestBuilder.aPackageDeclaration;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.TypeTestBuilder.aType;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.IPackageFragmentTestBuilder.PACKAGE_NAME;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.element.ITypeTestBuilder.CLASS_DEFINITION_NAME;
 import static org.fest.assertions.Assertions.assertThat;
@@ -127,11 +129,22 @@ public class CompilationUnitTest extends UnitTest {
 						.build())
 				.withClassDefinition(aClassDefinition()
 						.withName(CLASS_DEFINITION_NAME)
+						.withField(aField()
+								.withType(aType()
+										.withName("Person")
+										.build())
+								.withName("person")
+								.build())
 						.build())
 				.build();
 
 		String code = compilationUnit.toCode();
 
-		assertThat(code).isEqualTo("package " + PACKAGE_NAME + ";\npublic class " + CLASS_DEFINITION_NAME + "{}");
+		assertThat(code)
+				.isEqualTo(
+						"package " + PACKAGE_NAME + ";\n"
+								+ "public class " + CLASS_DEFINITION_NAME + "{\n"
+								+ "private Person person;\n"
+								+ "}");
 	}
 }

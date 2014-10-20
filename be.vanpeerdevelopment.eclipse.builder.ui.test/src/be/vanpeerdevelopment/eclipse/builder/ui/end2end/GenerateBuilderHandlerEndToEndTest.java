@@ -41,7 +41,7 @@ public class GenerateBuilderHandlerEndToEndTest extends EclipseTest {
 						.append("package " + JAVA_PACKAGE_NAME + ";\n")
 						.append("\n")
 						.append("public class " + JAVA_CLASS_NAME + "Builder {\n")
-						.append("}")
+						.append("\n}")
 						.toString());
 
 		eclipse

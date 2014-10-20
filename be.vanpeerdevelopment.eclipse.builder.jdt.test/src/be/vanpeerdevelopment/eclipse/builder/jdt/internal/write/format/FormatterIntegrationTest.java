@@ -2,7 +2,9 @@ package be.vanpeerdevelopment.eclipse.builder.jdt.internal.write.format;
 
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.ClassDefinitionTestBuilder.aClassDefinition;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.CompilationUnit.CompilationUnitBuilder.compilationUnit;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.FieldTestBuilder.aField;
 import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.PackageDeclaration.PackageDeclarationBuilder.packageDeclaration;
+import static be.vanpeerdevelopment.eclipse.builder.jdt.api.write.command.TypeTestBuilder.aType;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.reflect.core.Reflection.field;
 
@@ -45,7 +47,11 @@ public class FormatterIntegrationTest extends EclipseTest {
 		assertThat(compilationUnit.getSource()).isEqualTo(new StringBuilder()
 				.append("package " + JAVA_PACKAGE_NAME + ";")
 				.append("\n")
-				.append("public class " + UNFORMATTED_COMPILATION_UNIT_NAME + "{}")
+				.append("public class " + UNFORMATTED_COMPILATION_UNIT_NAME + "{")
+				.append("\n")
+				.append("private Person person;")
+				.append("\n")
+				.append("}")
 				.toString());
 
 		formatter.format(compilationUnit);
@@ -55,6 +61,8 @@ public class FormatterIntegrationTest extends EclipseTest {
 				.append(lineSeparator())
 				.append(lineSeparator())
 				.append("public class " + UNFORMATTED_COMPILATION_UNIT_NAME + " {")
+				.append(lineSeparator())
+				.append("\tprivate Person person;")
 				.append(lineSeparator())
 				.append("}")
 				.toString());
@@ -74,6 +82,12 @@ public class FormatterIntegrationTest extends EclipseTest {
 						.build())
 				.withClassDefinition(aClassDefinition()
 						.withName(UNFORMATTED_COMPILATION_UNIT_NAME)
+						.withField(aField()
+								.withType(aType()
+										.withName("Person")
+										.build())
+								.withName("person")
+								.build())
 						.build())
 				.build());
 	}

@@ -27,4 +27,9 @@ public class ClassDefinitionTestBuilder {
 		builder.withName(name);
 		return this;
 	}
+
+	public ClassDefinitionTestBuilder withField(Field field) {
+		builder.withField(field);
+		return this;
+	}
 }
